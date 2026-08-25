@@ -154,6 +154,7 @@ const reviewsData = [
     city: 'Bordeaux',
     rating: 5,
     date: 'Il y a 2 jours',
+    avatar: 'assets/avatar_clara.jpg',
     text: "J'avais l'impression d'être maudite en amour. Je tombais systématiquement sur des personnes qui soufflaient le chaud et le froid. Le chapitre 2 sur la répétition de l'inachevé m'a mise en larmes. Pour la première fois, j'ai compris mon propre système nerveux. Le plan de 14 jours m'a libérée."
   },
   {
@@ -162,6 +163,7 @@ const reviewsData = [
     city: 'Lyon',
     rating: 5,
     date: 'Il y a 3 jours',
+    avatar: 'assets/avatar_thomas.jpg',
     text: "Après 6 mois de relation, elle est devenue distante et répondait en 8 heures. J'étais à deux doigts d'exploser et de lui envoyer un pavé plein de reproches. J'ai acheté ce livre à 23h, lu d'une traite et utilisé le Script 8. Le résultat a été immédiat : elle s'est excusée et le respect est revenu."
   },
   {
@@ -170,6 +172,7 @@ const reviewsData = [
     city: 'Paris',
     rating: 5,
     date: 'Il y a 4 jours',
+    avatar: 'assets/avatar_sarah.jpg',
     text: "Un an et demi dans un « presque-couple ». Il disait m'aimer mais ne voulait pas d'étiquette. La méthode des 4 Réalités m'a ouvert les yeux. J'ai conduit la conversation en 6 étapes sans trembler. Quand il a esquivé, j'ai eu le courage de partir. Deux mois plus tard, je vis enfin en paix."
   },
   {
@@ -178,6 +181,7 @@ const reviewsData = [
     city: 'Bruxelles',
     rating: 5,
     date: 'Il y a 5 jours',
+    avatar: 'assets/avatar_julien.jpg',
     text: "Ce livre devrait être remboursé par la sécurité sociale ! Enfin un ouvrage qui ne tombe pas dans le cliché « tous des toxiques », mais qui explique scientifiquement pourquoi l'anxieux court après l'évitant et comment inverser la tendance."
   },
   {
@@ -186,6 +190,7 @@ const reviewsData = [
     city: 'Montréal',
     rating: 5,
     date: 'Il y a 6 jours',
+    avatar: 'assets/avatar_elodie.jpg',
     text: "Les 15 scripts sont du pur génie. Plus jamais je ne passerai mes soirées à attendre un message le cœur battant. Le protocole de désamorçage en 7 étapes a calmé mon anxiété dès le premier soir."
   },
   {
@@ -194,6 +199,7 @@ const reviewsData = [
     city: 'Genève',
     rating: 5,
     date: 'Il y a 1 semaine',
+    avatar: 'assets/avatar_maxime.jpg',
     text: "Une clarté chirurgicale. La mise en page est magnifique et les cahiers d'exercices permettent de vraiment passer à l'action."
   },
   {
@@ -202,6 +208,7 @@ const reviewsData = [
     city: 'Nantes',
     rating: 5,
     date: 'Il y a 1 semaine',
+    avatar: 'assets/avatar_amandine.jpg',
     text: "Le concept de dopamine et de récompense intermittente a été une révélation. J'ai compris que mon 'amour fou' n'était en réalité qu'un sevrage d'attention. Depuis le plan de 14 jours, mes critères ont totalement changé !"
   },
   {
@@ -210,6 +217,7 @@ const reviewsData = [
     city: 'Lille',
     rating: 5,
     date: 'Il y a 9 jours',
+    avatar: 'assets/avatar_karim.jpg',
     text: "Je n'avais jamais vu de scripts aussi bien formulés. Pas de jeux d'ego puérils, mais une posture digne, posée et souveraine qui désarme totalement la fuite de l'autre."
   },
   {
@@ -218,6 +226,7 @@ const reviewsData = [
     city: 'Toulouse',
     rating: 5,
     date: 'Il y a 10 jours',
+    avatar: 'assets/avatar_nathalie.jpg',
     text: "Le tableau du 'Je ne sais pas' traduit au mot près ce que je vivais depuis 2 ans. Arrêter d'attendre et poser mes limites a été la décision la plus salvatrice de ma vie de femme."
   }
 ];
@@ -843,7 +852,7 @@ function renderReviews(filter = 'all') {
         <p class="rev-text">« ${r.text} »</p>
       </div>
       <div class="rev-author-group">
-        <div class="rev-avatar">${r.name.substring(0, 2).toUpperCase()}</div>
+        <img src="${r.avatar}" alt="${r.name}" class="rev-avatar-img">
         <div class="rev-meta">
           <strong>${r.name}</strong>
           <span>${r.city} • ${r.date}</span>
