@@ -1,12 +1,12 @@
 # 💎 NEXA BOOK — Boutique & Librairie d'Excellence en Psychologie Relationnelle
 
-Boutique e-commerce haute conversion et application web monopage (SPA) dédiée à la collection d'ebooks officiels de psychologie relationnelle et d'attachement adulte par **Mystère d'Amour / Love Mystery Publishing**.
+Boutique e-commerce haute conversion et application web monopage (SPA) dédiée aux 3 guides fondamentaux de psychologie relationnelle et d'attachement adulte par **Nexa Book / Mystère d'Amour Publishing**.
 
 ---
 
 ## ✨ Fonctionnalités & Architecture
 
-- **Architecture SPA Rapide & Fluide :** Moteur de routage dynamique sans rechargement de page (`#home`, `#product-attached`, `#product-distance`, `#product-commit`, `#product-bundle`, `#product-attached-en`, `#product-distance-en`, `#product-commit-en`).
+- **Architecture SPA Rapide & Fluide :** Moteur de routage dynamique sans rechargement de page (`#home`, `#product-attached`, `#product-distance`, `#product-commit`, `#product-attached-en`, `#product-distance-en`, `#product-commit-en`).
 - **Structure de Vente Haute Conversion en 14 Étapes :**
   1. *Hero Capter l'Attention (Mockup 3D, Badge Bestseller, Tarif)*
   2. *Le Problème & Les Questions Clés*
@@ -18,7 +18,7 @@ Boutique e-commerce haute conversion et application web monopage (SPA) dédiée 
   8. *Profil du Lecteur ("Ce livre est pour toi si...")*
   9. *Aperçu Réel des Pages Intérieures*
   10. *Les 3 Bonus Inclus Gratuitement*
-  11. *L'Offre & Le Pack Inclusions*
+  11. *L'Offre & Les Inclusions Clés*
   12. *Preuves Sociales & Avis Vérifiés*
   13. *Garantie Sérénité 30 Jours*
   14. *FAQ & Appel à l'Action Final*
@@ -29,7 +29,7 @@ Boutique e-commerce haute conversion et application web monopage (SPA) dédiée 
 
 ---
 
-## 📚 Les 6 Éditions Incluses
+## 📚 Les 3 Guides Bestsellers (Éditions FR & EN)
 
 | Édition | Titre | Pages | Format | Lien Chariow |
 | :--- | :--- | :---: | :---: | :--- |
@@ -39,7 +39,6 @@ Boutique e-commerce haute conversion et application web monopage (SPA) dédiée 
 | 🇬🇧 **EN** | *Why He/She is Moving Away From YOU* | 50 p. | PDF HD | `prd_qk81p5tr` |
 | 🇫🇷 **FR** | *Pourquoi il/elle t'aime mais ne s'engage pas* | 80 p. | PDF HD | `prd_tom22hdt` |
 | 🇬🇧 **EN** | *Why He/She Loves You but Doesn't Commit* | 80 p. | PDF HD | `prd_60f683w0` |
-| 👑 **Bundle**| *Pack Trilogie Cœur Souverain (Les 3 Ebooks)* | 216 p. | PDF HD | `prd_8ivay7iy` / `prd_60f683w0` |
 
 ---
 

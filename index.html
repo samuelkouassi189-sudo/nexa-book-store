@@ -113,15 +113,7 @@
                 <span class="mega-price-tag">2 950 FCFA / 4,50 €</span>
               </div>
             </a>
-            <a href="#product-bundle" class="mega-menu-card bundle-highlight" onclick="navigateTo('product-bundle'); return false;">
-              <img src="assets/bundle_mockup.jpg" alt="Pack Trilogie" class="mega-thumb">
-              <div class="mega-info">
-                <span class="mega-tag gold" data-i18n="tag_bundle">Offre Intégrale (2 950 FCFA)</span>
-                <strong data-i18n="title_bundle">Pack Trilogie Master Collection (3 Ebooks)</strong>
-                <p data-i18n="desc_bundle_short">Les 3 Ebooks + Tous les Ateliers + Bonus VIP (216 p.)</p>
-                <span class="mega-price-tag gold">2 950 FCFA / 4,50 €</span>
-              </div>
-            </a>
+            
           </div>
         </div>
 
@@ -188,9 +180,7 @@
         <a href="#product-commit" class="mobile-nav-link" onclick="navigateTo('product-commit'); closeMobileMenu();">
           <i class="fa-solid fa-lock-open text-accent"></i> <span>Pourquoi il/elle t'aime mais ne s'engage pas</span>
         </a>
-        <a href="#product-bundle" class="mobile-nav-link bundle-link" onclick="navigateTo('product-bundle'); closeMobileMenu();">
-          <i class="fa-solid fa-crown text-gold"></i> <span>Pack Trilogie Master (Les 3 Ebooks) 2 950 FCFA</span>
-        </a>
+        
       </nav>
       <div class="mobile-drawer-footer">
         <div class="trust-pill"><i class="fa-solid fa-shield-halved"></i> Téléchargement Immédiat Garanti</div>
@@ -245,9 +235,7 @@
               <a href="#catalog-section" class="btn btn-primary btn-lg shadow-glow" onclick="document.getElementById('catalog-section').scrollIntoView({behavior:'smooth'})">
                 <i class="fa-solid fa-compass"></i> <span data-i18n="btn_explore_catalog">Explorer les 3 Ebooks (2 950 FCFA)</span>
               </a>
-              <a href="#product-bundle" class="btn btn-secondary btn-lg" onclick="navigateTo('product-bundle')">
-                <i class="fa-solid fa-crown gold-icon"></i> <span data-i18n="btn_view_bundle_pack">Pack Trilogie Complète (2 950 FCFA)</span>
-              </a>
+              <a href="#quiz-section" class="btn btn-secondary btn-lg" onclick="scrollToQuiz()"><i class="fa-solid fa-wand-magic-sparkles"></i> <span data-i18n="nav_quiz">Diagnostic Gratuit (1 min)</span></a>
             </div>
 
             <!-- Trust Bar Highlights -->
@@ -715,49 +703,7 @@
             </article>
           </div>
 
-      <!-- Special Bundle Spotlight : Pack Trilogie Ultime -->
-      <section class="bundle-spotlight-section">
-        <div class="container">
-          <div class="bundle-banner-card">
-            <div class="bundle-content-grid">
-              <div class="bundle-image-side">
-                <img src="assets/bundle_mockup.jpg" alt="Pack Trilogie Ebooks" class="bundle-promo-img">
-                <div class="bundle-ribbon-save">OFFRE 2 950 FCFA</div>
-              </div>
-              <div class="bundle-text-side">
-                <div class="bundle-eyebrow"><i class="fa-solid fa-crown"></i> L'ÉCOSYSTÈME RELATIONNEL COMPLET</div>
-                <h2 class="bundle-title">Pack Intégral : La Trilogie Cœur Souverain</h2>
-                <p class="bundle-desc">
-                  Accédez instantanément aux <strong>3 Ebooks complets (216 pages)</strong>, aux <strong>3 Plans d'Action</strong> (14 jours + 7 jours + 7 jours) et à l'ensemble des <strong>17 Ateliers pratiques d'auto-coaching</strong>.
-                </p>
-
-                <div class="bundle-includes-list">
-                  <div class="b-item"><i class="fa-solid fa-circle-check text-success"></i> <strong>Livre 1 :</strong> Pourquoi tu t'attaches aux mauvaises personnes (86 p.)</div>
-                  <div class="b-item"><i class="fa-solid fa-circle-check text-success"></i> <strong>Livre 2 :</strong> Pourquoi il/elle s'éloigne de toi (50 p.)</div>
-                  <div class="b-item"><i class="fa-solid fa-circle-check text-success"></i> <strong>Livre 3 :</strong> Pourquoi il/elle t'aime mais ne s'engage pas (80 p.)</div>
-                  <div class="b-item"><i class="fa-solid fa-circle-check text-success"></i> <strong>Bonus Exclusif :</strong> Répertoire complet des 15 scripts + Cahier d'intégration PDF imprimable</div>
-                </div>
-
-                <div class="bundle-pricing-action">
-                  <div class="bundle-prices">
-                    <span class="b-old-price" data-price-eur="12.00">7 800 FCFA (12,00 €)</span>
-                    <span class="b-new-price" data-price-eur="4.50">2 950 FCFA (4,50 €)</span>
-                    <span class="b-badge-saving">OFFRE DU JOUR</span>
-                  </div>
-                  <div class="bundle-buttons">
-                    <button type="button" class="btn btn-gold btn-lg shadow-gold" onclick="redirectToChariow('bundle')">
-                      <i class="fa-solid fa-crown"></i> Obtenir le Pack Complet (2 950 FCFA)
-                    </button>
-                    <button type="button" class="btn btn-outline" onclick="navigateTo('product-bundle')">
-                      Détails de l'offre
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       <!-- Interactive Diagnostic Quiz -->
       <section class="quiz-section" id="quiz-section">
@@ -2617,140 +2563,8 @@
       </section>
 
     </section>
-    <!-- ========================================================================= -->
-    <!-- VIEW 5 : PAGE DE VENTE - PACK TRILOGIE ULTIME (BUNDLE COMPLET) -->
-    <!-- ========================================================================= -->
-    <section id="view-product-bundle" class="app-view">
-      
-      <!-- Bundle Sales Hero -->
-      <section class="sales-hero-banner bundle-hero-bg">
-        <div class="container sales-hero-grid">
-          <div class="sales-hero-info">
-            <div class="sales-back-link" onclick="navigateTo('home')">
-              <i class="fa-solid fa-arrow-left"></i> Retour à la boutique Nexa Book
-            </div>
-            
-            <div class="sales-badge-row">
-              <span class="badge-gold"><i class="fa-solid fa-crown"></i> OFFRE ULTIME 2 950 FCFA</span>
-              <span class="badge-tag">3 Ebooks (216 pages)</span>
-              <span class="badge-tag">Tous les Ateliers Inclus</span>
-            </div>
 
-            <h1 class="sales-title">
-              La Trilogie Complète <span class="gradient-text">Cœur Souverain</span>
-            </h1>
-
-            <p class="sales-lead">
-              L'écosystème intégral de psychologie relationnelle pour comprendre vos schémas, désamorcer la distance et ne plus jamais perdre votre temps dans l'ambiguïté.
-            </p>
-
-            <div class="sales-offer-card bundle-offer-box">
-              <div class="sales-price-wrap">
-                <span class="sales-old-price" data-price-eur="12.00">7 800 FCFA (12,00 €)</span>
-                <span class="sales-current-price highlight-gold" data-price-eur="4.50">2 950 FCFA (4,50 €)</span>
-                <span class="sales-discount-tag gold">OFFRE DU MOMENT</span>
-              </div>
-              <div class="sales-cta-actions">
-                <button type="button" class="btn btn-gold btn-lg btn-block shadow-gold" onclick="redirectToChariow('bundle')">
-                  <i class="fa-solid fa-crown"></i> Obtenir la Trilogie Complète (2 950 FCFA)
-                </button>
-                <div class="sales-guarantee-micro">
-                  <i class="fa-solid fa-shield-check text-success"></i> Accès instantané aux 3 Ebooks + Tous les bonus
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Sales Visual -->
-          <div class="sales-hero-visual">
-            <div class="sales-cover-wrapper bundle-hero-wrapper">
-              <img src="assets/bundle_mockup.jpg" alt="Trilogie Complète" class="sales-cover-img bundle-img-large">
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Bundle What's Included Grid -->
-      <section class="bundle-details-section">
-        <div class="container">
-          <div class="section-header text-center">
-            <div class="section-badge"><i class="fa-solid fa-box-open"></i> CONTENU DU PACK INTÉGRAL</div>
-            <h2 class="section-title">3 Piliers de Transformation dans un Seul Coffret</h2>
-          </div>
-
-          <div class="bundle-trio-grid">
-            <!-- Book 1 in Bundle -->
-            <div class="bundle-pillar-card">
-              <img src="assets/cover_attached_fr.jpg" alt="Livre 1" class="pillar-cover" id="bundlePillarAttached">
-              <h4>Pilier 1 : La Guérison des Schémas</h4>
-              <p><strong>Pourquoi tu t'attaches aux mauvaises personnes (86 p.)</strong></p>
-              <ul>
-                <li><i class="fa-solid fa-check"></i> 12 Chapitres d'attachement</li>
-                <li><i class="fa-solid fa-check"></i> Plan de 14 Jours</li>
-                <li><i class="fa-solid fa-check"></i> 5 Ateliers de Standards</li>
-              </ul>
-            </div>
-
-            <!-- Book 2 in Bundle -->
-            <div class="bundle-pillar-card">
-              <img src="assets/cover_distance_fr.jpg" alt="Livre 2" class="pillar-cover" id="bundlePillarDistance">
-              <h4>Pilier 2 : L'Urgence & La Dignité</h4>
-              <p><strong>Pourquoi il/elle s'éloigne de toi ? (50 p.)</strong></p>
-              <ul>
-                <li><i class="fa-solid fa-check"></i> 15 Scripts Situationnels</li>
-                <li><i class="fa-solid fa-check"></i> Plan d'Action 7 Jours</li>
-                <li><i class="fa-solid fa-check"></i> 5 Ateliers de Dignité</li>
-              </ul>
-            </div>
-
-            <!-- Book 3 in Bundle -->
-            <div class="bundle-pillar-card">
-              <img src="assets/cover_commit_fr.jpg" alt="Livre 3" class="pillar-cover" id="bundlePillarCommit">
-              <h4>Pilier 3 : La Clarté & L'Engagement</h4>
-              <p><strong>Pourquoi il/elle t'aime mais ne s'engage pas (80 p.)</strong></p>
-              <ul>
-                <li><i class="fa-solid fa-check"></i> Méthode des 4 Réalités</li>
-                <li><i class="fa-solid fa-check"></i> Conversation en 6 étapes</li>
-                <li><i class="fa-solid fa-check"></i> 7 Ateliers d'Auto-Coaching</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Bonus Pack Highlights -->
-          <div class="bundle-vip-bonuses">
-            <div class="vip-badge"><i class="fa-solid fa-gift"></i> BONUS EXCLUSIFS INCLUS DANS CE PACK</div>
-            <div class="bonuses-grid">
-              <div class="bonus-box">
-                <i class="fa-solid fa-file-lines text-gold"></i>
-                <div>
-                  <strong>Le Cahier d'Intégration Printable (PDF)</strong>
-                  <p>Tous les questionnaires et grilles d'auto-coaching réunis en un cahier à imprimer.</p>
-                </div>
-              </div>
-              <div class="bonus-box">
-                <i class="fa-solid fa-infinity text-gold"></i>
-                <div>
-                  <strong>Mises à jour & Accès à Vie</strong>
-                  <p>Recevez gratuitement toutes les futures éditions et enrichissements de la collection.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Bundle Big Action -->
-          <div class="bundle-final-action text-center">
-            <button type="button" class="btn btn-gold btn-xl shadow-gold" onclick="redirectToChariow('bundle')">
-              <i class="fa-solid fa-crown"></i> Obtenir le Pack Trilogie Immédiatement (2 950 FCFA)
-            </button>
-            <p class="text-muted mt-2"><i class="fa-solid fa-lock"></i> Paiement 100% sécurisé sur Chariow • Téléchargement immédiat des 3 Ebooks</p>
-          </div>
-        </div>
-      </section>
-
-    </section>
-    <!-- ========================================================================= -->
-    <!-- VIEW 6 : SALES PAGE - BOOK 1 (ATTACHMENT & HIDDEN PATTERNS - ENGLISH) [14 STEPS] -->
-    <!-- ========================================================================= -->
+    ====================================== -->
     <section id="view-product-attached-en" class="app-view">
       
       <!-- 01 — HERO : CAPTURE ATTENTION -->
@@ -3880,140 +3694,6 @@
       </section>
 
     </section>
-
-  
-    <!-- ========================================================================= -->
-    <!-- VIEW 9 : SALES PAGE - ULTIMATE TRILOGY BUNDLE (ENGLISH) -->
-    <!-- ========================================================================= -->
-    <section id="view-product-bundle-en" class="app-view">
-      
-      <!-- Bundle Sales Hero -->
-      <section class="sales-hero-banner bundle-hero-bg">
-        <div class="container sales-hero-grid">
-          <div class="sales-hero-info">
-            <div class="sales-back-link" onclick="navigateTo('home')">
-              <i class="fa-solid fa-arrow-left"></i> Back to Nexa Book Store
-            </div>
-            
-            <div class="sales-badge-row">
-              <span class="badge-gold"><i class="fa-solid fa-crown"></i> ULTIMATE BUNDLE OFFER $5.25 / 2 950 FCFA</span>
-              <span class="badge-tag">3 Master Ebooks (216 pages)</span>
-              <span class="badge-tag">All Workbooks Included</span>
-            </div>
-
-            <h1 class="sales-title">
-              The Complete <span class="gradient-text">Sovereign Heart Trilogy</span>
-            </h1>
-
-            <p class="sales-lead">
-              The complete relational psychology ecosystem to master your attachment style, dissolve emotional withdrawal, and never waste your precious time in ambiguous relationships.
-            </p>
-
-            <div class="sales-offer-card bundle-offer-box">
-              <div class="sales-price-wrap">
-                <span class="sales-old-price" data-price-eur="12.00">7 800 FCFA ($14.00)</span>
-                <span class="sales-current-price highlight-gold" data-price-eur="4.50">2 950 FCFA ($5.25 / 4.50 €)</span>
-                <span class="sales-discount-tag gold">SPECIAL LAUNCH OFFER</span>
-              </div>
-              <div class="sales-cta-actions">
-                <button type="button" class="btn btn-gold btn-lg btn-block shadow-gold" onclick="redirectToChariow('bundle_en')">
-                  <i class="fa-solid fa-crown"></i> Get the Complete Trilogy ($5.25 / 2 950 FCFA)
-                </button>
-                <div class="sales-guarantee-micro">
-                  <i class="fa-solid fa-shield-check text-success"></i> Instant Download to all 3 Ebooks + All Bonus Materials
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Sales Visual -->
-          <div class="sales-hero-visual">
-            <div class="sales-cover-wrapper bundle-hero-wrapper">
-              <img src="assets/bundle_mockup.jpg" alt="Complete Trilogy Pack" class="sales-cover-img bundle-img-large">
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Bundle What's Included Grid -->
-      <section class="bundle-details-section">
-        <div class="container">
-          <div class="section-header text-center">
-            <div class="section-badge"><i class="fa-solid fa-box-open"></i> COMPLETE COLLECTION CONTENT</div>
-            <h2 class="section-title">3 Pillars of Emotional Transformation in One Box</h2>
-          </div>
-
-          <div class="bundle-trio-grid">
-            <!-- Book 1 in Bundle -->
-            <div class="bundle-pillar-card">
-              <img src="assets/cover_attached_en.jpg" alt="Book 1" class="pillar-cover">
-              <h4>Pillar 1: Attachment Healing</h4>
-              <p><strong>Why You Always Get Attached to the Wrong People (86 p.)</strong></p>
-              <ul>
-                <li><i class="fa-solid fa-check"></i> 12 Attachment Chapters</li>
-                <li><i class="fa-solid fa-check"></i> 14-Day Reset Blueprint</li>
-                <li><i class="fa-solid fa-check"></i> 5 Self-Worth Workbooks</li>
-              </ul>
-            </div>
-
-            <!-- Book 2 in Bundle -->
-            <div class="bundle-pillar-card">
-              <img src="assets/cover_distance_en.jpg" alt="Book 2" class="pillar-cover">
-              <h4>Pillar 2: Urgency & High-Value Posture</h4>
-              <p><strong>Why He/She is Moving Away From You (50 p.)</strong></p>
-              <ul>
-                <li><i class="fa-solid fa-check"></i> 15 Situational Response Scripts</li>
-                <li><i class="fa-solid fa-check"></i> 7-Day Action Plan</li>
-                <li><i class="fa-solid fa-check"></i> 5 Dignity Workshops</li>
-              </ul>
-            </div>
-
-            <!-- Book 3 in Bundle -->
-            <div class="bundle-pillar-card">
-              <img src="assets/cover_commit_en.jpg" alt="Book 3" class="pillar-cover">
-              <h4>Pillar 3: Gray Zone & Commitment</h4>
-              <p><strong>Why He/She Loves You but Doesn't Commit (80 p.)</strong></p>
-              <ul>
-                <li><i class="fa-solid fa-check"></i> The 4 Realities Framework</li>
-                <li><i class="fa-solid fa-check"></i> 6-Step Clarity Conversation</li>
-                <li><i class="fa-solid fa-check"></i> 7 Self-Coaching Modules</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Bonus Pack Highlights -->
-          <div class="bundle-vip-bonuses">
-            <div class="vip-badge"><i class="fa-solid fa-gift"></i> EXCLUSIVE BONUSES INCLUDED</div>
-            <div class="bonuses-grid">
-              <div class="bonus-box">
-                <i class="fa-solid fa-file-lines text-gold"></i>
-                <div>
-                  <strong>Printable Integration Workbook (PDF)</strong>
-                  <p>All exercises, checklists, and self-coaching sheets in a printable luxury layout.</p>
-                </div>
-              </div>
-              <div class="bonus-box">
-                <i class="fa-solid fa-infinity text-gold"></i>
-                <div>
-                  <strong>Lifetime Updates & Future Revisions</strong>
-                  <p>Receive all future editions and digital additions for life with zero extra charges.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Bundle Big Action -->
-          <div class="bundle-final-action text-center">
-            <button type="button" class="btn btn-gold btn-xl shadow-gold" onclick="redirectToChariow('bundle_en')">
-              <i class="fa-solid fa-crown"></i> Get the Complete Trilogy Now ($5.25 / 2 950 FCFA)
-            </button>
-            <p class="text-muted mt-2"><i class="fa-solid fa-lock"></i> 100% Secure Checkout via Chariow • Instant Download to all 3 Ebooks</p>
-          </div>
-        </div>
-      </section>
-
-    </section>
-
   </main>
 
   <!-- Slide-out Cart Drawer -->
@@ -4232,7 +3912,7 @@
           <li><a href="#product-attached" onclick="navigateTo('product-attached')">Pourquoi tu t'attaches aux mauvaises personnes</a></li>
           <li><a href="#product-distance" onclick="navigateTo('product-distance')">Pourquoi il/elle s'éloigne de toi ?</a></li>
           <li><a href="#product-commit" onclick="navigateTo('product-commit')">Pourquoi il/elle t'aime mais ne s'engage pas</a></li>
-          <li><a href="#product-bundle" onclick="navigateTo('product-bundle')">Pack Intégral Trilogie (2 950 FCFA)</a></li>
+          
         </ul>
       </div>
 
