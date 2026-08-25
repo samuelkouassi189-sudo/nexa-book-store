@@ -1,0 +1,12 @@
+# PDF files strictly excluded
+*.pdf
+
+# Loose WhatsApp temp image files
+WhatsApp*.jpeg
+
+# Python scratch / temporary scripts
+__pycache__/
+*.pyc
+test_*.py
+scratch/
+.system_generated/
