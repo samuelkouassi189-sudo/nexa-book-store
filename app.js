@@ -12,7 +12,7 @@
 // --- Global App State ---
 const state = {
   currentLang: 'fr',
-  currentCurrency: 'XOF', // default to FCFA or EUR
+  currentCurrency: 'EUR', // default to EUR (€)
   currentView: 'home',
   appliedDiscountPercent: 0,
   cart: [],
@@ -373,7 +373,7 @@ const i18nDict = {
     hero_title_line1: "Comprenez Enfin",
     hero_title_line2: "Ce Qui Se Joue Dans Votre Cœur.",
     hero_subtitle: "Arrêtez de deviner, d'angoisser et de répéter les mêmes histoires douloureuses. La collection officielle Nexa Book / Mystère d'Amour vous donne les clés psychologiques, les scripts et les plans d'action pour reprendre votre souveraineté affective.",
-    btn_explore_catalog: "Explorer les 3 Ebooks (2 950 FCFA)",
+    btn_explore_catalog: "Explorer les 3 Ebooks (4,50 €)",
     trust_instant: "Téléchargement instantané PDF HD",
     trust_devices: "Lisible sur Téléphone, Tablette & PC",
     trust_guarantee: "Garantie Sérénité 30 Jours",
@@ -398,7 +398,7 @@ const i18nDict = {
     hero_title_line1: "Finally Understand",
     hero_title_line2: "What Is Truly Happening In Your Heart.",
     hero_subtitle: "Stop guessing, stressing, and repeating painful cycles. The official Nexa Book / Love Mystery collection gives you the psychological blueprints, conversational scripts, and action plans to reclaim your emotional sovereignty.",
-    btn_explore_catalog: "Browse the 3 Ebooks ($5.25 / 2 950 FCFA)",
+    btn_explore_catalog: "Browse the 3 Ebooks (4.50 € / $5.25)",
     trust_instant: "Instant HD PDF Download",
     trust_devices: "Mobile, iPad, Tablet & Desktop Ready",
     trust_guarantee: "30-Day Money-Back Guarantee",
@@ -1011,6 +1011,9 @@ function initSearchEngine() {
 document.addEventListener('DOMContentLoaded', () => {
   // Init Reviews
   renderReviews('all');
+
+  // Init default currency (EUR)
+  setCurrency('EUR');
 
   // Init Search
   initSearchEngine();
