@@ -1,10 +1,10 @@
 /* ==========================================================================
    NEXA BOOK - APP.JS (INTERACTIVE STORE ENGINE & ROUTER)
-   - SPA View Router
+   - SPA View Router (FR & EN Editions + Complete Bundle Sales Pages)
    - Bilingual Engine (FR / EN) with dynamic asset switching (covers, banners)
    - Real-time Multi-Currency Engine (EUR, USD, CAD, GBP, XOF)
    - Slide-out Cart Drawer with Live Promo Codes & Progress Bar
-   - 3-Step Simulated Checkout & Instant Download Generator
+   - Real & Simulated Checkout Engine with Instant PDF Downloads
    - Diagnostic Quiz with Personalized Book Matching
    - Reviews Filter & Live Social Proof Toasts
    ========================================================================== */
@@ -60,6 +60,10 @@ const products = {
     downloadName: {
       fr: "Ebook-Attachement-Schemas-Mystere-d-Amour.pdf",
       en: "Ebook-Attachment-Patterns-Love-Mystery.pdf"
+    },
+    pdfFile: {
+      fr: 'pourquoi_tu_t_attaches_aux_mauvaises_personnes.pdf',
+      en: 'why_you_always_get_attached_to_the_wrong_people.pdf'
     }
   },
 
@@ -95,6 +99,10 @@ const products = {
     downloadName: {
       fr: "Ebook-Distance-Silence-Scripts-Mystere-d-Amour.pdf",
       en: "Ebook-Distance-Silence-Scripts-Love-Mystery.pdf"
+    },
+    pdfFile: {
+      fr: 'pourquoi_il_s_eloigne_de_toi.pdf',
+      en: 'why_he_she_is_pulling_away_from_you.pdf'
     }
   },
 
@@ -130,6 +138,10 @@ const products = {
     downloadName: {
       fr: "Ebook-Engagement-Zone-Grise-Mystere-d-Amour.pdf",
       en: "Ebook-Commitment-Gray-Zone-Love-Mystery.pdf"
+    },
+    pdfFile: {
+      fr: 'pourquoi_il_elle_t_aime_mais_ne_s_engage_pas.pdf',
+      en: 'why_he_she_loves_you_but_doesnt_commit.pdf'
     }
   },
 
@@ -165,6 +177,18 @@ const products = {
     downloadName: {
       fr: "Pack-Trilogie-Complete-Mystere-d-Amour-VIP.zip",
       en: "Complete-Trilogy-Bundle-Love-Mystery-VIP.zip"
+    },
+    pdfFiles: {
+      fr: [
+        { title: "Pourquoi tu t'attaches aux mauvaises personnes", file: 'pourquoi_tu_t_attaches_aux_mauvaises_personnes.pdf' },
+        { title: "Pourquoi il/elle s'éloigne de toi", file: 'pourquoi_il_s_eloigne_de_toi.pdf' },
+        { title: "Pourquoi il/elle t'aime mais ne s'engage pas", file: 'pourquoi_il_elle_t_aime_mais_ne_s_engage_pas.pdf' }
+      ],
+      en: [
+        { title: "Why You Always Get Attached to the Wrong People", file: 'why_you_always_get_attached_to_the_wrong_people.pdf' },
+        { title: "Why He/She is Moving Away From You", file: 'why_he_she_is_pulling_away_from_you.pdf' },
+        { title: "Why He/She Loves You but Doesn't Commit", file: 'why_he_she_loves_you_but_doesnt_commit.pdf' }
+      ]
     }
   }
 };
@@ -351,7 +375,10 @@ function setCurrency(currCode) {
   if (state.currencyRates[currCode]) {
     state.currentCurrency = currCode;
     const config = state.currencyRates[currCode];
-    document.getElementById('currentCurrencyLabel').textContent = `${currCode} (${config.symbol})`;
+    const labelEl = document.getElementById('currentCurrencyLabel');
+    if (labelEl) {
+      labelEl.textContent = `${currCode} (${config.symbol})`;
+    }
     
     document.querySelectorAll('.curr-opt').forEach(btn => {
       btn.classList.toggle('active', btn.getAttribute('data-curr') === currCode);
@@ -430,8 +457,10 @@ function setLanguage(lang) {
   document.documentElement.lang = lang;
   
   // Update Lang button UI
-  document.getElementById('currentLangFlag').textContent = lang === 'fr' ? '🇫🇷' : '🇬🇧';
-  document.getElementById('currentLangCode').textContent = lang.toUpperCase();
+  const flagEl = document.getElementById('currentLangFlag');
+  if (flagEl) flagEl.textContent = lang === 'fr' ? '🇫🇷' : '🇬🇧';
+  const codeEl = document.getElementById('currentLangCode');
+  if (codeEl) codeEl.textContent = lang.toUpperCase();
 
   document.querySelectorAll('.lang-opt').forEach(btn => {
     btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
@@ -439,14 +468,16 @@ function setLanguage(lang) {
 
   // Update i18n text nodes
   const dict = i18nDict[lang];
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (dict[key]) {
-      el.innerHTML = dict[key];
-    }
-  });
+  if (dict) {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (dict[key]) {
+        el.innerHTML = dict[key];
+      }
+    });
+  }
 
-  // Swap dynamic covers and banners according to language!
+  // Swap dynamic covers and banners according to language
   swapCoversAndBanners(lang);
 
   // If currently on a product sales page, switch to corresponding FR / EN view
@@ -455,75 +486,50 @@ function setLanguage(lang) {
     if (cur === 'product-attached') navigateTo('product-attached-en');
     else if (cur === 'product-distance') navigateTo('product-distance-en');
     else if (cur === 'product-commit') navigateTo('product-commit-en');
+    else if (cur === 'product-bundle') navigateTo('product-bundle-en');
   } else if (lang === 'fr') {
     if (cur === 'product-attached-en') navigateTo('product-attached');
     else if (cur === 'product-distance-en') navigateTo('product-distance');
     else if (cur === 'product-commit-en') navigateTo('product-commit');
+    else if (cur === 'product-bundle-en') navigateTo('product-bundle');
   }
 }
 
 function swapCoversAndBanners(lang) {
+  // Safe helper to set src if element exists
+  const setSrc = (id, src) => {
+    const el = document.getElementById(id);
+    if (el && src) el.src = src;
+  };
+
   // Navigation thumbs
-  const navThumbAttached = document.getElementById('navThumbAttached');
-  if (navThumbAttached) navThumbAttached.src = products.attached.covers[lang];
-  const navThumbDistance = document.getElementById('navThumbDistance');
-  if (navThumbDistance) navThumbDistance.src = products.distance.covers[lang];
-  const navThumbCommit = document.getElementById('navThumbCommit');
-  if (navThumbCommit) navThumbCommit.src = products.commit.covers[lang];
+  setSrc('navThumbAttached', products.attached.covers[lang]);
+  setSrc('navThumbDistance', products.distance.covers[lang]);
+  setSrc('navThumbCommit', products.commit.covers[lang]);
 
   // Hero banner & Thumbs
-  const heroDynamicBanner = document.getElementById('heroDynamicBanner');
-  if (heroDynamicBanner) heroDynamicBanner.src = products.attached.banners[lang];
-  const heroThumbAttached = document.getElementById('heroThumbAttached');
-  if (heroThumbAttached) heroThumbAttached.src = products.attached.covers[lang];
-  const heroThumbDistance = document.getElementById('heroThumbDistance');
-  if (heroThumbDistance) heroThumbDistance.src = products.distance.covers[lang];
-  const heroThumbCommit = document.getElementById('heroThumbCommit');
-  if (heroThumbCommit) heroThumbCommit.src = products.commit.covers[lang];
+  setSrc('heroDynamicBanner', products.attached.banners[lang]);
+  setSrc('heroThumbAttached', products.attached.covers[lang]);
+  setSrc('heroThumbDistance', products.distance.covers[lang]);
+  setSrc('heroThumbCommit', products.commit.covers[lang]);
 
   // Catalog covers
-  const catAttached = document.getElementById('catalogCoverAttached');
-  if (catAttached) catAttached.src = products.attached.covers[lang];
-  const catDistance = document.getElementById('catalogCoverDistance');
-  if (catDistance) catDistance.src = products.distance.covers[lang];
-  const catCommit = document.getElementById('catalogCoverCommit');
-  if (catCommit) catCommit.src = products.commit.covers[lang];
+  setSrc('catalogCoverAttached', products.attached.covers[lang]);
+  setSrc('catalogCoverDistance', products.distance.covers[lang]);
+  setSrc('catalogCoverCommit', products.commit.covers[lang]);
 
   // Sales pages covers & banners
-  const spCoverAtt = document.getElementById('spCoverAttached');
-  if (spCoverAtt) spCoverAtt.src = products.attached.covers[lang];
-  const spPresBannerAtt = document.getElementById('spPresBannerAttached');
-  if (spPresBannerAtt) spPresBannerAtt.src = products.attached.banners[lang];
-  const salesCoverAtt = document.getElementById('salesHeroCoverAttached');
-  if (salesCoverAtt) salesCoverAtt.src = products.attached.covers[lang];
-  const salesBannerAtt = document.getElementById('salesBannerAttached');
-  if (salesBannerAtt) salesBannerAtt.src = products.attached.banners[lang];
-
-  const spCoverDist = document.getElementById('spCoverDistance');
-  if (spCoverDist) spCoverDist.src = products.distance.covers[lang];
-  const spPresBannerDist = document.getElementById('spPresBannerDistance');
-  if (spPresBannerDist) spPresBannerDist.src = products.distance.banners[lang];
-  const salesCoverDist = document.getElementById('salesHeroCoverDistance');
-  if (salesCoverDist) salesCoverDist.src = products.distance.covers[lang];
-  const salesBannerDist = document.getElementById('salesBannerDistance');
-  if (salesBannerDist) salesBannerDist.src = products.distance.banners[lang];
-
-  const spCoverCom = document.getElementById('spCoverCommit');
-  if (spCoverCom) spCoverCom.src = products.commit.covers[lang];
-  const spPresBannerCom = document.getElementById('spPresBannerCommit');
-  if (spPresBannerCom) spPresBannerCom.src = products.commit.banners[lang];
-  const salesCoverCom = document.getElementById('salesHeroCoverCommit');
-  if (salesCoverCom) salesCoverCom.src = products.commit.covers[lang];
-  const salesBannerCom = document.getElementById('salesBannerCommit');
-  if (salesBannerCom) salesBannerCom.src = products.commit.banners[lang];
+  setSrc('spCoverAttached', products.attached.covers[lang]);
+  setSrc('spPresBannerAttached', products.attached.banners[lang]);
+  setSrc('spCoverDistance', products.distance.covers[lang]);
+  setSrc('spPresBannerDistance', products.distance.banners[lang]);
+  setSrc('spCoverCommit', products.commit.covers[lang]);
+  setSrc('spPresBannerCommit', products.commit.banners[lang]);
 
   // Bundle pillars
-  const pillarAtt = document.getElementById('bundlePillarAttached');
-  if (pillarAtt) pillarAtt.src = products.attached.covers[lang];
-  const pillarDist = document.getElementById('bundlePillarDistance');
-  if (pillarDist) pillarDist.src = products.distance.covers[lang];
-  const pillarCom = document.getElementById('bundlePillarCommit');
-  if (pillarCom) pillarCom.src = products.commit.covers[lang];
+  setSrc('bundlePillarAttached', products.attached.covers[lang]);
+  setSrc('bundlePillarDistance', products.distance.covers[lang]);
+  setSrc('bundlePillarCommit', products.commit.covers[lang]);
 }
 
 function switchHeroSlide(bookKey) {
@@ -544,29 +550,35 @@ function switchHeroSlide(bookKey) {
 // SHOPPING CART SYSTEM & DRAWER
 // ==========================================================================
 function openCart() {
-  document.getElementById('cartDrawer').classList.add('open');
-  document.getElementById('cartOverlay').classList.add('open');
+  const drawer = document.getElementById('cartDrawer');
+  const overlay = document.getElementById('cartOverlay');
+  if (drawer) drawer.classList.add('open');
+  if (overlay) overlay.classList.add('open');
 }
 
 function closeCart() {
-  document.getElementById('cartDrawer').classList.remove('open');
-  document.getElementById('cartOverlay').classList.remove('open');
+  const drawer = document.getElementById('cartDrawer');
+  const overlay = document.getElementById('cartOverlay');
+  if (drawer) drawer.classList.remove('open');
+  if (overlay) overlay.classList.remove('open');
 }
 
 function addToCart(productId) {
-  const prod = products[productId];
+  const isExplicitEn = String(productId).endsWith('_en');
+  const baseKey = String(productId).replace('_en', '');
+  const prod = products[baseKey] || products[productId];
   if (!prod) return;
 
-  // Check if bundle or item already in cart
-  const existing = state.cart.find(item => item.id === productId);
+  const lang = isExplicitEn ? 'en' : state.currentLang;
+  const existing = state.cart.find(item => item.id === prod.id);
   if (existing) {
     existing.qty += 1;
   } else {
     state.cart.push({
       id: prod.id,
-      title: prod.titles[state.currentLang],
+      title: prod.titles[lang] || prod.titles.fr,
       priceEur: prod.priceEur,
-      cover: prod.covers[state.currentLang],
+      cover: prod.covers[lang] || prod.covers.fr,
       qty: 1
     });
   }
@@ -583,6 +595,7 @@ function removeFromCart(productId) {
 function applyCoupon() {
   const input = document.getElementById('couponInput');
   const feedback = document.getElementById('couponFeedback');
+  if (!input || !feedback) return;
   const code = (input.value || '').trim().toUpperCase();
 
   if (code === 'CLARTE20' || code === 'NEXA20') {
@@ -615,24 +628,26 @@ function updateCartUI() {
   const modalCheckoutTotal = document.getElementById('modalCheckoutTotal');
 
   const totalItems = state.cart.reduce((sum, item) => sum + item.qty, 0);
-  badge.textContent = totalItems;
-  drawerCount.textContent = `(${totalItems})`;
+  if (badge) badge.textContent = totalItems;
+  if (drawerCount) drawerCount.textContent = `(${totalItems})`;
 
   let subtotalEur = state.cart.reduce((sum, item) => sum + (item.priceEur * item.qty), 0);
   let discountEur = (subtotalEur * state.appliedDiscountPercent) / 100;
   let finalTotalEur = Math.max(0, subtotalEur - discountEur);
 
-  headerTotal.textContent = formatPrice(finalTotalEur);
-  subtotalEl.textContent = formatPrice(subtotalEur);
+  if (headerTotal) headerTotal.textContent = formatPrice(finalTotalEur);
+  if (subtotalEl) subtotalEl.textContent = formatPrice(subtotalEur);
 
-  if (state.appliedDiscountPercent > 0) {
-    discountRow.style.display = 'flex';
-    discountEl.textContent = `-${formatPrice(discountEur)}`;
-  } else {
-    discountRow.style.display = 'none';
+  if (discountRow && discountEl) {
+    if (state.appliedDiscountPercent > 0) {
+      discountRow.style.display = 'flex';
+      discountEl.textContent = `-${formatPrice(discountEur)}`;
+    } else {
+      discountRow.style.display = 'none';
+    }
   }
 
-  finalTotalEl.textContent = formatPrice(finalTotalEur);
+  if (finalTotalEl) finalTotalEl.textContent = formatPrice(finalTotalEur);
   if (modalCheckoutTotal) {
     modalCheckoutTotal.textContent = formatPrice(finalTotalEur);
   }
@@ -640,41 +655,47 @@ function updateCartUI() {
   // Update Progress Bar
   const progressText = document.getElementById('cartProgressText');
   const progressBar = document.getElementById('cartProgressBar');
-  if (totalItems >= 2 || state.cart.some(i => i.id === 'bundle')) {
-    progressBar.style.width = '100%';
-    progressText.innerHTML = '🎉 <strong>FÉLICITATIONS !</strong> Cahier d\'intégration VIP débloqué gratuitement !';
-  } else if (totalItems === 1) {
-    progressBar.style.width = '50%';
-    progressText.innerHTML = '🎁 Ajoutez un 2ème livre pour débloquer le Guide Bonus VIP !';
-  } else {
-    progressBar.style.width = '15%';
-    progressText.innerHTML = '✨ Choisissez un ebook pour débuter votre commande';
+  if (progressBar && progressText) {
+    if (totalItems >= 2 || state.cart.some(i => i.id === 'bundle')) {
+      progressBar.style.width = '100%';
+      progressText.innerHTML = '🎉 <strong>FÉLICITATIONS !</strong> Cahier d\'intégration VIP débloqué gratuitement !';
+    } else if (totalItems === 1) {
+      progressBar.style.width = '50%';
+      progressText.innerHTML = '🎁 Ajoutez un 2ème livre pour débloquer le Guide Bonus VIP !';
+    } else {
+      progressBar.style.width = '15%';
+      progressText.innerHTML = '✨ Choisissez un ebook pour débuter votre commande';
+    }
   }
 
   // Render items list
-  if (state.cart.length === 0) {
-    listContainer.innerHTML = '';
-    listContainer.appendChild(emptyState);
-    emptyState.style.display = 'block';
-  } else {
-    emptyState.style.display = 'none';
-    listContainer.innerHTML = state.cart.map(item => `
-      <div class="cart-item-card">
-        <img src="${item.cover}" alt="${item.title}" class="cart-item-thumb">
-        <div class="cart-item-info">
-          <span class="cart-item-title">${item.title}</span>
-          <span class="cart-item-price">${formatPrice(item.priceEur * item.qty)} ${item.qty > 1 ? `(${item.qty}x)` : ''}</span>
+  if (listContainer) {
+    if (state.cart.length === 0) {
+      listContainer.innerHTML = '';
+      if (emptyState) {
+        listContainer.appendChild(emptyState);
+        emptyState.style.display = 'block';
+      }
+    } else {
+      if (emptyState) emptyState.style.display = 'none';
+      listContainer.innerHTML = state.cart.map(item => `
+        <div class="cart-item-card">
+          <img src="${item.cover}" alt="${item.title}" class="cart-item-thumb">
+          <div class="cart-item-info">
+            <span class="cart-item-title">${item.title}</span>
+            <span class="cart-item-price">${formatPrice(item.priceEur * item.qty)} ${item.qty > 1 ? `(${item.qty}x)` : ''}</span>
+          </div>
+          <button type="button" class="remove-item-btn" onclick="removeFromCart('${item.id}')" title="Supprimer">
+            <i class="fa-solid fa-trash"></i>
+          </button>
         </div>
-        <button type="button" class="remove-item-btn" onclick="removeFromCart('${item.id}')" title="Supprimer">
-          <i class="fa-solid fa-trash"></i>
-        </button>
-      </div>
-    `).join('');
+      `).join('');
+    }
   }
 }
 
 // ==========================================================================
-// CHECKOUT SIMULATION MODAL
+// CHECKOUT ENGINE & REAL PDF DOWNLOADS
 // ==========================================================================
 function openCheckoutModal() {
   if (state.cart.length === 0) {
@@ -682,59 +703,118 @@ function openCheckoutModal() {
     return;
   }
   closeCart();
-  document.getElementById('checkoutModal').classList.add('open');
-  document.getElementById('checkoutForm').style.display = 'block';
-  document.getElementById('orderSuccessScreen').style.display = 'none';
+  const modal = document.getElementById('checkoutModal');
+  const form = document.getElementById('checkoutForm');
+  const success = document.getElementById('orderSuccessScreen');
+  if (modal) modal.classList.add('open');
+  if (form) form.style.display = 'block';
+  if (success) success.style.display = 'none';
 }
 
 function closeCheckoutModal() {
-  document.getElementById('checkoutModal').classList.remove('open');
+  const modal = document.getElementById('checkoutModal');
+  if (modal) modal.classList.remove('open');
 }
 
 function processSimulatedPayment(e) {
   e.preventDefault();
   const btn = document.getElementById('submitOrderBtn');
-  const email = document.getElementById('custEmail').value;
+  const emailInput = document.getElementById('custEmail');
+  const email = emailInput ? emailInput.value : 'client@nexa-book.com';
 
-  btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Traitement sécurisé en cours...';
-  btn.disabled = true;
+  if (btn) {
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Traitement sécurisé en cours...';
+    btn.disabled = true;
+  }
+
+  const purchasedItems = [...state.cart];
 
   setTimeout(() => {
-    btn.innerHTML = '<i class="fa-solid fa-lock"></i> Valider et Télécharger mes Ebooks';
-    btn.disabled = false;
+    if (btn) {
+      btn.innerHTML = '<i class="fa-solid fa-lock"></i> Valider et Télécharger mes Ebooks';
+      btn.disabled = false;
+    }
 
     // Show success screen
-    document.getElementById('checkoutForm').style.display = 'none';
-    document.getElementById('orderSuccessScreen').style.display = 'block';
-    document.getElementById('confEmailDisplay').textContent = email;
-    document.getElementById('confOrderNum').textContent = `#NX-${Math.floor(10000 + Math.random() * 90000)}`;
+    const form = document.getElementById('checkoutForm');
+    const success = document.getElementById('orderSuccessScreen');
+    const emailDisp = document.getElementById('confEmailDisplay');
+    const orderNum = document.getElementById('confOrderNum');
+
+    if (form) form.style.display = 'none';
+    if (success) success.style.display = 'block';
+    if (emailDisp) emailDisp.textContent = email;
+    if (orderNum) orderNum.textContent = `#NX-${Math.floor(10000 + Math.random() * 90000)}`;
 
     // Build downloads list
     const dList = document.getElementById('downloadLinksList');
-    dList.innerHTML = state.cart.map(item => {
-      const prod = products[item.id];
-      const filename = prod ? prod.downloadName[state.currentLang] : 'Ebook-Mystere-d-Amour.pdf';
-      return `
-        <div class="download-link-item">
-          <div>
-            <strong>${item.title}</strong>
-            <div style="font-size:0.75rem; color:var(--text-muted);">${filename} (PDF HD)</div>
-          </div>
-          <button type="button" class="btn btn-sm btn-primary" onclick="simulateDownload('${filename}')">
-            <i class="fa-solid fa-download"></i> Télécharger
-          </button>
-        </div>
-      `;
-    }).join('');
+    const lang = state.currentLang;
+
+    if (dList) {
+      let htmlDownloads = '';
+      purchasedItems.forEach(item => {
+        const prod = products[item.id];
+        if (prod) {
+          if (item.id === 'bundle' && prod.pdfFiles) {
+            const files = prod.pdfFiles[lang] || prod.pdfFiles.fr;
+            htmlDownloads += `
+              <div class="download-bundle-group" style="background:var(--bg-warm); padding:14px; border-radius:10px; margin-bottom:14px; border:1px solid var(--border-gold);">
+                <div style="font-weight:700; color:var(--crimson-primary); margin-bottom:10px; font-size:0.95rem;">
+                  <i class="fa-solid fa-box-open"></i> ${item.title} (3 Ebooks HD Inclus)
+                </div>
+                <div style="display:flex; flex-direction:column; gap:8px;">
+                  ${files.map(f => `
+                    <div style="display:flex; justify-content:space-between; align-items:center; background:#fff; padding:10px 14px; border-radius:8px; border:1px solid var(--border-color); box-shadow:var(--shadow-subtle);">
+                      <div>
+                        <strong style="font-size:0.88rem; color:var(--text-main); display:block;">${f.title}</strong>
+                        <span style="font-size:0.75rem; color:var(--text-muted);">${f.file}</span>
+                      </div>
+                      <button type="button" class="btn btn-sm btn-primary" onclick="downloadEbookFile('${f.file}', '${f.file}')">
+                        <i class="fa-solid fa-download"></i> Télécharger
+                      </button>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            `;
+          } else {
+            const realFile = prod.pdfFile ? prod.pdfFile[lang] : '';
+            const filename = prod.downloadName ? prod.downloadName[lang] : `${item.title}.pdf`;
+            htmlDownloads += `
+              <div class="download-link-item" style="display:flex; justify-content:space-between; align-items:center; background:var(--bg-card); padding:12px 16px; border-radius:8px; border:1px solid var(--border-color); margin-bottom:10px; box-shadow:var(--shadow-subtle);">
+                <div>
+                  <strong style="display:block; font-size:0.9rem; color:var(--text-main);">${item.title}</strong>
+                  <span style="font-size:0.75rem; color:var(--text-muted);">${filename} (PDF HD Prêt)</span>
+                </div>
+                <button type="button" class="btn btn-sm btn-primary" onclick="downloadEbookFile('${realFile}', '${filename}')">
+                  <i class="fa-solid fa-download"></i> Télécharger
+                </button>
+              </div>
+            `;
+          }
+        }
+      });
+      dList.innerHTML = htmlDownloads;
+    }
 
     // Clear cart
     state.cart = [];
     updateCartUI();
-  }, 1200);
+  }, 1000);
 }
 
-function simulateDownload(filename) {
-  alert(`✨ Téléchargement immédiat de "${filename}" initié ! Vos bonus et fiches d'action sont prêts.`);
+function downloadEbookFile(realFile, filename) {
+  if (realFile) {
+    const link = document.createElement('a');
+    link.href = realFile;
+    link.download = filename || realFile;
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  } else {
+    alert(`✨ Téléchargement immédiat de "${filename}" initié ! Vos bonus et fiches d'action sont prêts.`);
+  }
 }
 
 // ==========================================================================
@@ -772,29 +852,34 @@ function showQuizResult() {
   const resultContainer = document.getElementById('quizResultBox');
   const cardContainer = document.getElementById('quizRecommendedCard');
 
-  cardContainer.innerHTML = `
-    <img src="${prod.covers[lang]}" alt="${prod.titles[lang]}" class="rec-thumb">
-    <div class="rec-details">
-      <span class="badge-featured" style="margin-bottom:8px;">${prod.badge}</span>
-      <h4>${prod.titles[lang]}</h4>
-      <p>${prod.subtitle[lang]}</p>
-      <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
-        <button type="button" class="btn btn-primary btn-sm" onclick="addToCart('${bestMatch}')">
-          <i class="fa-solid fa-cart-plus"></i> Commander ce guide (${formatPrice(prod.priceEur)})
-        </button>
-        <button type="button" class="btn btn-outline btn-sm" onclick="navigateTo('product-${bestMatch}')">
-          Lire la page de vente
-        </button>
+  if (cardContainer && prod) {
+    cardContainer.innerHTML = `
+      <img src="${prod.covers[lang]}" alt="${prod.titles[lang]}" class="rec-thumb">
+      <div class="rec-details">
+        <span class="badge-featured" style="margin-bottom:8px;">${prod.badge}</span>
+        <h4>${prod.titles[lang]}</h4>
+        <p>${prod.subtitle[lang]}</p>
+        <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+          <button type="button" class="btn btn-primary btn-sm" onclick="addToCart('${bestMatch}')">
+            <i class="fa-solid fa-cart-plus"></i> Commander ce guide (${formatPrice(prod.priceEur)})
+          </button>
+          <button type="button" class="btn btn-outline btn-sm" onclick="navigateTo('product-${bestMatch}')">
+            Lire la page de vente
+          </button>
+        </div>
       </div>
-    </div>
-  `;
+    `;
+  }
 
-  resultContainer.style.display = 'block';
+  if (resultContainer) {
+    resultContainer.style.display = 'block';
+  }
 }
 
 function resetQuiz() {
   state.quizAnswers = {};
-  document.getElementById('quizResultBox').style.display = 'none';
+  const resBox = document.getElementById('quizResultBox');
+  if (resBox) resBox.style.display = 'none';
   document.querySelectorAll('.quiz-step').forEach((step, idx) => {
     step.classList.toggle('active', idx === 0);
   });
@@ -803,21 +888,24 @@ function resetQuiz() {
 function scrollToQuiz() {
   navigateTo('home');
   setTimeout(() => {
-    document.getElementById('quiz-section').scrollIntoView({ behavior: 'smooth' });
+    const el = document.getElementById('quiz-section');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
   }, 200);
 }
 
 function scrollToReviews() {
   navigateTo('home');
   setTimeout(() => {
-    document.getElementById('reviews-section').scrollIntoView({ behavior: 'smooth' });
+    const el = document.getElementById('reviews-section');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
   }, 200);
 }
 
 function scrollToAuthor() {
   navigateTo('home');
   setTimeout(() => {
-    document.getElementById('author-section').scrollIntoView({ behavior: 'smooth' });
+    const el = document.getElementById('author-section');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
   }, 200);
 }
 
@@ -875,9 +963,13 @@ function showPurchaseToast() {
   const prod = products[item.book];
   if (!prod) return;
 
-  document.getElementById('toastUser').textContent = item.name;
-  document.getElementById('toastBook').textContent = prod.titles[state.currentLang];
-  document.getElementById('toastCoverImg').src = prod.covers[state.currentLang];
+  const userEl = document.getElementById('toastUser');
+  const bookEl = document.getElementById('toastBook');
+  const imgEl = document.getElementById('toastCoverImg');
+
+  if (userEl) userEl.textContent = item.name;
+  if (bookEl) bookEl.textContent = prod.titles[state.currentLang] || prod.titles.fr;
+  if (imgEl) imgEl.src = prod.covers[state.currentLang] || prod.covers.fr;
 
   toast.classList.add('show');
 
@@ -898,36 +990,40 @@ function updateStickyBar(viewId) {
   const bar = document.getElementById('stickyBuyBar');
   if (!bar) return;
 
-  if (viewId === 'product-attached') {
+  const titleEl = document.getElementById('stickyBookTitle');
+  const priceEl = document.getElementById('stickyBookPrice');
+
+  if (viewId === 'product-attached' || viewId === 'product-attached-en') {
     bar.classList.add('active');
-    document.getElementById('stickyBookTitle').textContent = products.attached.titles[state.currentLang];
-    document.getElementById('stickyBookPrice').textContent = formatPrice(products.attached.priceEur);
-  } else if (viewId === 'product-distance') {
+    if (titleEl) titleEl.textContent = products.attached.titles[state.currentLang];
+    if (priceEl) priceEl.textContent = formatPrice(products.attached.priceEur);
+  } else if (viewId === 'product-distance' || viewId === 'product-distance-en') {
     bar.classList.add('active');
-    document.getElementById('stickyBookTitle').textContent = products.distance.titles[state.currentLang];
-    document.getElementById('stickyBookPrice').textContent = formatPrice(products.distance.priceEur);
-  } else if (viewId === 'product-commit') {
+    if (titleEl) titleEl.textContent = products.distance.titles[state.currentLang];
+    if (priceEl) priceEl.textContent = formatPrice(products.distance.priceEur);
+  } else if (viewId === 'product-commit' || viewId === 'product-commit-en') {
     bar.classList.add('active');
-    document.getElementById('stickyBookTitle').textContent = products.commit.titles[state.currentLang];
-    document.getElementById('stickyBookPrice').textContent = formatPrice(products.commit.priceEur);
-  } else if (viewId === 'product-bundle') {
+    if (titleEl) titleEl.textContent = products.commit.titles[state.currentLang];
+    if (priceEl) priceEl.textContent = formatPrice(products.commit.priceEur);
+  } else if (viewId === 'product-bundle' || viewId === 'product-bundle-en') {
     bar.classList.add('active');
-    document.getElementById('stickyBookTitle').textContent = products.bundle.titles[state.currentLang];
-    document.getElementById('stickyBookPrice').textContent = formatPrice(products.bundle.priceEur);
+    if (titleEl) titleEl.textContent = products.bundle.titles[state.currentLang];
+    if (priceEl) priceEl.textContent = formatPrice(products.bundle.priceEur);
   } else {
     bar.classList.remove('active');
   }
 }
 
 function handleStickyBuy() {
-  if (state.currentView === 'product-attached') addToCart('attached');
-  else if (state.currentView === 'product-distance') addToCart('distance');
-  else if (state.currentView === 'product-commit') addToCart('commit');
-  else if (state.currentView === 'product-bundle') addToCart('bundle');
+  if (state.currentView.startsWith('product-attached')) addToCart('attached');
+  else if (state.currentView.startsWith('product-distance')) addToCart('distance');
+  else if (state.currentView.startsWith('product-commit')) addToCart('commit');
+  else if (state.currentView.startsWith('product-bundle')) addToCart('bundle');
 }
 
 function toggleFaq(btn) {
   const item = btn.closest('.faq-item');
+  if (!item) return;
   const isOpen = item.classList.contains('open');
 
   document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
@@ -949,44 +1045,48 @@ function initSearchEngine() {
   if (searchTrigger && searchModal) {
     searchTrigger.addEventListener('click', () => {
       searchModal.classList.add('open');
-      input.focus();
+      if (input) input.focus();
     });
 
-    closeBtn.addEventListener('click', () => {
-      searchModal.classList.remove('open');
-    });
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        searchModal.classList.remove('open');
+      });
+    }
 
     searchModal.addEventListener('click', (e) => {
       if (e.target === searchModal) searchModal.classList.remove('open');
     });
 
-    input.addEventListener('input', () => {
-      const q = input.value.trim().toLowerCase();
-      if (!q) {
-        resultsList.innerHTML = '';
-        return;
-      }
+    if (input && resultsList) {
+      input.addEventListener('input', () => {
+        const q = input.value.trim().toLowerCase();
+        if (!q) {
+          resultsList.innerHTML = '';
+          return;
+        }
 
-      const matches = Object.values(products).filter(p => 
-        p.titles.fr.toLowerCase().includes(q) || 
-        p.titles.en.toLowerCase().includes(q) ||
-        p.subtitle.fr.toLowerCase().includes(q)
-      );
+        const matches = Object.values(products).filter(p => 
+          p.titles.fr.toLowerCase().includes(q) || 
+          p.titles.en.toLowerCase().includes(q) ||
+          p.subtitle.fr.toLowerCase().includes(q)
+        );
 
-      if (matches.length === 0) {
-        resultsList.innerHTML = '<div style="padding:16px; color:var(--text-muted); text-align:center;">Aucun livre correspondant à votre recherche.</div>';
-      } else {
-        resultsList.innerHTML = matches.map(m => `
-          <div class="search-res-item" onclick="navigateTo('product-${m.id}'); document.getElementById('searchModal').classList.remove('open');">
-            <img src="${m.covers[state.currentLang]}" alt="${m.titles[state.currentLang]}">
-            <div>
-              <strong>${m.titles[state.currentLang]}</strong>
-              <div style="font-size:0.78rem; color:var(--crimson-primary); font-weight:700;">${formatPrice(m.priceEur)} • ${m.pages} Pages</div>
+        if (matches.length === 0) {
+          resultsList.innerHTML = '<div style="padding:16px; color:var(--text-muted); text-align:center;">Aucun livre correspondant à votre recherche.</div>';
+        } else {
+          resultsList.innerHTML = matches.map(m => `
+            <div class="search-res-item" onclick="navigateTo('product-${m.id}'); document.getElementById('searchModal').classList.remove('open');">
+              <img src="${m.covers[state.currentLang]}" alt="${m.titles[state.currentLang]}">
+              <div>
+                <strong>${m.titles[state.currentLang]}</strong>
+                <div style="font-size:0.78rem; color:var(--crimson-primary); font-weight:700;">${formatPrice(m.priceEur)} • ${m.pages} Pages</div>
+              </div>
             </div>
-          </div>
-        `).join('');
-      }
-    });
+          `).join('');
+        }
+      });
+    }
   }
 }
 
@@ -1002,15 +1102,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Dropdown Toggles (Lang & Currency)
   const langBtn = document.getElementById('langSwitchBtn');
+  const currBtn = document.getElementById('currencySwitchBtn');
+
   if (langBtn) {
     langBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       langBtn.classList.toggle('open');
-      document.getElementById('currencySwitchBtn').classList.remove('open');
+      if (currBtn) currBtn.classList.remove('open');
     });
   }
 
-  const currBtn = document.getElementById('currencySwitchBtn');
   if (currBtn) {
     currBtn.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -1043,10 +1144,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeMobileBtn = document.getElementById('closeMobileDrawerBtn');
   const mobileDrawer = document.getElementById('mobileDrawer');
 
-  if (mobileToggle) {
+  if (mobileToggle && mobileDrawer) {
     mobileToggle.addEventListener('click', () => mobileDrawer.classList.add('open'));
   }
-  if (closeMobileBtn) {
+  if (closeMobileBtn && mobileDrawer) {
     closeMobileBtn.addEventListener('click', () => mobileDrawer.classList.remove('open'));
   }
 
@@ -1061,7 +1162,8 @@ document.addEventListener('DOMContentLoaded', () => {
     tab.addEventListener('click', () => {
       document.querySelectorAll('.pay-tab').forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
-      const method = tab.querySelector('input').value;
+      const input = tab.querySelector('input');
+      const method = input ? input.value : 'card';
       const cardFields = document.getElementById('cardSimFields');
       if (cardFields) {
         cardFields.style.display = method === 'card' ? 'block' : 'none';
