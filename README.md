@@ -25,7 +25,7 @@ Boutique e-commerce haute conversion et application web monopage (SPA) dédiée 
 - **100% Bilingue (Français 🇫🇷 & English 🇬🇧) :** Pages de vente dédiées avec copywriting natif et permutation instantanée des couvertures et bannières 3D.
 - **Conversion Multi-Devises en Temps Réel :** Prise en charge automatique de `XOF (FCFA)`, `EUR (€)`, `USD ($)`, `CAD ($)`, `GBP (£)` au tarif uniforme de **2 950 FCFA ≈ 4,50 € ≈ $5.25**.
 - **Tunnel de Paiement Chariow Intégré :** Liens directs vers les checkouts sécurisés officiels par produit et par langue.
-- **Outils Interactifs :** Test diagnostic d'auto-lucidité en 3 questions avec recommandation personnalisée, panier latéral avec barre de progression de bonus, et notifications sociales en direct.
+- **Outils Interactifs :** Test diagnostic d'auto-lucidité en 3 questions avec recommandation personnalisée et redirection directe vers l'offre Chariow, et notifications sociales en direct.
 
 ---
 

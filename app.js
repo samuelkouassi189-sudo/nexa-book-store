@@ -1,11 +1,10 @@
 /* ==========================================================================
-   NEXA BOOK - APP.JS (INTERACTIVE STORE ENGINE & ROUTER)
+   NEXA BOOK - APP.JS (DIRECT CHARIOW SALES ENGINE & ROUTER)
    - SPA View Router (FR & EN Editions for the 3 Master Ebooks)
    - Bilingual Engine (FR / EN) with dynamic asset switching (covers, banners)
    - Real-time Multi-Currency Engine (EUR, USD, CAD, GBP, XOF)
-   - Slide-out Cart Drawer with Live Promo Codes & Progress Bar
-   - Real & Simulated Checkout Engine with Instant PDF Downloads
-   - Diagnostic Quiz with Personalized Book Matching
+   - Direct External Checkout Integration (Official Chariow Payment Platform)
+   - Diagnostic Quiz with Personalized Book Matching & Direct Purchase
    - Reviews Filter & Live Social Proof Toasts
    ========================================================================== */
 
@@ -14,8 +13,6 @@ const state = {
   currentLang: 'fr',
   currentCurrency: 'EUR', // default to EUR (€)
   currentView: 'home',
-  appliedDiscountPercent: 0,
-  cart: [],
   quizAnswers: {},
   currencyRates: {
     EUR: { symbol: '€', rate: 1.0, position: 'after' },
@@ -328,9 +325,6 @@ function updateAllPricesInDOM() {
       el.textContent = formatPrice(baseEur);
     }
   });
-
-  // Update header cart amount
-  updateCartUI();
 }
 
 function setCurrency(currCode) {
@@ -360,6 +354,7 @@ const i18nDict = {
     nav_quiz: "Diagnostic Gratuit",
     nav_reviews: "Avis (+25k)",
     nav_author: "L'Approche",
+    header_action_btn: "Commander (4,50 €)",
     tag_attached: "Schémas Inconscients",
     title_attached: "Pourquoi tu t'attaches aux mauvaises personnes",
     desc_attached_short: "Briser la répétition & Plan 14 jours",
@@ -385,6 +380,7 @@ const i18nDict = {
     nav_quiz: "Free Assessment",
     nav_reviews: "Reviews (+25k)",
     nav_author: "The Framework",
+    header_action_btn: "Get Ebook ($5.25)",
     tag_attached: "Hidden Patterns",
     title_attached: "Why You Always Get Attached to the Wrong People",
     desc_attached_short: "Break the cycle & 14-day blueprint",
@@ -493,253 +489,6 @@ function switchHeroSlide(bookKey) {
 }
 
 // ==========================================================================
-// SHOPPING CART SYSTEM & DRAWER
-// ==========================================================================
-function openCart() {
-  const drawer = document.getElementById('cartDrawer');
-  const overlay = document.getElementById('cartOverlay');
-  if (drawer) drawer.classList.add('open');
-  if (overlay) overlay.classList.add('open');
-}
-
-function closeCart() {
-  const drawer = document.getElementById('cartDrawer');
-  const overlay = document.getElementById('cartOverlay');
-  if (drawer) drawer.classList.remove('open');
-  if (overlay) overlay.classList.remove('open');
-}
-
-function addToCart(productId) {
-  const isExplicitEn = String(productId).endsWith('_en');
-  const baseKey = String(productId).replace('_en', '');
-  const prod = products[baseKey] || products[productId];
-  if (!prod) return;
-
-  const lang = isExplicitEn ? 'en' : state.currentLang;
-  const existing = state.cart.find(item => item.id === prod.id);
-  if (existing) {
-    existing.qty += 1;
-  } else {
-    state.cart.push({
-      id: prod.id,
-      title: prod.titles[lang] || prod.titles.fr,
-      priceEur: prod.priceEur,
-      cover: prod.covers[lang] || prod.covers.fr,
-      qty: 1
-    });
-  }
-
-  updateCartUI();
-  openCart();
-}
-
-function removeFromCart(productId) {
-  state.cart = state.cart.filter(item => item.id !== productId);
-  updateCartUI();
-}
-
-function applyCoupon() {
-  const input = document.getElementById('couponInput');
-  const feedback = document.getElementById('couponFeedback');
-  if (!input || !feedback) return;
-  const code = (input.value || '').trim().toUpperCase();
-
-  if (code === 'CLARTE20' || code === 'NEXA20') {
-    state.appliedDiscountPercent = 20;
-    feedback.className = 'coupon-feedback success';
-    feedback.textContent = '✅ Code promo -20% appliqué avec succès !';
-  } else if (code === 'NEXA10' || code === 'LUCIDITE10') {
-    state.appliedDiscountPercent = 10;
-    feedback.className = 'coupon-feedback success';
-    feedback.textContent = '✅ Code promo -10% appliqué avec succès !';
-  } else {
-    feedback.className = 'coupon-feedback error';
-    feedback.textContent = '❌ Code promo invalide ou expiré.';
-  }
-
-  updateCartUI();
-}
-
-function updateCartUI() {
-  const listContainer = document.getElementById('cartItemsList');
-  const emptyState = document.getElementById('emptyCartState');
-  const badge = document.getElementById('cartCountBadge');
-  const headerTotal = document.getElementById('headerCartTotal');
-  const drawerCount = document.getElementById('cartDrawerCount');
-  
-  const subtotalEl = document.getElementById('cartSubtotal');
-  const discountRow = document.getElementById('discountRow');
-  const discountEl = document.getElementById('cartDiscount');
-  const finalTotalEl = document.getElementById('cartFinalTotal');
-  const modalCheckoutTotal = document.getElementById('modalCheckoutTotal');
-
-  const totalItems = state.cart.reduce((sum, item) => sum + item.qty, 0);
-  if (badge) badge.textContent = totalItems;
-  if (drawerCount) drawerCount.textContent = `(${totalItems})`;
-
-  let subtotalEur = state.cart.reduce((sum, item) => sum + (item.priceEur * item.qty), 0);
-  let discountEur = (subtotalEur * state.appliedDiscountPercent) / 100;
-  let finalTotalEur = Math.max(0, subtotalEur - discountEur);
-
-  if (headerTotal) headerTotal.textContent = formatPrice(finalTotalEur);
-  if (subtotalEl) subtotalEl.textContent = formatPrice(subtotalEur);
-
-  if (discountRow && discountEl) {
-    if (state.appliedDiscountPercent > 0) {
-      discountRow.style.display = 'flex';
-      discountEl.textContent = `-${formatPrice(discountEur)}`;
-    } else {
-      discountRow.style.display = 'none';
-    }
-  }
-
-  if (finalTotalEl) finalTotalEl.textContent = formatPrice(finalTotalEur);
-  if (modalCheckoutTotal) {
-    modalCheckoutTotal.textContent = formatPrice(finalTotalEur);
-  }
-
-  // Update Progress Bar
-  const progressText = document.getElementById('cartProgressText');
-  const progressBar = document.getElementById('cartProgressBar');
-  if (progressBar && progressText) {
-    if (totalItems >= 2) {
-      progressBar.style.width = '100%';
-      progressText.innerHTML = '🎉 <strong>FÉLICITATIONS !</strong> Cahier d\'intégration VIP débloqué gratuitement !';
-    } else if (totalItems === 1) {
-      progressBar.style.width = '50%';
-      progressText.innerHTML = '🎁 Ajoutez un 2ème livre pour débloquer le Guide Bonus VIP !';
-    } else {
-      progressBar.style.width = '15%';
-      progressText.innerHTML = '✨ Choisissez un ebook pour débuter votre commande';
-    }
-  }
-
-  // Render items list
-  if (listContainer) {
-    if (state.cart.length === 0) {
-      listContainer.innerHTML = '';
-      if (emptyState) {
-        listContainer.appendChild(emptyState);
-        emptyState.style.display = 'block';
-      }
-    } else {
-      if (emptyState) emptyState.style.display = 'none';
-      listContainer.innerHTML = state.cart.map(item => `
-        <div class="cart-item-card">
-          <img src="${item.cover}" alt="${item.title}" class="cart-item-thumb">
-          <div class="cart-item-info">
-            <span class="cart-item-title">${item.title}</span>
-            <span class="cart-item-price">${formatPrice(item.priceEur * item.qty)} ${item.qty > 1 ? `(${item.qty}x)` : ''}</span>
-          </div>
-          <button type="button" class="remove-item-btn" onclick="removeFromCart('${item.id}')" title="Supprimer">
-            <i class="fa-solid fa-trash"></i>
-          </button>
-        </div>
-      `).join('');
-    }
-  }
-}
-
-// ==========================================================================
-// CHECKOUT ENGINE & REAL PDF DOWNLOADS
-// ==========================================================================
-function openCheckoutModal() {
-  if (state.cart.length === 0) {
-    alert('Votre panier est vide. Veuillez ajouter un ebook.');
-    return;
-  }
-  closeCart();
-  const modal = document.getElementById('checkoutModal');
-  const form = document.getElementById('checkoutForm');
-  const success = document.getElementById('orderSuccessScreen');
-  if (modal) modal.classList.add('open');
-  if (form) form.style.display = 'block';
-  if (success) success.style.display = 'none';
-}
-
-function closeCheckoutModal() {
-  const modal = document.getElementById('checkoutModal');
-  if (modal) modal.classList.remove('open');
-}
-
-function processSimulatedPayment(e) {
-  e.preventDefault();
-  const btn = document.getElementById('submitOrderBtn');
-  const emailInput = document.getElementById('custEmail');
-  const email = emailInput ? emailInput.value : 'client@nexa-book.com';
-
-  if (btn) {
-    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Traitement sécurisé en cours...';
-    btn.disabled = true;
-  }
-
-  const purchasedItems = [...state.cart];
-
-  setTimeout(() => {
-    if (btn) {
-      btn.innerHTML = '<i class="fa-solid fa-lock"></i> Valider et Télécharger mes Ebooks';
-      btn.disabled = false;
-    }
-
-    // Show success screen
-    const form = document.getElementById('checkoutForm');
-    const success = document.getElementById('orderSuccessScreen');
-    const emailDisp = document.getElementById('confEmailDisplay');
-    const orderNum = document.getElementById('confOrderNum');
-
-    if (form) form.style.display = 'none';
-    if (success) success.style.display = 'block';
-    if (emailDisp) emailDisp.textContent = email;
-    if (orderNum) orderNum.textContent = `#NX-${Math.floor(10000 + Math.random() * 90000)}`;
-
-    // Build downloads list
-    const dList = document.getElementById('downloadLinksList');
-    const lang = state.currentLang;
-
-    if (dList) {
-      let htmlDownloads = '';
-      purchasedItems.forEach(item => {
-        const prod = products[item.id];
-        if (prod) {
-          const realFile = prod.pdfFile ? prod.pdfFile[lang] : '';
-          const filename = prod.downloadName ? prod.downloadName[lang] : `${item.title}.pdf`;
-          htmlDownloads += `
-            <div class="download-link-item" style="display:flex; justify-content:space-between; align-items:center; background:var(--bg-card); padding:12px 16px; border-radius:8px; border:1px solid var(--border-color); margin-bottom:10px; box-shadow:var(--shadow-subtle);">
-              <div>
-                <strong style="display:block; font-size:0.9rem; color:var(--text-main);">${item.title}</strong>
-                <span style="font-size:0.75rem; color:var(--text-muted);">${filename} (PDF HD Prêt)</span>
-              </div>
-              <button type="button" class="btn btn-sm btn-primary" onclick="downloadEbookFile('${realFile}', '${filename}')">
-                <i class="fa-solid fa-download"></i> Télécharger
-              </button>
-            </div>
-          `;
-        }
-      });
-      dList.innerHTML = htmlDownloads;
-    }
-
-    // Clear cart
-    state.cart = [];
-    updateCartUI();
-  }, 1000);
-}
-
-function downloadEbookFile(realFile, filename) {
-  if (realFile) {
-    const link = document.createElement('a');
-    link.href = realFile;
-    link.download = filename || realFile;
-    link.target = '_blank';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  } else {
-    alert(`✨ Téléchargement immédiat de "${filename}" initié ! Vos bonus et fiches d'action sont prêts.`);
-  }
-}
-
-// ==========================================================================
 // INTERACTIVE DIAGNOSTIC QUIZ
 // ==========================================================================
 function selectQuizAnswer(questionNum, bookRecommendation) {
@@ -766,11 +515,15 @@ function showQuizResult() {
   if (counts.distance > counts.attached && counts.distance >= counts.commit) bestMatch = 'distance';
   if (counts.commit > counts.attached && counts.commit > counts.distance) bestMatch = 'commit';
 
-  const prod = products[bestMatch];
+  const prod = products[bestMatch] || products.attached;
   const lang = state.currentLang;
+  const targetKey = lang === 'en' ? `${bestMatch}_en` : bestMatch;
 
   const resultContainer = document.getElementById('quizResultBox');
   const cardContainer = document.getElementById('quizRecommendedCard');
+
+  const btnText = lang === 'en' ? `🔥 Get This Ebook ($5.25 / 4.50 €)` : `🔥 Commander ce guide (${formatPrice(prod.priceEur)})`;
+  const readText = lang === 'en' ? `Read Sales Page` : `Lire la page de vente`;
 
   if (cardContainer && prod) {
     cardContainer.innerHTML = `
@@ -779,12 +532,12 @@ function showQuizResult() {
         <span class="badge-featured" style="margin-bottom:8px;">${prod.badge}</span>
         <h4>${prod.titles[lang]}</h4>
         <p>${prod.subtitle[lang]}</p>
-        <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
-          <button type="button" class="btn btn-primary btn-sm" onclick="addToCart('${bestMatch}')">
-            <i class="fa-solid fa-cart-plus"></i> Commander ce guide (${formatPrice(prod.priceEur)})
+        <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-top:12px;">
+          <button type="button" class="btn btn-primary btn-sm shadow-glow" onclick="redirectToChariow('${targetKey}')">
+            <i class="fa-solid fa-lock"></i> ${btnText}
           </button>
-          <button type="button" class="btn btn-outline btn-sm" onclick="navigateTo('product-${bestMatch}')">
-            Lire la page de vente
+          <button type="button" class="btn btn-outline btn-sm" onclick="navigateTo('product-${bestMatch}${lang === 'en' ? '-en' : ''}')">
+            ${readText}
           </button>
         </div>
       </div>
@@ -803,6 +556,14 @@ function resetQuiz() {
   document.querySelectorAll('.quiz-step').forEach((step, idx) => {
     step.classList.toggle('active', idx === 0);
   });
+}
+
+function scrollToCatalog() {
+  navigateTo('home');
+  setTimeout(() => {
+    const el = document.getElementById('catalog-section');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  }, 200);
 }
 
 function scrollToQuiz() {
@@ -931,9 +692,13 @@ function updateStickyBar(viewId) {
 }
 
 function handleStickyBuy() {
-  if (state.currentView.startsWith('product-attached')) addToCart('attached');
-  else if (state.currentView.startsWith('product-distance')) addToCart('distance');
-  else if (state.currentView.startsWith('product-commit')) addToCart('commit');
+  if (state.currentView === 'product-attached-en') redirectToChariow('attached_en');
+  else if (state.currentView === 'product-attached') redirectToChariow('attached');
+  else if (state.currentView === 'product-distance-en') redirectToChariow('distance_en');
+  else if (state.currentView === 'product-distance') redirectToChariow('distance');
+  else if (state.currentView === 'product-commit-en') redirectToChariow('commit_en');
+  else if (state.currentView === 'product-commit') redirectToChariow('commit');
+  else redirectToChariow('attached');
 }
 
 function toggleFaq(btn) {
@@ -1069,26 +834,6 @@ document.addEventListener('DOMContentLoaded', () => {
     closeMobileBtn.addEventListener('click', () => mobileDrawer.classList.remove('open'));
   }
 
-  // Cart Trigger
-  const cartBtn = document.getElementById('openCartBtn');
-  if (cartBtn) {
-    cartBtn.addEventListener('click', openCart);
-  }
-
-  // Payment mode tabs in Checkout
-  document.querySelectorAll('.pay-tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      document.querySelectorAll('.pay-tab').forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      const input = tab.querySelector('input');
-      const method = input ? input.value : 'card';
-      const cardFields = document.getElementById('cardSimFields');
-      if (cardFields) {
-        cardFields.style.display = method === 'card' ? 'block' : 'none';
-      }
-    });
-  });
-
   // Hash change routing
   window.addEventListener('hashchange', handleHashChange);
   handleHashChange();
@@ -1110,5 +855,7 @@ function redirectToChariow(productId) {
   if (!prod) return;
   const targetLang = isExplicitEn ? 'en' : (state.currentLang || 'fr');
   const link = prod.checkoutLinks[targetLang] || prod.checkoutLinks.en || prod.checkoutLinks.fr;
-  window.open(link, '_blank');
+  if (link) {
+    window.open(link, '_blank');
+  }
 }
