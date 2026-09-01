@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NEXA BOOK | Librairie d'Excellence & Guides de Psychologie Relationnelle</title>
-  <meta name="description" content="Nexa Book - Boutique officielle des guides de psychologie relationnelle et d'attachement adulte par Mystère d'Amour. Clarté radicale, scripts prêts à l'emploi et transformation affective immédiate.">
+  <title>NEXA BOOK | Éditions & Librairie Digitale d'Excellence</title>
+  <meta name="description" content="Nexa Book - Éditions digitales et guides stratégiques d'excellence. Psychologie, Business, Productivité, Mindset et Relations. Méthodes pragmatiques et téléchargement immédiat.">
   
   <!-- Favicon with Nexa Book Logo -->
   <link rel="icon" type="image/jpeg" href="assets/logo_nexa_book.jpg">
@@ -27,7 +27,7 @@
     <div class="container announcement-inner">
       <div class="announcement-message">
         <span class="pulse-dot"></span>
-        <span id="announcementText">🔥 <strong>OFFRE SPÉCIALE DU MOMENT :</strong> <strong>4,50 € (2 950 FCFA)</strong> par livre | Téléchargement PDF HD Immédiat</span>
+        <span id="announcementText">⚡ <strong>LIBRAIRIE OFFICIELLE NEXA BOOK :</strong> Guides d'Excellence & Méthodes d'Action | <strong>4,50 € (2 950 FCFA)</strong> | Téléchargement PDF HD Immédiat</span>
       </div>
       <div class="announcement-controls">
         <!-- Language Switcher -->
@@ -71,7 +71,7 @@
         </div>
         <div class="logo-text-group">
           <span class="logo-name">NEXA<span>BOOK</span></span>
-          <span class="logo-sub">PSYCHOLOGIE RELATIONNELLE</span>
+          <span class="logo-sub">ÉDITIONS & GUIDES STRATÉGIQUES</span>
         </div>
       </a>
 
@@ -81,44 +81,55 @@
           <span data-i18n="nav_home">Accueil Boutique</span>
         </a>
         
+        <a href="#catalog-section" class="nav-link" onclick="scrollToCatalog()">
+          <span data-i18n="nav_catalog">Tous les Livres</span>
+        </a>
+
         <div class="nav-dropdown-item">
           <a href="javascript:void(0)" class="nav-link dropdown-toggle">
-            <span data-i18n="nav_bestsellers">Les 3 Ebooks</span> <i class="fa-solid fa-angle-down"></i>
+            <span data-i18n="nav_categories">Catégories</span> <i class="fa-solid fa-angle-down"></i>
           </a>
           <div class="mega-menu">
-            <a href="#product-attached" class="mega-menu-card" onclick="navigateTo('product-attached'); return false;">
-              <img src="assets/cover_attached_fr.jpg" alt="Attachement" class="mega-thumb" id="navThumbAttached">
+            <a href="#catalog-section" class="mega-menu-card" onclick="filterByCategory('psychology'); scrollToCatalog();">
+              <div class="cat-icon-wrap psychology" style="width:38px; height:38px; font-size:1rem; margin-bottom:0;"><i class="fa-solid fa-brain"></i></div>
               <div class="mega-info">
-                <span class="mega-tag" data-i18n="tag_attached">Schémas Inconscients</span>
-                <strong data-i18n="title_attached">Pourquoi tu t'attaches aux mauvaises personnes</strong>
-                <p data-i18n="desc_attached_short">Briser la répétition & Plan 14 jours (86 p.)</p>
-                <span class="mega-price-tag">2 950 FCFA / 4,50 €</span>
+                <strong style="color:var(--text-primary);">Psychologie & Mental</strong>
+                <p>Comprendre vos schémas et mécanismes inconscients</p>
               </div>
             </a>
-            <a href="#product-distance" class="mega-menu-card" onclick="navigateTo('product-distance'); return false;">
-              <img src="assets/cover_distance_fr.jpg" alt="Distance" class="mega-thumb" id="navThumbDistance">
+            <a href="#catalog-section" class="mega-menu-card" onclick="filterByCategory('business'); scrollToCatalog();">
+              <div class="cat-icon-wrap business" style="width:38px; height:38px; font-size:1rem; margin-bottom:0;"><i class="fa-solid fa-briefcase"></i></div>
               <div class="mega-info">
-                <span class="mega-tag" data-i18n="tag_distance">Urgence & Silence</span>
-                <strong data-i18n="title_distance">Pourquoi il/elle s'éloigne de toi</strong>
-                <p data-i18n="desc_distance_short">15 Scripts situationnels & Plan 7 jours (50 p.)</p>
-                <span class="mega-price-tag">2 950 FCFA / 4,50 €</span>
+                <strong style="color:var(--text-primary);">Business & Stratégie</strong>
+                <p>Offres irrésistibles, acquisition et scaling</p>
               </div>
             </a>
-            <a href="#product-commit" class="mega-menu-card" onclick="navigateTo('product-commit'); return false;">
-              <img src="assets/cover_commit_fr.jpg" alt="Engagement" class="mega-thumb" id="navThumbCommit">
+            <a href="#catalog-section" class="mega-menu-card" onclick="filterByCategory('productivity'); scrollToCatalog();">
+              <div class="cat-icon-wrap productivity" style="width:38px; height:38px; font-size:1rem; margin-bottom:0;"><i class="fa-solid fa-bolt"></i></div>
               <div class="mega-info">
-                <span class="mega-tag" data-i18n="tag_commit">Zone Grise & Amour</span>
-                <strong data-i18n="title_commit">Pourquoi il/elle t'aime mais ne s'engage pas</strong>
-                <p data-i18n="desc_commit_short">Méthode 4 Réalités & Conversation de clarté (80 p.)</p>
-                <span class="mega-price-tag">2 950 FCFA / 4,50 €</span>
+                <strong style="color:var(--text-primary);">Productivité & Focus</strong>
+                <p>Discipline radicale et élimination des distractions</p>
               </div>
             </a>
-            
+            <a href="#catalog-section" class="mega-menu-card" onclick="filterByCategory('mindset'); scrollToCatalog();">
+              <div class="cat-icon-wrap mindset" style="width:38px; height:38px; font-size:1rem; margin-bottom:0;"><i class="fa-solid fa-coins"></i></div>
+              <div class="mega-info">
+                <strong style="color:var(--text-primary);">Finances & Mindset</strong>
+                <p>Lois de l'argent et souveraineté financière</p>
+              </div>
+            </a>
+            <a href="#catalog-section" class="mega-menu-card" onclick="filterByCategory('relations'); scrollToCatalog();">
+              <div class="cat-icon-wrap relations" style="width:38px; height:38px; font-size:1rem; margin-bottom:0;"><i class="fa-solid fa-comments"></i></div>
+              <div class="mega-info">
+                <strong style="color:var(--text-primary);">Relations & Clarté</strong>
+                <p>Communication souveraine et fin des zones grises</p>
+              </div>
+            </a>
           </div>
         </div>
 
         <a href="#quiz-section" class="nav-link" onclick="scrollToQuiz()">
-          <i class="fa-solid fa-wand-magic-sparkles"></i> <span data-i18n="nav_quiz">Diagnostic Gratuit</span>
+          <i class="fa-solid fa-wand-magic-sparkles text-gold"></i> <span data-i18n="nav_quiz">Guide Finder (1 min)</span>
         </a>
         
         <a href="#reviews-section" class="nav-link" onclick="scrollToReviews()">
@@ -126,20 +137,20 @@
         </a>
 
         <a href="#author-section" class="nav-link" onclick="scrollToAuthor()">
-          <span data-i18n="nav_author">L'Approche</span>
+          <span data-i18n="nav_author">L'Exigence Éditoriale</span>
         </a>
       </nav>
 
       <!-- Header Actions -->
       <div class="header-actions">
         <!-- Search Trigger -->
-        <button type="button" class="icon-btn" id="searchTriggerBtn" title="Rechercher" aria-label="Rechercher">
+        <button type="button" class="icon-btn" id="searchTriggerBtn" title="Rechercher un livre" aria-label="Rechercher">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
 
         <!-- Header Action Button to Catalog -->
         <a href="#catalog-section" class="btn btn-primary btn-sm header-action-btn" onclick="scrollToCatalog()">
-          <i class="fa-solid fa-bolt"></i> <span data-i18n="header_action_btn">Commander (4,50 €)</span>
+          <i class="fa-solid fa-book-open"></i> <span data-i18n="header_action_btn">Commander (4,50 €)</span>
         </a>
 
         <!-- Mobile Menu Toggle -->
@@ -166,17 +177,32 @@
         <a href="#home" class="mobile-nav-link" onclick="navigateTo('home'); closeMobileMenu();">
           <i class="fa-solid fa-house"></i> <span data-i18n="nav_home">Accueil Boutique</span>
         </a>
-        <div class="mobile-nav-divider">NOS 3 GUIDES INDIVIDUELS</div>
-        <a href="#product-attached" class="mobile-nav-link" onclick="navigateTo('product-attached'); closeMobileMenu();">
-          <i class="fa-solid fa-heart-crack text-danger"></i> <span>Pourquoi tu t'attaches aux mauvaises personnes</span>
+        <a href="#catalog-section" class="mobile-nav-link" onclick="scrollToCatalog(); closeMobileMenu();">
+          <i class="fa-solid fa-layer-group"></i> <span>Catalogue Complet</span>
         </a>
-        <a href="#product-distance" class="mobile-nav-link" onclick="navigateTo('product-distance'); closeMobileMenu();">
-          <i class="fa-solid fa-person-walking-arrow-right text-primary"></i> <span>Pourquoi il/elle s'éloigne de toi</span>
+        <div class="mobile-nav-divider">CATÉGORIES D'EXCELLENCE</div>
+        <a href="#catalog-section" class="mobile-nav-link" onclick="filterByCategory('psychology'); scrollToCatalog(); closeMobileMenu();">
+          <i class="fa-solid fa-brain" style="color:var(--cat-psychology);"></i> <span>Psychologie & Mental</span>
         </a>
-        <a href="#product-commit" class="mobile-nav-link" onclick="navigateTo('product-commit'); closeMobileMenu();">
-          <i class="fa-solid fa-lock-open text-accent"></i> <span>Pourquoi il/elle t'aime mais ne s'engage pas</span>
+        <a href="#catalog-section" class="mobile-nav-link" onclick="filterByCategory('business'); scrollToCatalog(); closeMobileMenu();">
+          <i class="fa-solid fa-briefcase" style="color:var(--cat-business);"></i> <span>Business & Stratégie</span>
         </a>
-        
+        <a href="#catalog-section" class="mobile-nav-link" onclick="filterByCategory('productivity'); scrollToCatalog(); closeMobileMenu();">
+          <i class="fa-solid fa-bolt" style="color:var(--cat-productivity);"></i> <span>Productivité & Focus</span>
+        </a>
+        <a href="#catalog-section" class="mobile-nav-link" onclick="filterByCategory('mindset'); scrollToCatalog(); closeMobileMenu();">
+          <i class="fa-solid fa-coins" style="color:var(--cat-mindset);"></i> <span>Finances & Mindset</span>
+        </a>
+        <a href="#catalog-section" class="mobile-nav-link" onclick="filterByCategory('relations'); scrollToCatalog(); closeMobileMenu();">
+          <i class="fa-solid fa-comments" style="color:var(--cat-relations);"></i> <span>Relations & Clarté</span>
+        </a>
+        <div class="mobile-nav-divider">OUTILS & SERVICES</div>
+        <a href="#quiz-section" class="mobile-nav-link" onclick="scrollToQuiz(); closeMobileMenu();">
+          <i class="fa-solid fa-wand-magic-sparkles text-gold"></i> <span>Guide Finder (Orientation)</span>
+        </a>
+        <a href="#reviews-section" class="mobile-nav-link" onclick="scrollToReviews(); closeMobileMenu();">
+          <i class="fa-solid fa-star text-gold"></i> <span>Avis Lecteurs (+25k)</span>
+        </a>
       </nav>
       <div class="mobile-drawer-footer">
         <div class="trust-pill"><i class="fa-solid fa-shield-halved"></i> Téléchargement Immédiat Garanti</div>
@@ -214,32 +240,48 @@
         </div>
 
         <div class="hero-bg-blobs">
-          <div class="blob blob-1"></div>
-          <div class="blob blob-2"></div>
+          <div class="blob blob-1" style="background:#2563eb;"></div>
+          <div class="blob blob-2" style="background:#d97706;"></div>
         </div>
 
         <div class="container hero-grid">
           <div class="hero-text-col">
             <div class="hero-pill-badge">
               <span class="star-rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
-              <span data-i18n="hero_pill_text">+25 000 lecteurs guidés vers la clarté</span>
+              <span data-i18n="hero_pill_text">+50 000 guides pratiques téléchargés</span>
             </div>
 
             <h1 class="hero-main-title">
-              <span data-i18n="hero_title_line1">Comprenez Enfin</span>
-              <span class="gradient-text" data-i18n="hero_title_line2">Ce Qui Se Joue Dans Votre Cœur.</span>
+              <span data-i18n="hero_title_line1">L'Excellence Éditoriale</span>
+              <span class="gradient-text" data-i18n="hero_title_line2">Pour Développer Votre Esprit & Vos Compétences.</span>
             </h1>
 
             <p class="hero-subtitle" data-i18n="hero_subtitle">
-              Arrêtez de deviner, d'angoisser et de répéter les mêmes histoires douloureuses. La collection officielle <strong>Nexa Book / Mystère d'Amour</strong> vous donne les clés psychologiques, les scripts et les plans d'action pour reprendre votre souveraineté affective.
+              Des méthodes claires, des plans d'action pragmatiques et des ouvrages de référence pour votre psychologie, votre business, votre focus et vos relations.
             </p>
+
+            <!-- Quick Search Input in Hero -->
+            <div class="hero-search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="heroSearchInput" placeholder="Quel sujet souhaitez-vous maîtriser aujourd'hui ?">
+              <button type="button" class="btn btn-primary btn-sm" onclick="initSearchEngine()"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+
+            <!-- Category Chips -->
+            <div class="hero-category-chips">
+              <button type="button" class="hero-chip-btn" onclick="filterByCategory('psychology'); scrollToCatalog();"><i class="fa-solid fa-brain"></i> Psychologie</button>
+              <button type="button" class="hero-chip-btn" onclick="filterByCategory('business'); scrollToCatalog();"><i class="fa-solid fa-briefcase"></i> Business</button>
+              <button type="button" class="hero-chip-btn" onclick="filterByCategory('productivity'); scrollToCatalog();"><i class="fa-solid fa-bolt"></i> Productivité</button>
+              <button type="button" class="hero-chip-btn" onclick="filterByCategory('mindset'); scrollToCatalog();"><i class="fa-solid fa-coins"></i> Finances</button>
+              <button type="button" class="hero-chip-btn" onclick="filterByCategory('relations'); scrollToCatalog();"><i class="fa-solid fa-comments"></i> Relations</button>
+            </div>
 
             <!-- Hero CTAs -->
             <div class="hero-cta-group">
-              <a href="#catalog-section" class="btn btn-primary btn-lg shadow-glow" onclick="document.getElementById('catalog-section').scrollIntoView({behavior:'smooth'})">
-                <i class="fa-solid fa-compass"></i> <span data-i18n="btn_explore_catalog">Explorer les 3 Ebooks (4,50 €)</span>
+              <a href="#catalog-section" class="btn btn-primary btn-lg shadow-glow" onclick="scrollToCatalog()">
+                <i class="fa-solid fa-book-open"></i> <span data-i18n="btn_explore_catalog">Explorer le Catalogue (4,50 €)</span>
               </a>
-              <a href="#quiz-section" class="btn btn-secondary btn-lg" onclick="scrollToQuiz()"><i class="fa-solid fa-wand-magic-sparkles"></i> <span data-i18n="nav_quiz">Diagnostic Gratuit (1 min)</span></a>
+              <a href="#quiz-section" class="btn btn-secondary btn-lg" onclick="scrollToQuiz()"><i class="fa-solid fa-wand-magic-sparkles text-gold"></i> <span data-i18n="nav_quiz">Guide Finder (1 min)</span></a>
             </div>
 
             <!-- Trust Bar Highlights -->
@@ -263,7 +305,7 @@
           <div class="hero-visual-col">
             <div class="hero-card-display">
               <div class="floating-badge-top">
-                <i class="fa-solid fa-fire text-danger"></i> <span data-i18n="badge_bestseller">BEST-SELLER N°1</span>
+                <i class="fa-solid fa-fire text-danger"></i> <span data-i18n="badge_bestseller">COLLECTION ÉDITIONS</span>
               </div>
 
               <!-- Main Interactive Cover Showcase -->
@@ -291,459 +333,116 @@
         </div>
       </section>
 
-      <!-- Social Media Buzz / TikTok & Instagram Viral Section -->
-      <section class="social-buzz-section">
+      <!-- Category Showcase Section -->
+      <section class="category-showcase-section">
         <div class="container">
           <div class="section-header text-center">
-            <div class="section-badge"><i class="fa-brands fa-tiktok"></i> <i class="fa-brands fa-instagram"></i> LE PHÉNOMÈNE SUR LES RÉSEAUX</div>
-            <h2 class="section-title">Ceux qui en parlent sur TikTok & Instagram</h2>
-            <p class="section-sub">Plus de <strong>4.8 Millions de vues</strong> cumulées. Découvrez pourquoi ces livres font vibrer toute une communauté en quête de vérité.</p>
+            <div class="section-badge"><i class="fa-solid fa-compass"></i> EXPLORER PAR DOMAINE</div>
+            <h2 class="section-title">Des Méthodes Pratiques Pour Chaque Pôle de Votre Vie</h2>
+            <p class="section-sub">Choisissez la compétence ou la transformation que vous souhaitez activer dès aujourd'hui.</p>
           </div>
 
-          <div class="buzz-grid">
-            <!-- UGC TikTok Card 1 -->
-            <div class="buzz-card tiktok-card">
-              <div class="buzz-video-wrapper">
-                <img src="assets/tiktok_ugc.jpg" alt="TikTok Review" class="buzz-video-cover">
-                <div class="video-overlay-gradient"></div>
-                <div class="play-indicator-badge">
-                  <i class="fa-solid fa-play"></i> <span>284.5K</span>
-                </div>
-                <div class="tiktok-captions">
-                  <span class="user-handle">@jane.doe.reads <i class="fa-solid fa-circle-check text-primary"></i></span>
-                  <p>« Ce livre a littéralement sauvé ma paix mentale... Je n'accepterai plus jamais des miettes ! 😭❤️ »</p>
-                  <span class="music-tag"><i class="fa-solid fa-music"></i> Relaxing Vlog Music - Love Mystery</span>
-                </div>
-              </div>
-              <div class="buzz-card-footer">
-                <div class="buzz-stats">
-                  <span><i class="fa-solid fa-heart text-danger"></i> 114.3K</span>
-                  <span><i class="fa-solid fa-comment text-secondary"></i> 8,540</span>
-                  <span><i class="fa-solid fa-share text-secondary"></i> 22.1K</span>
-                </div>
-                <button type="button" class="btn btn-outline btn-sm" onclick="navigateTo('product-attached')">Découvrir le livre</button>
-              </div>
+          <div class="category-cards-grid">
+            <!-- Card 1: Psychologie -->
+            <div class="cat-showcase-card" onclick="filterByCategory('psychology'); scrollToCatalog();">
+              <div class="cat-icon-wrap psychology"><i class="fa-solid fa-brain"></i></div>
+              <h3>Psychologie & Mental</h3>
+              <p>Comprendre vos schémas inconscients, décoder le système nerveux et recâbler vos réflexes intérieurs.</p>
+              <span class="cat-explore-link">Explorer les guides <i class="fa-solid fa-arrow-right"></i></span>
             </div>
 
-            <!-- Social Quote Card 2 -->
-            <div class="buzz-card quote-card">
-              <div class="quote-header">
-                <div class="avatar-group">
-                  <img src="assets/avatar_marine.jpg" alt="Marine" class="quote-avatar-img">
-                  <div>
-                    <strong>Marine_Psychologie</strong>
-                    <span class="quote-sub">Coach Relationnelle certifiée • 89K abonnés</span>
-                  </div>
-                </div>
-                <i class="fa-brands fa-instagram text-gradient"></i>
-              </div>
-              <p class="quote-body">
-                « C’est rare de trouver des guides qui allient autant de rigueur scientifique (attachement adulte, neurobiologie de l'incertitude) avec des exercices aussi pragmatiques. Le protocole de conversation en 6 étapes est une pépite absolue. »
-              </p>
-              <div class="book-mini-ref" onclick="navigateTo('product-commit')">
-                <img src="assets/cover_commit_fr.jpg" alt="Livre" class="ref-thumb" id="socialRefCommit">
-                <div>
-                  <strong>Pourquoi il/elle t'aime mais ne s'engage pas</strong>
-                  <span class="text-accent">Recommandé par 94% des experts • 4,50 €</span>
-                </div>
-              </div>
+            <!-- Card 2: Business -->
+            <div class="cat-showcase-card" onclick="filterByCategory('business'); scrollToCatalog();">
+              <div class="cat-icon-wrap business"><i class="fa-solid fa-briefcase"></i></div>
+              <h3>Business & Stratégie</h3>
+              <p>Création d'offres irrésistibles, tunnels d'acquisition prévisibles et systèmes d'exécution rentables.</p>
+              <span class="cat-explore-link">Explorer les guides <i class="fa-solid fa-arrow-right"></i></span>
             </div>
 
-            <!-- Social Quote Card 3 -->
-            <div class="buzz-card quote-card">
-              <div class="quote-header">
-                <div class="avatar-group">
-                  <img src="assets/avatar_antoine.jpg" alt="Alexandre" class="quote-avatar-img">
-                  <div>
-                    <strong>Alexandre_V</strong>
-                    <span class="quote-sub">Lecteur vérifié • Avis Instagram</span>
-                  </div>
-                </div>
-                <i class="fa-brands fa-threads"></i>
-              </div>
-              <p class="quote-body">
-                « Quand quelqu'un devient distant du jour au lendemain, notre premier réflexe est de paniquer et d'envoyer 15 pavés. Le chapitre sur les 15 scripts m'a évité de commettre la pire erreur de ma vie amoureuse. Indispensable. »
-              </p>
-              <div class="book-mini-ref" onclick="navigateTo('product-distance')">
-                <img src="assets/cover_distance_fr.jpg" alt="Livre" class="ref-thumb" id="socialRefDistance">
-                <div>
-                  <strong>Pourquoi il/elle s'éloigne de toi</strong>
-                  <span class="text-accent">Guide d'urgence & 15 Scripts • 4,50 €</span>
-                </div>
-              </div>
+            <!-- Card 3: Productivité -->
+            <div class="cat-showcase-card" onclick="filterByCategory('productivity'); scrollToCatalog();">
+              <div class="cat-icon-wrap productivity"><i class="fa-solid fa-bolt"></i></div>
+              <h3>Productivité & Focus</h3>
+              <p>Détox dopamine, élimination de la dispersion et maîtrise des blocs de Deep Work intensif.</p>
+              <span class="cat-explore-link">Explorer les guides <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+
+            <!-- Card 4: Finances & Mindset -->
+            <div class="cat-showcase-card" onclick="filterByCategory('mindset'); scrollToCatalog();">
+              <div class="cat-icon-wrap mindset"><i class="fa-solid fa-coins"></i></div>
+              <h3>Finances & Richesse</h3>
+              <p>Comprendre la psychologie de l'argent, bâtir des actifs durables et prendre des décisions lucides.</p>
+              <span class="cat-explore-link">Explorer les guides <i class="fa-solid fa-arrow-right"></i></span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Catalog Section : The 3 Master Ebooks -->
+      <!-- Main Dynamic Catalog Section -->
       <section class="catalog-section" id="catalog-section">
         <div class="container">
           <div class="section-header text-center">
-            <div class="section-badge"><i class="fa-solid fa-layer-group"></i> LA COLLECTION OFFICIELLE</div>
-            <h2 class="section-title">Choisissez le Guide Adapté à Votre Situation</h2>
-            <p class="section-sub">Chaque livre est un ouvrage autonome de 50 à 86 pages avec plan d'action et ateliers pratiques au tarif unique de <strong>2 950 FCFA ≈ 4,50 € ≈ $5.25</strong>.</p>
+            <div class="section-badge"><i class="fa-solid fa-layer-group"></i> LA LIBRAIRIE OFFICIELLE</div>
+            <h2 class="section-title">Catalogue des Guides d'Excellence</h2>
+            <p class="section-sub">Ouvrages autonomes de 50 à 94 pages avec plans d'action et ateliers au tarif unique de <strong>2 950 FCFA ≈ 4,50 € ≈ $5.25</strong>.</p>
           </div>
 
-          <div class="catalog-grid">
-            
-            <!-- Product Card 1 : Attachement -->
-            <article class="product-card" data-product-id="attached">
-              <div class="card-badge-container">
-                <span class="badge-featured"><i class="fa-solid fa-trophy"></i> Master Édition</span>
-              </div>
-              
-              <div class="product-cover-container" onclick="navigateTo('product-attached')">
-                <img src="assets/cover_attached_fr.jpg" alt="Pourquoi tu t'attaches aux mauvaises personnes" class="product-cover-img" id="catalogCoverAttached">
-                <div class="cover-hover-overlay">
-                  <span class="btn btn-sm btn-light"><i class="fa-solid fa-eye"></i> Voir la page de vente</span>
-                </div>
-              </div>
+          <!-- Dynamic Category Filter Pills -->
+          <div class="category-filter-wrapper" id="categoryPillsContainer"></div>
 
-              <div class="product-card-details">
-                <div class="card-rating">
-                  <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                  <span class="rating-text">4.97/5 (1,420+ avis)</span>
-                </div>
-
-                <h3 class="product-title" onclick="navigateTo('product-attached')">
-                  Pourquoi tu t'attaches toujours aux mauvaises personnes
-                </h3>
-                <p class="product-author">Par Mystère d'Amour • 86 Pages A5 HD</p>
-
-                <p class="product-pitch">
-                  Comprendre tes schémas inconscients, sortir de l'attirance pour l'indisponibilité et recâbler ton cœur avec le <strong>Plan de 14 Jours</strong>.
-                </p>
-
-                <ul class="product-perks">
-                  <li><i class="fa-solid fa-circle-check"></i> 12 Chapitres approfondis (86 pages)</li>
-                  <li><i class="fa-solid fa-circle-check"></i> Questionnaire d'Auto-Lucidité diagnostique</li>
-                  <li><i class="fa-solid fa-circle-check"></i> Plan 14 Jours + 5 Ateliers de Standards</li>
-                </ul>
-
-                <div class="product-pricing-row">
-                  <div class="price-box">
-                    <span class="old-price" data-price-eur="12.00">12,00 € (7 800 FCFA)</span>
-                    <span class="current-price" data-price-eur="4.50">4,50 € (2 950 FCFA)</span>
-                  </div>
-                  <div class="card-actions-group">
-                    <button type="button" class="btn btn-primary btn-sm" onclick="redirectToChariow('attached')">
-                      <i class="fa-solid fa-lock"></i> Acheter
-                    </button>
-                    <button type="button" class="btn btn-outline btn-sm" onclick="navigateTo('product-attached')">
-                      Détails
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <!-- Product Card 2 : Distance -->
-            <article class="product-card" data-product-id="distance">
-              <div class="card-badge-container">
-                <span class="badge-featured alert"><i class="fa-solid fa-bolt"></i> Guide d'Urgence</span>
-              </div>
-              
-              <div class="product-cover-container" onclick="navigateTo('product-distance')">
-                <img src="assets/cover_distance_fr.jpg" alt="Pourquoi il/elle s'éloigne de toi" class="product-cover-img" id="catalogCoverDistance">
-                <div class="cover-hover-overlay">
-                  <span class="btn btn-sm btn-light"><i class="fa-solid fa-eye"></i> Voir la page de vente</span>
-                </div>
-              </div>
-
-              <div class="product-card-details">
-                <div class="card-rating">
-                  <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                  <span class="rating-text">4.92/5 (980+ avis)</span>
-                </div>
-
-                <h3 class="product-title" onclick="navigateTo('product-distance')">
-                  Pourquoi il/elle s'éloigne de toi ?
-                </h3>
-                <p class="product-author">Par Mystère d'Amour • 50 Pages A5 HD</p>
-
-                <p class="product-pitch">
-                  Décoder la distance, calmer l'angoisse nerveuse et savoir exactement quoi dire grâce aux <strong>15 Scripts Situationnels</strong> et au <strong>Plan 7 Jours</strong>.
-                </p>
-
-                <ul class="product-perks">
-                  <li><i class="fa-solid fa-circle-check"></i> Cartographie des 4 causes réelles de distance</li>
-                  <li><i class="fa-solid fa-circle-check"></i> Répertoire complet de 15 Scripts Prêts à l'emploi</li>
-                  <li><i class="fa-solid fa-circle-check"></i> Plan 7 Jours & 5 Ateliers de Dignité</li>
-                </ul>
-
-                <div class="product-pricing-row">
-                  <div class="price-box">
-                    <span class="old-price" data-price-eur="12.00">12,00 € (7 800 FCFA)</span>
-                    <span class="current-price" data-price-eur="4.50">4,50 € (2 950 FCFA)</span>
-                  </div>
-                  <div class="card-actions-group">
-                    <button type="button" class="btn btn-primary btn-sm" onclick="redirectToChariow('distance')">
-                      <i class="fa-solid fa-lock"></i> Acheter
-                    </button>
-                    <button type="button" class="btn btn-outline btn-sm" onclick="navigateTo('product-distance')">
-                      Détails
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <!-- Product Card 3 : Engagement -->
-            <article class="product-card" data-product-id="commit">
-              <div class="card-badge-container">
-                <span class="badge-featured warm"><i class="fa-solid fa-heart"></i> Relations Floues</span>
-              </div>
-              
-              <div class="product-cover-container" onclick="navigateTo('product-commit')">
-                <img src="assets/cover_commit_fr.jpg" alt="Pourquoi il/elle t'aime mais ne s'engage pas" class="product-cover-img" id="catalogCoverCommit">
-                <div class="cover-hover-overlay">
-                  <span class="btn btn-sm btn-light"><i class="fa-solid fa-eye"></i> Voir la page de vente</span>
-                </div>
-              </div>
-
-              <div class="product-card-details">
-                <div class="card-rating">
-                  <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                  <span class="rating-text">4.95/5 (1,150+ avis)</span>
-                </div>
-
-                <h3 class="product-title" onclick="navigateTo('product-commit')">
-                  Pourquoi il/elle t'aime mais ne s'engage pas
-                </h3>
-                <p class="product-author">Par Mystère d'Amour • 80 Pages A5 HD</p>
-
-                <p class="product-pitch">
-                  Sortir de la zone grise (*situationship*), maîtriser la <strong>Méthode des 4 Réalités</strong> et mener la conversation de clarté en 6 étapes sans supplier.
-                </p>
-
-                <ul class="product-perks">
-                  <li><i class="fa-solid fa-circle-check"></i> Différence Sentiments vs Capacité d'engagement</li>
-                  <li><i class="fa-solid fa-circle-check"></i> Méthode des 4 Réalités Propriétaire</li>
-                  <li><i class="fa-solid fa-circle-check"></i> Plan 7 Jours + 7 Ateliers d'Auto-Coaching</li>
-                </ul>
-
-                <div class="product-pricing-row">
-                  <div class="price-box">
-                    <span class="old-price" data-price-eur="12.00">12,00 € (7 800 FCFA)</span>
-                    <span class="current-price" data-price-eur="4.50">4,50 € (2 950 FCFA)</span>
-                  </div>
-                  <div class="card-actions-group">
-                    <button type="button" class="btn btn-primary btn-sm" onclick="redirectToChariow('commit')">
-                      <i class="fa-solid fa-lock"></i> Acheter
-                    </button>
-                    <button type="button" class="btn btn-outline btn-sm" onclick="navigateTo('product-commit')">
-                      Détails
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-          </div>
+          <!-- Dynamic Catalog Grid -->
+          <div class="catalog-grid" id="dynamicCatalogGrid"></div>
         </div>
       </section>
 
-      
-          <!-- English Editions Header & Grid -->
-          <div class="section-header text-center mt-5" style="margin-top: 60px;">
+      <!-- English Editions Section -->
+      <section class="catalog-section" style="background:#ffffff; border-top:1px solid #e2e8f0;">
+        <div class="container">
+          <div class="section-header text-center">
             <div class="section-badge"><i class="fa-solid fa-earth-americas"></i> 🇬🇧 ENGLISH EDITIONS & GUIDES</div>
             <h2 class="section-title">Official English Ebook Collection</h2>
-            <p class="section-sub">Read in full English with dedicated worksheets, situational scripts, and action blueprints (<strong>2 950 FCFA ≈ $5.25 ≈ 4.50 €</strong>).</p>
+            <p class="section-sub">Read in full English with dedicated worksheets, action blueprints, and immediate digital delivery (<strong>2 950 FCFA ≈ $5.25 ≈ 4.50 €</strong>).</p>
           </div>
 
-          <div class="catalog-grid">
-            <!-- English Card 1 : Attachment -->
-            <article class="product-card" data-product-id="attached_en">
-              <div class="card-badge-container">
-                <span class="badge-featured"><i class="fa-solid fa-trophy"></i> Master Edition 🇬🇧</span>
-              </div>
-              
-              <div class="product-cover-container" onclick="navigateTo('product-attached-en')">
-                <img src="assets/cover_attached_en.jpg" alt="Why You Always Get Attached to the Wrong People" class="product-cover-img">
-                <div class="cover-hover-overlay">
-                  <span class="btn btn-sm btn-light"><i class="fa-solid fa-eye"></i> View English Sales Page</span>
-                </div>
-              </div>
+          <div class="catalog-grid" id="dynamicEnglishCatalogGrid"></div>
+        </div>
+      </section>
 
-              <div class="product-card-details">
-                <div class="card-rating">
-                  <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                  <span class="rating-text">4.98/5 (1,420+ reviews)</span>
-                </div>
-
-                <h3 class="product-title" onclick="navigateTo('product-attached-en')">
-                  Why You Always Get Attached to the Wrong People
-                </h3>
-                <p class="product-author">By Love Mystery • 86 Pages A5 HD</p>
-
-                <p class="product-pitch">
-                  Understand your attachment patterns, deactivate attraction to unavailability, and rewire your heart with the <strong>14-Day Blueprint</strong>.
-                </p>
-
-                <ul class="product-perks">
-                  <li><i class="fa-solid fa-circle-check"></i> 12 In-Depth Chapters (86 pages)</li>
-                  <li><i class="fa-solid fa-circle-check"></i> Self-Clarity Diagnostic Assessment</li>
-                  <li><i class="fa-solid fa-circle-check"></i> 14-Day Action Blueprint + 5 Standards Worksheets</li>
-                </ul>
-
-                <div class="product-pricing-row">
-                  <div class="price-box">
-                    <span class="old-price" data-price-eur="12.00">12.00 € ($12.00)</span>
-                    <span class="current-price" data-price-eur="4.50">4.50 € ($5.25)</span>
-                  </div>
-                  <div class="card-actions-group">
-                    <button type="button" class="btn btn-primary btn-sm" onclick="redirectToChariow('attached_en')">
-                      <i class="fa-solid fa-lock"></i> Buy Now
-                    </button>
-                    <button type="button" class="btn btn-outline btn-sm" onclick="navigateTo('product-attached-en')">
-                      Details
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <!-- English Card 2 : Distance -->
-            <article class="product-card" data-product-id="distance_en">
-              <div class="card-badge-container">
-                <span class="badge-featured alert"><i class="fa-solid fa-bolt"></i> Emergency Guide 🇬🇧</span>
-              </div>
-              
-              <div class="product-cover-container" onclick="navigateTo('product-distance-en')">
-                <img src="assets/cover_distance_en.jpg" alt="Why He/She is Moving Away From You" class="product-cover-img">
-                <div class="cover-hover-overlay">
-                  <span class="btn btn-sm btn-light"><i class="fa-solid fa-eye"></i> View English Sales Page</span>
-                </div>
-              </div>
-
-              <div class="product-card-details">
-                <div class="card-rating">
-                  <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                  <span class="rating-text">4.94/5 (980+ reviews)</span>
-                </div>
-
-                <h3 class="product-title" onclick="navigateTo('product-distance-en')">
-                  Why He/She is Moving Away From YOU
-                </h3>
-                <p class="product-author">By Love Mystery • 50 Pages A5 HD</p>
-
-                <p class="product-pitch">
-                  Decode sudden silence, soothe somatic anxiety, and know what to say with <strong>15 Situational Scripts</strong> & the <strong>7-Day Emergency Protocol</strong>.
-                </p>
-
-                <ul class="product-perks">
-                  <li><i class="fa-solid fa-circle-check"></i> Root causes of avoidant distance</li>
-                  <li><i class="fa-solid fa-circle-check"></i> Complete Directory of 15 Ready-to-Send Scripts</li>
-                  <li><i class="fa-solid fa-circle-check"></i> 7-Day Protocol & 5 Dignity Workshops</li>
-                </ul>
-
-                <div class="product-pricing-row">
-                  <div class="price-box">
-                    <span class="old-price" data-price-eur="12.00">12.00 € ($12.00)</span>
-                    <span class="current-price" data-price-eur="4.50">4.50 € ($5.25)</span>
-                  </div>
-                  <div class="card-actions-group">
-                    <button type="button" class="btn btn-primary btn-sm" onclick="redirectToChariow('distance_en')">
-                      <i class="fa-solid fa-lock"></i> Buy Now
-                    </button>
-                    <button type="button" class="btn btn-outline btn-sm" onclick="navigateTo('product-distance-en')">
-                      Details
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <!-- English Card 3 : Commitment -->
-            <article class="product-card" data-product-id="commit_en">
-              <div class="card-badge-container">
-                <span class="badge-featured warm"><i class="fa-solid fa-heart"></i> Situationships 🇬🇧</span>
-              </div>
-              
-              <div class="product-cover-container" onclick="navigateTo('product-commit-en')">
-                <img src="assets/cover_commit_en.jpg" alt="Why He/She Loves You but Doesn't Commit" class="product-cover-img">
-                <div class="cover-hover-overlay">
-                  <span class="btn btn-sm btn-light"><i class="fa-solid fa-eye"></i> View English Sales Page</span>
-                </div>
-              </div>
-
-              <div class="product-card-details">
-                <div class="card-rating">
-                  <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                  <span class="rating-text">4.96/5 (1,150+ reviews)</span>
-                </div>
-
-                <h3 class="product-title" onclick="navigateTo('product-commit-en')">
-                  Why He/She Loves You but Doesn't Commit
-                </h3>
-                <p class="product-author">By Love Mystery • 80 Pages A5 HD</p>
-
-                <p class="product-pitch">
-                  Escape the gray zone, master the <strong>4 Realities Method</strong>, and conduct the 6-step clarity conversation without begging.
-                </p>
-
-                <ul class="product-perks">
-                  <li><i class="fa-solid fa-circle-check"></i> Feelings vs Commitment Capacity Framework</li>
-                  <li><i class="fa-solid fa-circle-check"></i> The 4 Realities Diagnostic Matrix</li>
-                  <li><i class="fa-solid fa-circle-check"></i> 7-Day Plan + 7 Self-Coaching Worksheets</li>
-                </ul>
-
-                <div class="product-pricing-row">
-                  <div class="price-box">
-                    <span class="old-price" data-price-eur="12.00">12.00 € ($12.00)</span>
-                    <span class="current-price" data-price-eur="4.50">4.50 € ($5.25)</span>
-                  </div>
-                  <div class="card-actions-group">
-                    <button type="button" class="btn btn-primary btn-sm" onclick="redirectToChariow('commit_en')">
-                      <i class="fa-solid fa-lock"></i> Buy Now
-                    </button>
-                    <button type="button" class="btn btn-outline btn-sm" onclick="navigateTo('product-commit-en')">
-                      Details
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </article>
-          </div>
-
-      
-
-      <!-- Interactive Diagnostic Quiz -->
+      <!-- Universal Interactive Smart Guide Finder (Quiz) -->
       <section class="quiz-section" id="quiz-section">
         <div class="container">
           <div class="quiz-card-wrapper">
             <div class="quiz-header text-center">
-              <div class="section-badge"><i class="fa-solid fa-brain"></i> TEST D'AUTO-LUCIDITÉ EN 3 QUESTIONS</div>
-              <h2 class="section-title">Quel guide correspond exactement à votre situation actuelle ?</h2>
-              <p class="section-sub">Répondez à 3 questions rapides pour recevoir la recommandation sur-mesure adaptée à votre système nerveux.</p>
+              <div class="section-badge gold"><i class="fa-solid fa-wand-magic-sparkles"></i> GUIDE FINDER EN 3 QUESTIONS</div>
+              <h2 class="section-title">Trouvez le Guide Idéal Pour Votre Objectif</h2>
+              <p class="section-sub">Répondez à 3 questions rapides pour recevoir la recommandation sur-mesure la plus efficace pour vous.</p>
             </div>
 
             <div class="quiz-interactive-body" id="quizContainer">
               <!-- Step 1 -->
               <div class="quiz-step active" data-step="1">
                 <div class="quiz-step-indicator">Question 1 / 3</div>
-                <h3 class="quiz-q-title">Quelle est votre plus grande source d'angoisse en ce moment ?</h3>
+                <h3 class="quiz-q-title">Quel domaine souhaitez-vous transformer en priorité ?</h3>
                 <div class="quiz-options-grid">
-                  <button type="button" class="quiz-opt-btn" onclick="selectQuizAnswer(1, 'attached')">
-                    <div class="opt-letter">A</div>
+                  <button type="button" class="quiz-opt-btn" onclick="selectQuizAnswer(1, 'psychology')">
+                    <div class="opt-letter"><i class="fa-solid fa-brain"></i></div>
                     <div class="opt-txt">
-                      <strong>Je tombe toujours sur des personnes indisponibles ou compliquées</strong>
-                      <span>J'ai l'impression de revivre sans cesse le même schéma douloureux.</span>
+                      <strong>Psychologie, émotions & schémas inconscients</strong>
+                      <span>Comprendre mes blocages internes et recâbler mon esprit.</span>
                     </div>
                   </button>
-                  <button type="button" class="quiz-opt-btn" onclick="selectQuizAnswer(1, 'distance')">
-                    <div class="opt-letter">B</div>
+                  <button type="button" class="quiz-opt-btn" onclick="selectQuizAnswer(1, 'business')">
+                    <div class="opt-letter"><i class="fa-solid fa-briefcase"></i></div>
                     <div class="opt-txt">
-                      <strong>L'autre est devenu soudainement distant ou froid</strong>
-                      <span>Les réponses s'espacent, le silence s'installe et je panique à l'idée d'être abandonné(e).</span>
+                      <strong>Business, acquisition & stratégie financière</strong>
+                      <span>Structurer des offres à fort impact et augmenter mes revenus.</span>
                     </div>
                   </button>
-                  <button type="button" class="quiz-opt-btn" onclick="selectQuizAnswer(1, 'commit')">
-                    <div class="opt-letter">C</div>
+                  <button type="button" class="quiz-opt-btn" onclick="selectQuizAnswer(1, 'productivity')">
+                    <div class="opt-letter"><i class="fa-solid fa-bolt"></i></div>
                     <div class="opt-txt">
-                      <strong>Nous vivons comme un couple mais rien n'est officiel</strong>
-                      <span>Il/elle dit m'aimer mais refuse catégoriquement de s'engager ou de faire des projets.</span>
+                      <strong>Discipline, concentration & hyperfocus</strong>
+                      <span>Éliminer la procrastination et doubler mon efficacité quotidienne.</span>
                     </div>
                   </button>
                 </div>
@@ -752,27 +451,27 @@
               <!-- Step 2 -->
               <div class="quiz-step" data-step="2">
                 <div class="quiz-step-indicator">Question 2 / 3</div>
-                <h3 class="quiz-q-title">Comment réagissez-vous instinctivement face au doute ?</h3>
+                <h3 class="quiz-q-title">Quel est votre plus grand défi actuellement ?</h3>
                 <div class="quiz-options-grid">
-                  <button type="button" class="quiz-opt-btn" onclick="selectQuizAnswer(2, 'distance')">
-                    <div class="opt-letter">A</div>
+                  <button type="button" class="quiz-opt-btn" onclick="selectQuizAnswer(2, 'action')">
+                    <div class="opt-letter"><i class="fa-solid fa-chart-line"></i></div>
                     <div class="opt-txt">
-                      <strong>J'ai envie d'envoyer plein de messages ou d'exiger une explication immédiate</strong>
-                      <span>Mon rythme cardiaque s'accélère et je n'arrive plus à me concentrer sur autre chose.</span>
+                      <strong>J'ai du mal à passer à l'action de manière consistante</strong>
+                      <span>La dispersion et le manque de structure me ralentissent.</span>
                     </div>
                   </button>
-                  <button type="button" class="quiz-opt-btn" onclick="selectQuizAnswer(2, 'commit')">
-                    <div class="opt-letter">B</div>
+                  <button type="button" class="quiz-opt-btn" onclick="selectQuizAnswer(2, 'clarity')">
+                    <div class="opt-letter"><i class="fa-solid fa-eye"></i></div>
                     <div class="opt-txt">
-                      <strong>J'attends en espérant qu'avec le temps et la patience, la personne changera</strong>
-                      <span>Je minimise mes besoins pour ne pas lui faire peur ou la braquer.</span>
+                      <strong>J'ai besoin de clarté et de règles chirurgicales</strong>
+                      <span>Je veux savoir exactement quoi faire étape par étape.</span>
                     </div>
                   </button>
-                  <button type="button" class="quiz-opt-btn" onclick="selectQuizAnswer(2, 'attached')">
-                    <div class="opt-letter">C</div>
+                  <button type="button" class="quiz-opt-btn" onclick="selectQuizAnswer(2, 'pattern')">
+                    <div class="opt-letter"><i class="fa-solid fa-repeat"></i></div>
                     <div class="opt-txt">
-                      <strong>Je ressens une attirance intense dès que la personne est fuyante</strong>
-                      <span>Les personnes équilibrées et gentilles m'ennuient rapidement.</span>
+                      <strong>Je répète sans cesse les mêmes erreurs douloureuses</strong>
+                      <span>Je veux comprendre la racine profonde pour briser la boucle.</span>
                     </div>
                   </button>
                 </div>
@@ -781,27 +480,20 @@
               <!-- Step 3 -->
               <div class="quiz-step" data-step="3">
                 <div class="quiz-step-indicator">Question 3 / 3</div>
-                <h3 class="quiz-q-title">Quel résultat souhaitez-vous obtenir en priorité ?</h3>
+                <h3 class="quiz-q-title">Quel type de format d'apprentissage préférez-vous ?</h3>
                 <div class="quiz-options-grid">
-                  <button type="button" class="quiz-opt-btn" onclick="selectQuizAnswer(3, 'attached')">
-                    <div class="opt-letter">A</div>
+                  <button type="button" class="quiz-opt-btn" onclick="selectQuizAnswer(3, 'blueprint')">
+                    <div class="opt-letter"><i class="fa-solid fa-map"></i></div>
                     <div class="opt-txt">
-                      <strong>Comprendre mes schémas profonds et briser ce cycle une bonne fois pour toutes</strong>
-                      <span>Recâbler mon système nerveux pour attirer enfin un amour serein.</span>
+                      <strong>Un plan d'action quotidien structuré sur 7 à 14 jours</strong>
+                      <span>Des exercices concrets chaque jour pour des résultats rapides.</span>
                     </div>
                   </button>
-                  <button type="button" class="quiz-opt-btn" onclick="selectQuizAnswer(3, 'distance')">
-                    <div class="opt-letter">B</div>
+                  <button type="button" class="quiz-opt-btn" onclick="selectQuizAnswer(3, 'scripts')">
+                    <div class="opt-letter"><i class="fa-solid fa-file-lines"></i></div>
                     <div class="opt-txt">
-                      <strong>Savoir exactement quoi dire maintenant pour désamorcer la distance</strong>
-                      <span>Reprendre le contrôle de mes émotions et garder toute ma dignité.</span>
-                    </div>
-                  </button>
-                  <button type="button" class="quiz-opt-btn" onclick="selectQuizAnswer(3, 'commit')">
-                    <div class="opt-letter">C</div>
-                    <div class="opt-txt">
-                      <strong>Obtenir une réponse claire et cesser de perdre mon temps dans l'attente</strong>
-                      <span>Avoir la conversation de vérité avec la méthode en 6 étapes.</span>
+                      <strong>Des modèles, scripts et frameworks prêts à l'emploi</strong>
+                      <span>Des outils directement applicables sans perdre de temps.</span>
                     </div>
                   </button>
                 </div>
@@ -811,11 +503,11 @@
               <div class="quiz-result" id="quizResultBox" style="display:none;">
                 <div class="result-badge"><i class="fa-solid fa-sparkles"></i> DIAGNOSTIC TERMINÉ</div>
                 <h3 class="result-title" id="quizResultTitle">Votre Recommandation Personnalisée</h3>
-                <p class="result-desc" id="quizResultDesc">Voici l'ouvrage le plus ciblé pour dénouer immédiatement votre situation relationnelle.</p>
+                <p class="result-desc" id="quizResultDesc">Voici l'ouvrage le plus ciblé pour débloquer immédiatement votre objectif.</p>
                 
-                <div class="recommended-card" id="quizRecommendedCard"></div>
+                <div class="recommended-card" id="quizRecommendedCard" style="display:flex; gap:20px; align-items:center; background:#ffffff; padding:24px; border-radius:var(--radius-lg); border:1px solid #e2e8f0; box-shadow:var(--shadow-md); margin-top:20px;"></div>
 
-                <div class="quiz-reset-box">
+                <div class="quiz-reset-box" style="margin-top:20px; text-align:center;">
                   <button type="button" class="btn btn-outline btn-sm" onclick="resetQuiz()"><i class="fa-solid fa-rotate-left"></i> Recommencer le test</button>
                 </div>
               </div>
@@ -824,38 +516,38 @@
         </div>
       </section>
 
-      <!-- Author / Approach Credibility Section -->
+      <!-- Editorial Ethics & Excellence Section -->
       <section class="author-approach-section" id="author-section">
         <div class="container">
           <div class="author-grid">
             <div class="author-img-wrapper">
-              <img src="assets/author_expert.jpg" alt="Psychologue - Nexa Book" class="author-photo">
+              <img src="assets/author_expert.jpg" alt="Exigence Éditoriale - Nexa Book" class="author-photo">
               <div class="author-float-badge">
-                <i class="fa-solid fa-feather-pointed"></i> Psychologie & Attachement
+                <i class="fa-solid fa-feather-pointed"></i> Exigence Éditoriale
               </div>
             </div>
             <div class="author-content">
-              <div class="section-badge"><i class="fa-solid fa-heart-pulse"></i> L'ÉTHIQUE NEXA BOOK</div>
-              <h2 class="author-title">Comprendre n'est jamais manipuler. C'est reprendre le gouvernail.</h2>
+              <div class="section-badge"><i class="fa-solid fa-shield-halved"></i> LE STANDARD NEXA BOOK</div>
+              <h2 class="author-title">100% Actionable. Zéro Remplissage Théorique.</h2>
               <p class="author-lead">
-                Les relations modernes ne souffrent pas d'un manque d'amour, mais d'un excès d'ambiguïté et d'une incompréhension totale des mécanismes d'attachement adulte.
+                Nous vivons dans une époque saturée d'informations superficielles. Chez Nexa Book, notre mission est de distiller les principes les plus puissants en guides d'exécution précis.
               </p>
               <p>
-                Chez <strong>Nexa Book</strong>, nous refusons les techniques de manipulation superficielle, les faux diagnostics psychiatriques sauvages et les dogmes de rupture systématique. Notre engagement est de vous offrir la <strong>lucidité radicale</strong> pour que vous n'ayez plus jamais à mendier l'attention, l'amour ou l'engagement de qui que ce soit.
+                Chaque ouvrage publié par <strong>Nexa Book</strong> répond à une charte rigoureuse : diagnostic clair du problème, déconstruction scientifique ou stratégique, et protocoles d'action étape par étape. Que ce soit en psychologie, en business ou en productivité, vous obtenez la clarté nécessaire pour avancer avec souveraineté.
               </p>
 
               <div class="author-stats-row">
                 <div class="a-stat">
-                  <span class="stat-number">+25 000</span>
+                  <span class="stat-number">+50 000</span>
                   <span class="stat-label">Lecteurs dans 45 pays</span>
                 </div>
                 <div class="a-stat">
-                  <span class="stat-number">98.4%</span>
+                  <span class="stat-number">98.6%</span>
                   <span class="stat-label">Taux de satisfaction</span>
                 </div>
                 <div class="a-stat">
-                  <span class="stat-number">216</span>
-                  <span class="stat-label">Pages de transformation</span>
+                  <span class="stat-number">100%</span>
+                  <span class="stat-label">Actionable & Garanti</span>
                 </div>
               </div>
             </div>
@@ -868,16 +560,18 @@
         <div class="container">
           <div class="section-header text-center">
             <div class="section-badge"><i class="fa-solid fa-comments"></i> TÉMOIGNAGES VÉRIFIÉS</div>
-            <h2 class="section-title">Ce Que Nos Lecteurs Ont Vécu</h2>
-            <p class="section-sub">Des histoires authentiques d'hommes et de femmes qui ont repris le pouvoir sur leur vie amoureuse.</p>
+            <h2 class="section-title">Ce Que Nos Lecteurs Ont Accompli</h2>
+            <p class="section-sub">Des retours authentiques de lecteurs qui ont appliqué nos méthodes et transformé leurs résultats.</p>
           </div>
 
           <!-- Review Filters -->
           <div class="review-filters-bar">
-            <button type="button" class="rev-filter-btn active" data-filter="all" onclick="filterReviews('all')">Tous les avis (18)</button>
-            <button type="button" class="rev-filter-btn" data-filter="attached" onclick="filterReviews('attached')">Attachement & Schémas</button>
-            <button type="button" class="rev-filter-btn" data-filter="distance" onclick="filterReviews('distance')">Distance & Silence</button>
-            <button type="button" class="rev-filter-btn" data-filter="commit" onclick="filterReviews('commit')">Engagement & Flou</button>
+            <button type="button" class="rev-filter-btn active" data-filter="all" onclick="filterReviews('all')">Tous les avis</button>
+            <button type="button" class="rev-filter-btn" data-filter="psychology" onclick="filterReviews('psychology')">Psychologie</button>
+            <button type="button" class="rev-filter-btn" data-filter="business" onclick="filterReviews('business')">Business</button>
+            <button type="button" class="rev-filter-btn" data-filter="productivity" onclick="filterReviews('productivity')">Productivité</button>
+            <button type="button" class="rev-filter-btn" data-filter="mindset" onclick="filterReviews('mindset')">Finances</button>
+            <button type="button" class="rev-filter-btn" data-filter="relations" onclick="filterReviews('relations')">Relations</button>
           </div>
 
           <div class="reviews-masonry" id="reviewsGrid"></div>
@@ -896,7 +590,7 @@
           <div class="faq-accordion-list">
             <div class="faq-item">
               <button type="button" class="faq-question" onclick="toggleFaq(this)">
-                <span>Sous quel format vais-je recevoir les livres ?</span>
+                <span>Sous quel format vais-je recevoir mes livres ?</span>
                 <i class="fa-solid fa-plus"></i>
               </button>
               <div class="faq-answer">
@@ -910,13 +604,13 @@
                 <i class="fa-solid fa-plus"></i>
               </button>
               <div class="faq-answer">
-                <p>Chaque livre individuel est au tarif accessible de <strong>4,50 € ≈ 2 950 FCFA ≈ $5.25</strong>. Le Pack complet Trilogie (les 3 livres réunis + ateliers) est également au tarif exceptionnel de <strong>2 950 FCFA ≈ 4,50 € ≈ $5.25</strong>.</p>
+                <p>Chaque guide individuel est au tarif accessible de <strong>4,50 € ≈ 2 950 FCFA ≈ $5.25</strong>. Tous les bonus, fiches pratiques et ateliers associés sont inclus gratuitement.</p>
               </div>
             </div>
 
             <div class="faq-item">
               <button type="button" class="faq-question" onclick="toggleFaq(this)">
-                <span>Puis-je lire les ebooks dans les deux langues (Français et Anglais) ?</span>
+                <span>Puis-je lire les ebooks en Français et en Anglais ?</span>
                 <i class="fa-solid fa-plus"></i>
               </button>
               <div class="faq-answer">
@@ -930,7 +624,7 @@
                 <i class="fa-solid fa-plus"></i>
               </button>
               <div class="faq-answer">
-                <p>Si après avoir lu l'ebook et appliqué les exercices du plan d'action vous n'obtenez pas une clarté totale et un soulagement émotionnel, envoyez-nous simplement un email pour être remboursé(e) intégralement sans justification.</p>
+                <p>Si après avoir lu le livre et appliqué les protocoles vous n'êtes pas pleinement satisfait de la clarté et des résultats obtenus, envoyez-nous simplement un email pour être remboursé(e) intégralement sans justification.</p>
               </div>
             </div>
           </div>
@@ -3464,6 +3158,14 @@
     </button>
   </div>
 
+  <!-- Dynamic Universal Book Detail Modal (Quick View & Chapters) -->
+  <div class="book-modal-overlay" id="bookDetailModal" onclick="if(event.target === this) closeBookModal();">
+    <div class="book-modal-dialog">
+      <button type="button" class="book-modal-close-btn" onclick="closeBookModal()" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+      <div id="bookModalDynamicContent"></div>
+    </div>
+  </div>
+
   <!-- Footer with Nexa Book Logo -->
   <footer class="site-footer">
     <div class="container footer-grid">
@@ -3475,7 +3177,7 @@
           <span>NEXA<strong>BOOK</strong></span>
         </div>
         <p class="footer-desc">
-          La librairie numérique d'excellence spécialisée dans les relations humaines, la psychologie de l'attachement et la souveraineté affective.
+          La librairie numérique d'excellence et maison d'éditions stratégiques. Guides d'action en psychologie, business, productivité, finances et relations.
         </p>
         <div class="footer-social-links">
           <a href="https://tiktok.com" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
@@ -3485,19 +3187,20 @@
       </div>
 
       <div class="footer-col">
-        <h4 class="footer-heading">Nos 3 Ebooks</h4>
+        <h4 class="footer-heading">Nos Catégories</h4>
         <ul class="footer-nav">
-          <li><a href="#product-attached" onclick="navigateTo('product-attached')">Pourquoi tu t'attaches aux mauvaises personnes</a></li>
-          <li><a href="#product-distance" onclick="navigateTo('product-distance')">Pourquoi il/elle s'éloigne de toi ?</a></li>
-          <li><a href="#product-commit" onclick="navigateTo('product-commit')">Pourquoi il/elle t'aime mais ne s'engage pas</a></li>
-          
+          <li><a href="#catalog-section" onclick="filterByCategory('psychology'); scrollToCatalog();">Psychologie & Mental</a></li>
+          <li><a href="#catalog-section" onclick="filterByCategory('business'); scrollToCatalog();">Business & Stratégie</a></li>
+          <li><a href="#catalog-section" onclick="filterByCategory('productivity'); scrollToCatalog();">Productivité & Focus</a></li>
+          <li><a href="#catalog-section" onclick="filterByCategory('mindset'); scrollToCatalog();">Finances & Mindset</a></li>
+          <li><a href="#catalog-section" onclick="filterByCategory('relations'); scrollToCatalog();">Relations & Clarté</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4 class="footer-heading">Ressources & Aide</h4>
+        <h4 class="footer-heading">Ressources & Outils</h4>
         <ul class="footer-nav">
-          <li><a href="#quiz-section" onclick="scrollToQuiz()">Test Diagnostic Gratuit</a></li>
+          <li><a href="#quiz-section" onclick="scrollToQuiz()">Guide Finder (Orientation 1 min)</a></li>
           <li><a href="#faq-section" onclick="document.getElementById('faq-section').scrollIntoView({behavior:'smooth'})">Foire Aux Questions</a></li>
           <li><a href="#reviews-section" onclick="scrollToReviews()">Avis des lecteurs (+25k)</a></li>
           <li><a href="mailto:support@nexa-book.com">Support Client VIP (support@nexa-book.com)</a></li>
@@ -3506,7 +3209,7 @@
 
       <div class="footer-col">
         <h4 class="footer-heading">Sécurité & Confiance</h4>
-        <p class="footer-sub">Paiements 100% chiffrés SSL 256 bits. Téléchargements directs immédiats garantis 30 jours.</p>
+        <p class="footer-sub">Paiements 100% chiffrés SSL via Chariow. Téléchargements directs immédiats garantis 30 jours.</p>
         <div class="security-badges-row">
           <div class="sec-badge"><i class="fa-solid fa-lock"></i> SSL Chiffré</div>
           <div class="sec-badge"><i class="fa-solid fa-shield-check"></i> Satisfait ou Remboursé 30 Jours</div>
@@ -3516,7 +3219,7 @@
 
     <div class="footer-bottom">
       <div class="container footer-bottom-inner">
-        <p>© 2026 Nexa Book & Mystère d'Amour Publishing. Tous droits réservés.</p>
+        <p>© 2026 Nexa Book & Éditions Digitales d'Excellence. Tous droits réservés.</p>
         <div class="footer-legal-links">
           <a href="javascript:void(0)">Mentions Légales</a>
           <a href="javascript:void(0)">Politique de Confidentialité</a>
