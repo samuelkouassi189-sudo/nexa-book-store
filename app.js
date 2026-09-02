@@ -1379,27 +1379,109 @@ function closeMobileMenu() {
   if (drawer) drawer.classList.remove('open');
 }
 
-/* Video Switcher for La Psychologie de l'Argent */
-function switchMoneyVideo(url, title, channel, btnElement) {
-  const iframe = document.getElementById('moneyFeaturedIframe');
+/* ==========================================================================
+   VIDEO TESTIMONIALS & BREAKDOWNS LOGIC (LA PSYCHOLOGIE DE L'ARGENT)
+   ========================================================================== */
+const moneyVideosData = {
+  fanjo: {
+    title: "La Psychologie de l'Argent : Les 19 Leçons Expliquées",
+    channel: "Mister Fanjo (+250 000 vues)",
+    duration: "Durée : 18 min • Résumé Complet",
+    poster: "assets/banner_money_fr.jpg",
+    quote: "« Ce livre démontre brillamment pourquoi votre quotient émotionnel (EQ) face à l'argent compte 10 fois plus que votre quotient intellectuel (IQ). Une synthèse magistrale. »",
+    youtubeUrl: "https://www.youtube.com/results?search_query=la+psychologie+de+l+argent+mister+fanjo",
+    youtubeEmbed: "https://www.youtube.com/embed/search?q=la+psychologie+de+l+argent+mister+fanjo"
+  },
+  antoine: {
+    title: "Le Livre sur l'Argent Qui a Changé ma Vie",
+    channel: "Antoine BM (+180 000 vues)",
+    duration: "Durée : 14 min • Analyse Mindset",
+    poster: "assets/concept_money.jpg",
+    quote: "« Morgan Housel vous guérit du besoin absurde d'impressionner des gens que vous n'aimez pas avec de l'argent que vous n'avez pas. La vraie richesse est d'être maître de son temps. »",
+    youtubeUrl: "https://www.youtube.com/results?search_query=la+psychologie+de+l+argent+antoine+bm",
+    youtubeEmbed: "https://www.youtube.com/embed/search?q=la+psychologie+de+l+argent+antoine+bm"
+  },
+  lecons: {
+    title: "5 Leçons Financières Qui Changent Tout",
+    channel: "Développement & Investissement (+120K vues)",
+    duration: "Durée : 12 min • Vulgarisation",
+    poster: "assets/banner_attached_fr.jpg",
+    quote: "« La différence entre devenir riche et rester riche est le plus grand angle mort des investisseurs. À intégrer d'urgence. »",
+    youtubeUrl: "https://www.youtube.com/results?search_query=la+psychologie+de+l+argent+5+lecons+morgan+housel",
+    youtubeEmbed: "https://www.youtube.com/embed/search?q=la+psychologie+de+l+argent+5+lecons+morgan+housel"
+  },
+  martingale: {
+    title: "La Recommandation d'Or de Tous les Investisseurs",
+    channel: "La Martingale • Matthieu Stefani",
+    duration: "Audio Capsule • Recommandation GDIY",
+    poster: "assets/cover_money_fr.jpg",
+    quote: "« C'est le livre cité spontanément par plus de 80% des entrepreneurs et investisseurs français reçus sur le podcast. Un chef-d'œuvre absolu. »",
+    youtubeUrl: "https://www.youtube.com/results?search_query=la+martingale+psychologie+de+l+argent+morgan+housel",
+    youtubeEmbed: "https://www.youtube.com/embed/search?q=la+martingale+psychologie+de+l+argent+morgan+housel"
+  }
+};
+
+let currentActiveMoneyKey = 'fanjo';
+
+function switchMoneyVideo(videoKey, btnElement) {
+  const data = moneyVideosData[videoKey];
+  if (!data) return;
+
+  currentActiveMoneyKey = videoKey;
+
   const titleEl = document.getElementById('moneyVideoTitle');
   const channelEl = document.getElementById('moneyVideoChannel');
+  const durationEl = document.getElementById('moneyVideoDuration');
+  const posterEl = document.getElementById('moneyVideoPoster');
+  const quoteEl = document.getElementById('moneyVideoQuote');
 
-  if (iframe) {
-    iframe.src = url;
-  }
-  if (titleEl) {
-    titleEl.textContent = title;
-  }
-  if (channelEl) {
-    channelEl.textContent = channel;
-  }
+  if (titleEl) titleEl.textContent = data.title;
+  if (channelEl) channelEl.innerHTML = `<i class="fa-brands fa-youtube text-danger"></i> ${data.channel}`;
+  if (durationEl) durationEl.innerHTML = `<i class="fa-solid fa-clock text-gold"></i> ${data.duration}`;
+  if (posterEl) posterEl.src = data.poster;
+  if (quoteEl) quoteEl.textContent = data.quote;
 
   document.querySelectorAll('.video-switcher-tab').forEach((tab) => {
     tab.classList.remove('active');
   });
+
   if (btnElement) {
     btnElement.classList.add('active');
+  } else {
+    const tabs = document.querySelectorAll('.video-switcher-tab');
+    const keys = ['fanjo', 'antoine', 'lecons', 'martingale'];
+    const idx = keys.indexOf(videoKey);
+    if (idx !== -1 && tabs[idx]) tabs[idx].classList.add('active');
   }
 }
+
+function openActiveVideo() {
+  const data = moneyVideosData[currentActiveMoneyKey] || moneyVideosData['fanjo'];
+  const modal = document.getElementById('moneyVideoModal');
+  const iframe = document.getElementById('modalVideoIframe');
+  const title = document.getElementById('modalVideoTitle');
+  const channel = document.getElementById('modalVideoChannel');
+  const directLink = document.getElementById('modalVideoDirectLink');
+
+  if (title) title.textContent = data.title;
+  if (channel) channel.textContent = data.channel;
+  if (directLink) directLink.href = data.youtubeUrl;
+
+  if (modal) {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Open direct YouTube in new window for guaranteed 100% instant video play without restrictions
+  window.open(data.youtubeUrl, '_blank');
+}
+
+function closeMoneyVideoModal() {
+  const modal = document.getElementById('moneyVideoModal');
+  const iframe = document.getElementById('modalVideoIframe');
+  if (iframe) iframe.src = '';
+  if (modal) modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
 

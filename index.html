@@ -3174,6 +3174,15 @@
                 </button>
               </div>
 
+              <!-- Quick Video Proof Pill -->
+              <div class="sp-hero-video-pill-wrap" style="margin-top:14px; text-align:center;">
+                <a href="#spVideoReviews" style="display:inline-flex; align-items:center; gap:8px; font-size:0.85rem; font-weight:700; color:#dc2626; background:#fef2f2; padding:8px 18px; border-radius:var(--radius-full); border:1px solid #fee2e2; text-decoration:none; transition:all 0.2s ease; box-shadow:0 2px 8px rgba(220,38,38,0.08);">
+                  <i class="fa-brands fa-youtube" style="font-size:1.1rem; color:#ef4444;"></i>
+                  <span>🎬 Voir les 4 analyses vidéo & témoignages en français (+500K vues)</span>
+                  <i class="fa-solid fa-arrow-down" style="font-size:0.75rem; color:#ef4444;"></i>
+                </a>
+              </div>
+
               <div class="sp-reassurance-row">
                 <span><i class="fa-solid fa-mobile-screen text-accent"></i> Format PDF HD</span>
                 <span><i class="fa-solid fa-bolt text-accent"></i> Téléchargement Immédiat</span>
@@ -3252,6 +3261,126 @@
               </div>
 
               <p class="sp-highlight-quote">« Dans aucun autre domaine au monde, un amateur sans diplôme ne peut écraser un expert sur-entraîné. En finance, c'est possible chaque jour, car ce qui compte n'est pas ce que vous savez, mais la façon dont vous vous comportez. »</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- 03-BIS — ESPACE PREUVES VIDÉO & DÉCRYPTAGES FRANCOPHONES (EN VEDETTE) -->
+      <!-- ===================================================================== -->
+      <section id="spVideoReviews" class="sp-video-showcase-section" style="padding:60px 0; background:linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);">
+        <div class="container">
+          <div class="sp-section-head text-center">
+            <div class="section-badge gold"><i class="fa-brands fa-youtube" style="color:#ef4444;"></i> EN VEDETTE • ANALYSES & PREUVES VIDÉO</div>
+            <h2 class="sp-sec-title">Ce Que les Créateurs et Experts Français Disent en Vidéo</h2>
+            <p class="sp-sec-sub">Découvrez les retours d'expérience, synthèses et analyses complètes en français de ce bestseller mondial.</p>
+          </div>
+
+          <!-- Video Switcher Navigation -->
+          <div class="video-switcher-nav" style="display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin:28px 0 20px;">
+            <button type="button" class="video-switcher-tab active" onclick="switchMoneyVideo('fanjo', this)">
+              <i class="fa-brands fa-youtube" style="color:#ef4444;"></i> Mister Fanjo (19 Leçons)
+            </button>
+            <button type="button" class="video-switcher-tab" onclick="switchMoneyVideo('antoine', this)">
+              <i class="fa-brands fa-youtube" style="color:#ef4444;"></i> Antoine BM (Mindset)
+            </button>
+            <button type="button" class="video-switcher-tab" onclick="switchMoneyVideo('lecons', this)">
+              <i class="fa-brands fa-youtube" style="color:#ef4444;"></i> 5 Leçons Clés (Vulgarisation)
+            </button>
+            <button type="button" class="video-switcher-tab" onclick="switchMoneyVideo('martingale', this)">
+              <i class="fa-solid fa-podcast" style="color:var(--brand-primary);"></i> La Martingale (M. Stefani)
+            </button>
+          </div>
+
+          <!-- Featured Interactive Cinema Video Player -->
+          <div class="featured-video-player-box" style="max-width:860px; margin:0 auto; background:#0f172a; border-radius:24px; overflow:hidden; box-shadow:0 25px 50px -12px rgba(15, 23, 42, 0.4); border:1px solid #334155;">
+            <!-- Player Header Bar -->
+            <div class="video-player-header" style="padding:14px 20px; background:#1e293b; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #334155; flex-wrap:wrap; gap:8px;">
+              <div style="display:flex; align-items:center; gap:10px;">
+                <span style="width:10px; height:10px; border-radius:50%; background:#ef4444; display:inline-block; box-shadow:0 0 8px #ef4444;"></span>
+                <strong id="moneyVideoTitle" style="color:#ffffff; font-size:0.95rem;">La Psychologie de l'Argent : Les 19 Leçons Expliquées</strong>
+              </div>
+              <span id="moneyVideoChannel" style="font-size:0.8rem; color:#94a3b8; background:rgba(255,255,255,0.08); padding:4px 12px; border-radius:var(--radius-full);"><i class="fa-brands fa-youtube text-danger"></i> Mister Fanjo (+250K vues)</span>
+            </div>
+
+            <!-- Cinema Canvas with Play Button & Chapter Markers -->
+            <div id="moneyVideoCanvas" class="video-cinema-screen" style="position:relative; height:340px; background:#020617; display:flex; align-items:center; justify-content:center; overflow:hidden; cursor:pointer;" onclick="openActiveVideo()">
+              <img id="moneyVideoPoster" src="assets/banner_money_fr.jpg" alt="Video Preview" style="width:100%; height:100%; object-fit:cover; opacity:0.65; transition:transform 0.5s ease;">
+              
+              <!-- Center Glow Play Button -->
+              <div class="video-glow-play" style="position:absolute; width:76px; height:76px; border-radius:50%; background:linear-gradient(135deg, #ef4444 0%, #dc2626 100%); color:#ffffff; display:flex; align-items:center; justify-content:center; font-size:1.9rem; box-shadow:0 0 35px rgba(239,68,68,0.8); transition:transform 0.3s ease;">
+                <i class="fa-solid fa-play" style="margin-left:4px;"></i>
+              </div>
+
+              <!-- Bottom Bar Overlay -->
+              <div style="position:absolute; bottom:16px; left:20px; right:20px; display:flex; align-items:center; justify-content:space-between; color:#ffffff; font-size:0.85rem; background:rgba(15,23,42,0.88); padding:10px 16px; border-radius:12px; backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,0.1);">
+                <span id="moneyVideoDuration"><i class="fa-solid fa-clock text-gold"></i> Durée : 18 min • Résumé Complet</span>
+                <span style="color:#fbbf24; font-weight:700;"><i class="fa-solid fa-circle-play"></i> Cliquer pour lancer la vidéo</span>
+              </div>
+            </div>
+
+            <!-- Takeaway Quote & Dual Action Buttons -->
+            <div class="video-player-footer" style="padding:20px; background:#1e293b; border-top:1px solid #334155;">
+              <div id="moneyVideoQuote" style="font-size:0.92rem; color:#e2e8f0; line-height:1.6; font-style:italic; margin-bottom:16px; padding-left:14px; border-left:3px solid #fbbf24;">
+                « Ce livre démontre brillamment pourquoi votre quotient émotionnel (EQ) face à l'argent compte 10 fois plus que votre quotient intellectuel (IQ). Une synthèse magistrale. »
+              </div>
+              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+                <button type="button" class="btn btn-secondary btn-sm" onclick="openActiveVideo()" style="background:rgba(255,255,255,0.1); color:#ffffff; border:1px solid rgba(255,255,255,0.2);">
+                  <i class="fa-brands fa-youtube" style="color:#ef4444;"></i> Visionner l'analyse complète (YouTube)
+                </button>
+                <button type="button" class="btn btn-primary btn-sm shadow-glow" onclick="redirectToChariow('money')">
+                  <i class="fa-solid fa-bolt"></i> OBTENIR LE GUIDE PDF & 3 BONUS (4,50 € / 2 950 FCFA)
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3 Interactive Highlight Cards -->
+          <div class="video-cards-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; margin-top:36px;">
+            <div class="video-proof-card" style="background:#ffffff; border-radius:18px; padding:24px; border:1px solid #e2e8f0; box-shadow:var(--shadow-sm); cursor:pointer;" onclick="switchMoneyVideo('fanjo')">
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+                <div style="display:flex; align-items:center; gap:10px;">
+                  <div style="width:38px; height:38px; border-radius:50%; background:#ef4444; color:#fff; display:flex; align-items:center; justify-content:center; font-size:1.1rem;"><i class="fa-brands fa-youtube"></i></div>
+                  <div>
+                    <strong style="display:block; font-size:0.92rem; color:var(--text-primary);">Mister Fanjo</strong>
+                    <span style="font-size:0.75rem; color:var(--text-muted);">+250 000 vues</span>
+                  </div>
+                </div>
+                <span class="badge" style="background:#ecfdf5; color:#059669; font-size:0.72rem; font-weight:700; padding:4px 8px; border-radius:4px;">19 Leçons</span>
+              </div>
+              <h4 style="font-size:0.95rem; margin-bottom:8px; color:var(--text-primary);">Comprendre la part comportementale de la richesse</h4>
+              <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.5;">La distinction fondamentale entre devenir riche (l'audace) et rester riche (la discipline et l'humilité).</p>
+            </div>
+
+            <div class="video-proof-card" style="background:#ffffff; border-radius:18px; padding:24px; border:1px solid #e2e8f0; box-shadow:var(--shadow-sm); cursor:pointer;" onclick="switchMoneyVideo('antoine')">
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+                <div style="display:flex; align-items:center; gap:10px;">
+                  <div style="width:38px; height:38px; border-radius:50%; background:#d97706; color:#fff; display:flex; align-items:center; justify-content:center; font-size:1.1rem;"><i class="fa-brands fa-youtube"></i></div>
+                  <div>
+                    <strong style="display:block; font-size:0.92rem; color:var(--text-primary);">Antoine BM</strong>
+                    <span style="font-size:0.75rem; color:var(--text-muted);">+180 000 vues</span>
+                  </div>
+                </div>
+                <span class="badge" style="background:#fef3c7; color:#d97706; font-size:0.72rem; font-weight:700; padding:4px 8px; border-radius:4px;">Mindset</span>
+              </div>
+              <h4 style="font-size:0.95rem; margin-bottom:8px; color:var(--text-primary);">Le livre qui guérit des achats d'ego</h4>
+              <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.5;">Pourquoi posséder son temps et dire « non » est la seule vraie richesse qui vaille la peine d'être poursuivie.</p>
+            </div>
+
+            <div class="video-proof-card" style="background:#ffffff; border-radius:18px; padding:24px; border:1px solid #e2e8f0; box-shadow:var(--shadow-sm); cursor:pointer;" onclick="switchMoneyVideo('martingale')">
+              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+                <div style="display:flex; align-items:center; gap:10px;">
+                  <div style="width:38px; height:38px; border-radius:50%; background:#2563eb; color:#fff; display:flex; align-items:center; justify-content:center; font-size:1.1rem;"><i class="fa-solid fa-podcast"></i></div>
+                  <div>
+                    <strong style="display:block; font-size:0.92rem; color:var(--text-primary);">Matthieu Stefani</strong>
+                    <span style="font-size:0.75rem; color:var(--text-muted);">GDIY & La Martingale</span>
+                  </div>
+                </div>
+                <span class="badge" style="background:#eff6ff; color:#2563eb; font-size:0.72rem; font-weight:700; padding:4px 8px; border-radius:4px;">Podcast N°1</span>
+              </div>
+              <h4 style="font-size:0.95rem; margin-bottom:8px; color:var(--text-primary);">La recommandation d'or des investisseurs</h4>
+              <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.5;">Le livre cité par plus de 80% des entrepreneurs et investisseurs français invités au micro de La Martingale.</p>
             </div>
           </div>
         </div>
@@ -3538,99 +3667,6 @@
             <div><strong style="color:#fbbf24; font-size:1.1rem;">⭐ 4.8 / 5</strong> <span style="font-size:0.85rem; color:#cbd5e1;">(+12 000 avis vérifiés France)</span></div>
             <div><i class="fa-solid fa-book-bookmark text-gold"></i> <span style="font-size:0.85rem; color:#cbd5e1;">Classé N°1 des Ventes Finance Personnelle</span></div>
             <div><i class="fa-solid fa-earth-americas text-gold"></i> <span style="font-size:0.85rem; color:#cbd5e1;">Traduit en 49 langues, +3 millions d'exemplaires</span></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 08-BIS — VIDÉOS & DÉCRYPTAGES YOUTUBE FRANCOPHONES -->
-      <section class="sp-video-showcase-section" style="padding:60px 0; background:#ffffff;">
-        <div class="container">
-          <div class="sp-section-head text-center">
-            <div class="section-badge gold"><i class="fa-brands fa-youtube" style="color:#ef4444;"></i> ANALYSES & PREUVES VIDÉO</div>
-            <h2 class="sp-sec-title">Ce Que les Créateurs et Experts Français Disent en Vidéo</h2>
-            <p class="sp-sec-sub">Visionnez les décryptages, analyses et résumés complets en français de cet ouvrage culte.</p>
-          </div>
-
-          <!-- Video Switcher Navigation -->
-          <div class="video-switcher-nav" style="display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin:28px 0 20px;">
-            <button type="button" class="video-switcher-tab active" onclick="switchMoneyVideo('https://www.youtube-nocookie.com/embed/videoseries?list=PL_Xq7XNqGZ6bB7N_Qn_L4E4aQ5e8mGfG9', 'La Psychologie de l\\'Argent : Les 19 Leçons Expliquées', 'Mister Fanjo • Résumé Animé', this)">
-              <i class="fa-brands fa-youtube" style="color:#ef4444;"></i> Mister Fanjo (19 Leçons)
-            </button>
-            <button type="button" class="video-switcher-tab" onclick="switchMoneyVideo('https://www.youtube-nocookie.com/embed/search?q=psychologie+argent+antoine+bm', 'Le Livre sur l\\'Argent Qui a Changé ma Vie', 'Antoine BM • Mindset & Indépendance', this)">
-              <i class="fa-brands fa-youtube" style="color:#ef4444;"></i> Antoine BM (Mindset)
-            </button>
-            <button type="button" class="video-switcher-tab" onclick="switchMoneyVideo('https://www.youtube-nocookie.com/embed/search?q=psychologie+argent+morgan+housel+5+lecons', '5 Leçons Financières Qui Changent Tout', 'Développement & Investissement', this)">
-              <i class="fa-brands fa-youtube" style="color:#ef4444;"></i> 5 Leçons Clés
-            </button>
-            <button type="button" class="video-switcher-tab" onclick="switchMoneyVideo('https://www.youtube-nocookie.com/embed/search?q=la+martingale+psychologie+argent+morgan+housel', 'Le Guide Absolu Recommandé par Tous les Investisseurs', 'La Martingale • Matthieu Stefani', this)">
-              <i class="fa-solid fa-podcast" style="color:var(--brand-primary);"></i> La Martingale (Podcast)
-            </button>
-          </div>
-
-          <!-- Featured Interactive Video Player Card -->
-          <div class="featured-video-player-box" style="max-width:860px; margin:0 auto; background:#0f172a; border-radius:20px; overflow:hidden; box-shadow:var(--shadow-xl); border:1px solid #334155;">
-            <div class="video-player-header" style="padding:14px 20px; background:#1e293b; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #334155;">
-              <div style="display:flex; align-items:center; gap:10px;">
-                <span style="width:10px; height:10px; border-radius:50%; background:#ef4444; display:inline-block;"></span>
-                <strong id="moneyVideoTitle" style="color:#ffffff; font-size:0.95rem;">La Psychologie de l'Argent : Les 19 Leçons Expliquées</strong>
-              </div>
-              <span id="moneyVideoChannel" style="font-size:0.8rem; color:#94a3b8; background:rgba(255,255,255,0.08); padding:4px 10px; border-radius:var(--radius-full);">Mister Fanjo • Résumé Animé</span>
-            </div>
-
-            <div class="video-iframe-wrapper" style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; background:#020617;">
-              <iframe id="moneyFeaturedIframe" src="https://www.youtube-nocookie.com/embed/search?q=la+psychologie+de+l+argent+morgan+housel+francais" style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-
-            <div class="video-player-footer" style="padding:16px 20px; background:#1e293b; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
-              <div style="font-size:0.85rem; color:#cbd5e1;">
-                <i class="fa-solid fa-circle-check text-success"></i> +500 000 vues cumulées • Ouvrage unanimement salué par la communauté francophone
-              </div>
-              <button type="button" class="btn btn-primary btn-sm shadow-glow" onclick="redirectToChariow('money')">
-                <i class="fa-solid fa-bolt"></i> COMMANDER LE GUIDE (4,50 € / 2 950 FCFA)
-              </button>
-            </div>
-          </div>
-
-          <!-- Video Highlights Cards Grid -->
-          <div class="video-cards-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; margin-top:36px;">
-            <div class="video-proof-card" style="background:var(--bg-subtle); border-radius:16px; padding:22px; border:1px solid #e2e8f0; box-shadow:var(--shadow-sm);">
-              <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
-                <div style="width:36px; height:36px; border-radius:50%; background:#ef4444; color:#fff; display:flex; align-items:center; justify-content:center; font-size:1rem;"><i class="fa-brands fa-youtube"></i></div>
-                <div>
-                  <strong style="display:block; font-size:0.9rem; color:var(--text-primary);">Mister Fanjo</strong>
-                  <span style="font-size:0.75rem; color:var(--text-muted);">Vulgarisation & Finance Comportementale</span>
-                </div>
-              </div>
-              <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.5; font-style:italic;">
-                « Ce livre démontre brillamment pourquoi votre quotient émotionnel (EQ) face à l'argent compte 10 fois plus que votre quotient intellectuel (IQ). »
-              </p>
-            </div>
-
-            <div class="video-proof-card" style="background:var(--bg-subtle); border-radius:16px; padding:22px; border:1px solid #e2e8f0; box-shadow:var(--shadow-sm);">
-              <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
-                <div style="width:36px; height:36px; border-radius:50%; background:#d97706; color:#fff; display:flex; align-items:center; justify-content:center; font-size:1rem;"><i class="fa-brands fa-youtube"></i></div>
-                <div>
-                  <strong style="display:block; font-size:0.9rem; color:var(--text-primary);">Antoine BM</strong>
-                  <span style="font-size:0.75rem; color:var(--text-muted);">Créateur & Entrepreneur</span>
-                </div>
-              </div>
-              <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.5; font-style:italic;">
-                « Morgan Housel vous guérit du besoin absurde d'impressionner des gens que vous n'aimez pas avec de l'argent que vous n'avez pas. »
-              </p>
-            </div>
-
-            <div class="video-proof-card" style="background:var(--bg-subtle); border-radius:16px; padding:22px; border:1px solid #e2e8f0; box-shadow:var(--shadow-sm);">
-              <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
-                <div style="width:36px; height:36px; border-radius:50%; background:#2563eb; color:#fff; display:flex; align-items:center; justify-content:center; font-size:1rem;"><i class="fa-solid fa-podcast"></i></div>
-                <div>
-                  <strong style="display:block; font-size:0.9rem; color:var(--text-primary);">Matthieu Stefani (La Martingale)</strong>
-                  <span style="font-size:0.75rem; color:var(--text-muted);">Podcast N°1 Investissement</span>
-                </div>
-              </div>
-              <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.5; font-style:italic;">
-                « C'est le socle fondamental que tout investisseur sérieux doit avoir lu avant d'acheter la moindre action ou bien immobilier. »
-              </p>
-            </div>
           </div>
         </div>
       </section>
@@ -3962,6 +3998,35 @@
 </main>
 
 
+
+    <!-- Dedicated Fullscreen Video Testimonial Modal for La Psychologie de l'Argent -->
+  <div class="book-modal-overlay" id="moneyVideoModal" onclick="if(event.target === this) closeMoneyVideoModal();">
+    <div class="book-modal-dialog" style="max-width:840px; background:#0f172a; color:#ffffff; border-radius:24px; padding:0; overflow:hidden; border:1px solid #334155; box-shadow:0 25px 60px rgba(0,0,0,0.7);">
+      <div style="padding:16px 24px; background:#1e293b; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #334155;">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <i class="fa-brands fa-youtube" style="color:#ef4444; font-size:1.4rem;"></i>
+          <div>
+            <strong id="modalVideoTitle" style="color:#ffffff; font-size:1rem; display:block;">Analyse Vidéo</strong>
+            <span id="modalVideoChannel" style="font-size:0.8rem; color:#94a3b8;">Créateur Francophone</span>
+          </div>
+        </div>
+        <button type="button" class="book-modal-close-btn" onclick="closeMoneyVideoModal()" style="position:static; color:#ffffff;" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div style="position:relative; padding-bottom:56.25%; height:0; background:#000000; overflow:hidden;">
+        <iframe id="modalVideoIframe" src="" style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+
+      <div style="padding:18px 24px; background:#1e293b; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px;">
+        <a id="modalVideoDirectLink" href="#" target="_blank" class="btn btn-secondary btn-sm" style="background:rgba(255,255,255,0.1); color:#fff; border:1px solid rgba(255,255,255,0.2);">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Ouvrir dans YouTube
+        </a>
+        <button type="button" class="btn btn-primary btn-sm shadow-glow" onclick="closeMoneyVideoModal(); redirectToChariow('money')">
+          <i class="fa-solid fa-bolt"></i> OBTENIR LE LIVRE (4,50 € / 2 950 FCFA)
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- Live Purchase Toast Notification -->
   <div class="purchase-toast" id="purchaseToast">
