@@ -254,11 +254,90 @@ const products = {
       "Grille de diagnostic de disponibilité réelle",
       "Exercice d'auto-coaching de souveraineté"
     ]
+  },
+
+  // 4. Psychologie de l'Argent & Mindset Financier (Morgan Housel)
+  money: {
+    id: 'money',
+    category: 'mindset',
+    categoryTag: 'cat-mindset',
+    badge: 'Bestseller Mondial',
+    badgeClass: 'badge-featured gold',
+    hasDedicatedSalesPage: true,
+    salesPageRoute: 'product-money',
+    priceEur: 4.50,
+    oldPriceEur: 12.00,
+    priceXOF: 2950,
+    priceUSD: 5.25,
+    pages: 86,
+    rating: 4.98,
+    reviewsCount: 2840,
+    checkoutLinks: {
+      fr: 'https://nuxshwfj.mychariow.shop/prd_z87z6gme/checkout',
+      en: 'https://nuxshwfj.mychariow.shop/prd_z87z6gme/checkout'
+    },
+    covers: {
+      fr: 'assets/cover_money_fr.jpg',
+      en: 'assets/cover_money_en.jpg'
+    },
+    banners: {
+      fr: 'assets/banner_money_fr.jpg',
+      en: 'assets/banner_money_en.jpg'
+    },
+    titles: {
+      fr: "La Psychologie de l'Argent (Morgan Housel)",
+      en: "The Psychology of Money (Morgan Housel)"
+    },
+    author: {
+      fr: "Morgan Housel • Synthèse Stratégique & Fiches d'Action Nexa",
+      en: "Morgan Housel • Strategic Blueprint Nexa"
+    },
+    subtitle: {
+      fr: "Quelques leçons intemporelles sur la richesse, la cupidité et le bonheur. Maîtriser le comportement financier, la force du temps et la souveraineté.",
+      en: "Timeless lessons on wealth, greed, and happiness. Master financial behavior, the power of compound interest, and time freedom."
+    },
+    perks: {
+      fr: [
+        "19 Leçons Intemporelles décortiquées & synthétisées sans jargon",
+        "Grille d'Audit des 7 Biais Émotionnels & Comportementaux",
+        "Modèle de Budget Souverain à 3 Piliers + Plan d'Action 30 Jours"
+      ],
+      en: [
+        "19 Timeless Lessons summarized & operationalized",
+        "Diagnostic of 7 Emotional & Behavioral Wealth Biases",
+        "Sovereign Budget Framework + 30-Day Action Plan"
+      ]
+    },
+    chapters: [
+      { num: "01", title: "Personne n'est fou (No One's Crazy)", desc: "Comprendre pourquoi chaque individu a un rapport unique à l'argent forgé par son histoire." },
+      { num: "02", title: "Chance & Risque (Luck & Risk)", desc: "Distinguer le talent de la chance pure et éviter le piège de la surestimation." },
+      { num: "03", title: "Ne Jamais En Avoir Assez (Never Enough)", desc: "L'art de fixer son seuil de satisfaction pour ne pas tout perdre par avidité." },
+      { num: "04", title: "La Force des Intérêts Composés (Confounding Compounding)", desc: "Pourquoi 99% de la fortune de Warren Buffett s'est construite après ses 50 ans." },
+      { num: "05", title: "Devenir Riche vs Rester Riche (Getting Wealthy vs Staying Wealthy)", desc: "La paranoïa constructive indispensable pour préserver son patrimoine." },
+      { num: "06", title: "L'Événement Rare & Les Queues de Distribution (Tails, You Win)", desc: "Pourquoi une poignée de décisions réussies compensent des dizaines d'erreurs." },
+      { num: "07", title: "La Liberté (Freedom)", desc: "La valeur suprême de l'argent : le contrôle total et absolu de son propre temps." },
+      { num: "08", title: "Le Paradoxe de l'Homme dans la Voiture de Luxe", desc: "Personne n'admire le conducteur : la différence cruciale entre être riche et paraître riche." }
+    ],
+    bonuses: [
+      "Grille d'Auto-Audit de vos Biais Financiers (PDF)",
+      "Plan d'Action '30 Jours pour Sanctuariser votre Épargne'",
+      "Fiche Mémo Plastifiable 'Les 10 Lois du Mindset Financier'"
+    ]
   }
 };
 
 // --- Customer Testimonials Database ---
 const reviewsData = [
+  {
+    book: 'money',
+    category: 'mindset',
+    name: 'Alexandre B., 32 ans',
+    city: 'Paris',
+    rating: 5,
+    date: 'Il y a 1 jour',
+    avatar: 'assets/avatar_maxime.jpg',
+    text: "Ce livre a totalement réinitialisé ma relation avec l'argent. Le chapitre sur la différence entre 'être riche' (dépenser pour paraître) et 'être prospère' (ce qui ne se voit pas et reste investi) m'a évité des milliers d'euros d'erreurs futiles."
+  },
   {
     book: 'attached',
     category: 'psychology',
@@ -268,6 +347,16 @@ const reviewsData = [
     date: 'Il y a 2 jours',
     avatar: 'assets/avatar_clara.jpg',
     text: "Le chapitre 2 sur la répétition de l'inachevé m'a ouvert les yeux. Pour la première fois, j'ai compris pourquoi je tombais systématiquement sur des personnes émotionnellement indisponibles. Le plan de 14 jours m'a libérée."
+  },
+  {
+    book: 'money',
+    category: 'mindset',
+    name: 'Nathalie K., 38 ans',
+    city: 'Abidjan',
+    rating: 5,
+    date: 'Il y a 3 jours',
+    avatar: 'assets/avatar_nathalie.jpg',
+    text: "Une clarté magistrale ! Les 19 leçons sont expliquées avec des anecdotes inoubliables. J'ai mis en place le modèle de budget souverain et pour la première fois, je ne ressens plus aucune angoisse en fin de mois."
   },
   {
     book: 'distance',
@@ -280,6 +369,16 @@ const reviewsData = [
     text: "Quand quelqu'un devient distant, le premier réflexe est de paniquer. J'ai acheté ce guide à 23h et utilisé le Script 8. Le résultat a été instantané : la conversation est redevenue calme, saine et respectueuse."
   },
   {
+    book: 'money',
+    category: 'mindset',
+    name: 'Karim T., 29 ans',
+    city: 'Bruxelles',
+    rating: 5,
+    date: 'Il y a 4 jours',
+    avatar: 'assets/avatar_karim.jpg',
+    text: "L'histoire du concierge Ronald Read comparé au trader de Wall Street est une claque phénoménale. La finance n'est pas une question de QI, mais de comportement. Merci à Nexa Book pour ce format condensé et percutant."
+  },
+  {
     book: 'commit',
     category: 'relations',
     name: 'Sarah L., 31 ans',
@@ -288,6 +387,16 @@ const reviewsData = [
     date: 'Il y a 5 jours',
     avatar: 'assets/avatar_sarah.jpg',
     text: "Un an et demi dans un presque-couple. La méthode des 4 Réalités m'a permis de conduire la conversation de clarté en 6 étapes sans trembler et de poser mes standards."
+  },
+  {
+    book: 'money',
+    category: 'mindset',
+    name: 'Marine S., 35 ans',
+    city: 'Genève',
+    rating: 5,
+    date: 'Il y a 6 jours',
+    avatar: 'assets/avatar_marine.jpg',
+    text: "Le concept du dividende suprême de l'argent : posséder son temps et se réveiller chaque matin en choisissant ce que l'on fait. Ce livre vaut 100 fois son prix."
   },
   {
     book: 'attached',
@@ -323,8 +432,11 @@ const reviewsData = [
 
 // --- Live Social Toast Simulated Purchases ---
 const liveToastsList = [
+  { name: 'Guillaume de Bordeaux', book: 'money', time: 'Il y a 1 minute' },
   { name: 'Sophie de Lyon', book: 'attached', time: 'Il y a 2 minutes' },
+  { name: 'Kouassi de Dakar', book: 'money', time: 'Il y a 3 minutes' },
   { name: 'David de Genève', book: 'distance', time: 'Il y a 5 minutes' },
+  { name: 'Aurélie de Lyon', book: 'money', time: 'Il y a 6 minutes' },
   { name: 'Inès de Toulouse', book: 'commit', time: 'Il y a 8 minutes' },
   { name: 'Marc de Paris', book: 'attached', time: 'Il y a 11 minutes' },
   { name: 'Émilie de Bruxelles', book: 'distance', time: 'Il y a 14 minutes' },
@@ -380,8 +492,8 @@ function handleHashChange() {
   const hash = window.location.hash.replace('#', '').trim() || 'home';
   const validRoutes = [
     'home',
-    'product-attached', 'product-distance', 'product-commit',
-    'product-attached-en', 'product-distance-en', 'product-commit-en'
+    'product-attached', 'product-distance', 'product-commit', 'product-money',
+    'product-attached-en', 'product-distance-en', 'product-commit-en', 'product-money-en'
   ];
   if (validRoutes.includes(hash)) {
     navigateTo(hash);
@@ -520,10 +632,12 @@ function setLanguage(lang) {
     if (cur === 'product-attached') navigateTo('product-attached-en');
     else if (cur === 'product-distance') navigateTo('product-distance-en');
     else if (cur === 'product-commit') navigateTo('product-commit-en');
+    else if (cur === 'product-money') navigateTo('product-money-en');
   } else if (lang === 'fr') {
     if (cur === 'product-attached-en') navigateTo('product-attached');
     else if (cur === 'product-distance-en') navigateTo('product-distance');
     else if (cur === 'product-commit-en') navigateTo('product-commit');
+    else if (cur === 'product-money-en') navigateTo('product-money');
   }
 }
 
@@ -877,12 +991,12 @@ function showQuizResult() {
   const ans2 = state.quizAnswers[2] || 'action';
 
   let targetProductKey = 'attached';
-  if (ans1 === 'distance' || ans2 === 'distance') targetProductKey = 'distance';
+  if (ans1 === 'mindset' || ans1 === 'business' || ans2 === 'mindset') targetProductKey = 'money';
+  else if (ans1 === 'distance' || ans2 === 'distance') targetProductKey = 'distance';
   else if (ans1 === 'commit' || ans2 === 'commit') targetProductKey = 'commit';
-  else if (ans1 === 'business' || ans1 === 'productivity' || ans1 === 'mindset') targetProductKey = 'attached';
   else targetProductKey = 'attached';
 
-  const prod = products[targetProductKey] || products.attached;
+  const prod = products[targetProductKey] || products.money || products.attached;
   const lang = state.currentLang;
 
   const resultContainer = document.getElementById('quizResultBox');
@@ -1009,7 +1123,11 @@ function updateStickyBar(viewId) {
   const titleEl = document.getElementById('stickyBookTitle');
   const priceEl = document.getElementById('stickyBookPrice');
 
-  if (viewId === 'product-attached' || viewId === 'product-attached-en') {
+  if (viewId === 'product-money' || viewId === 'product-money-en') {
+    bar.classList.add('active');
+    if (titleEl) titleEl.textContent = products.money.titles[state.currentLang];
+    if (priceEl) priceEl.textContent = formatPrice(products.money.priceEur);
+  } else if (viewId === 'product-attached' || viewId === 'product-attached-en') {
     bar.classList.add('active');
     if (titleEl) titleEl.textContent = products.attached.titles[state.currentLang];
     if (priceEl) priceEl.textContent = formatPrice(products.attached.priceEur);
@@ -1027,7 +1145,8 @@ function updateStickyBar(viewId) {
 }
 
 function handleStickyBuy() {
-  if (state.currentView.includes('distance')) redirectToChariow('distance');
+  if (state.currentView.includes('money')) redirectToChariow('money');
+  else if (state.currentView.includes('distance')) redirectToChariow('distance');
   else if (state.currentView.includes('commit')) redirectToChariow('commit');
   else redirectToChariow('attached');
 }

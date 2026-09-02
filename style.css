@@ -4506,3 +4506,64 @@ button, input, select, textarea {
   padding: 14px 28px;
   font-size: 1rem;
 }
+
+/* ==========================================================================
+   MONEY & MINDSET THEMATIC ENHANCEMENTS (LA PSYCHOLOGIE DE L'ARGENT)
+   ========================================================================== */
+.highlight-gold {
+  color: #d97706;
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+
+.sp-badge-flash.gold {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  color: #ffffff;
+}
+
+.sp-float-ribbon.gold {
+  background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(217, 119, 6, 0.4);
+}
+
+.ch-badge.gold {
+  background: var(--gold-light);
+  color: var(--gold-dark);
+  border-color: var(--gold-border);
+}
+
+.section-badge.gold {
+  background: var(--gold-light);
+  color: var(--gold-dark);
+  border: 1px solid var(--gold-border);
+}
+
+.sp-offer-box {
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.sp-offer-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px -8px rgba(217, 119, 6, 0.2);
+}
+
+.story-comparison-grid > div {
+  transition: transform var(--transition-smooth);
+}
+
+.story-comparison-grid > div:hover {
+  transform: translateY(-3px);
+}
+
+.french-quotes-grid > div {
+  transition: transform var(--transition-smooth), border-color var(--transition-smooth);
+}
+
+.french-quotes-grid > div:hover {
+  transform: translateY(-4px);
+  border-color: rgba(245, 158, 11, 0.4) !important;
+}
+

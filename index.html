@@ -319,6 +319,10 @@
                   <img src="assets/cover_attached_fr.jpg" alt="Attachement" id="heroThumbAttached">
                   <span>Schémas</span>
                 </button>
+                <button type="button" class="hero-thumb-btn" data-target-book="money" onclick="switchHeroSlide('money')">
+                  <img src="assets/cover_money_fr.jpg" alt="Psychologie de l'Argent" id="heroThumbMoney">
+                  <span>Finances</span>
+                </button>
                 <button type="button" class="hero-thumb-btn" data-target-book="distance" onclick="switchHeroSlide('distance')">
                   <img src="assets/cover_distance_fr.jpg" alt="Distance" id="heroThumbDistance">
                   <span>Distance</span>
@@ -3130,7 +3134,739 @@
       </section>
 
     </section>
-  </main>
+  
+    <!-- ========================================================================= -->
+    <!-- VIEW : PAGE DE VENTE - LA PSYCHOLOGIE DE L'ARGENT (MORGAN HOUSEL) [14 ÉTAPES] -->
+    <!-- ========================================================================= -->
+    <section id="view-product-money" class="app-view">
+      
+      <!-- 01 — HERO : CAPTER L'ATTENTION & PROMESSE FORTE -->
+      <section class="sp-hero-section">
+        <div class="container">
+          <div class="sales-back-nav" onclick="navigateTo('home')">
+            <i class="fa-solid fa-arrow-left"></i> Retour à la boutique Nexa Book
+          </div>
+
+          <div class="sp-hero-grid">
+            <div class="sp-hero-text">
+              <div class="sp-badge-pill">
+                <span class="sp-badge-flash gold"><i class="fa-solid fa-crown"></i> BEST-SELLER MONDIAL</span>
+                <span>⭐ Master Édition Stratégique (86 Pages HD)</span>
+              </div>
+
+              <h1 class="sp-main-headline">
+                Pourquoi les gens intelligents font des erreurs financières stupides — et comment maîtriser la <span class="highlight-gold">psychologie invisible de la richesse</span>.
+              </h1>
+
+              <p class="sp-lead-promise">
+                La synthèse stratégique d'action des 19 leçons intemporelles de <strong>Morgan Housel</strong> pour reprogrammer vos réflexes financiers, dompter vos émotions et bâtir une véritable liberté temporelle grâce au <strong>Plan de Souveraineté Financière en 30 Jours</strong>.
+              </p>
+
+              <div class="sp-price-box">
+                <span class="sp-old-price" data-price-eur="12.00">12,00 € (7 800 FCFA)</span>
+                <span class="sp-current-price" data-price-eur="4.50">4,50 €</span>
+                <span class="sp-currency-sub">≈ 2 950 FCFA ≈ $5.25</span>
+              </div>
+
+              <div class="sp-hero-cta">
+                <button type="button" class="btn btn-primary btn-xl btn-block shadow-glow" onclick="redirectToChariow('money')">
+                  <i class="fa-solid fa-bolt"></i> JE VEUX MON EXEMPLAIRE (4,50 € / 2 950 FCFA)
+                </button>
+              </div>
+
+              <div class="sp-reassurance-row">
+                <span><i class="fa-solid fa-mobile-screen text-accent"></i> Format PDF HD</span>
+                <span><i class="fa-solid fa-bolt text-accent"></i> Téléchargement Immédiat</span>
+                <span><i class="fa-solid fa-lock text-accent"></i> Paiement Sécurisé Chariow</span>
+                <span><i class="fa-solid fa-shield-check text-accent"></i> Garantie 30 Jours</span>
+              </div>
+            </div>
+
+            <div class="sp-hero-mockup-col">
+              <div class="sp-3d-mockup-wrapper">
+                <img src="assets/cover_money_fr.jpg" alt="La Psychologie de l'Argent - Morgan Housel" class="sp-mockup-cover" id="spCoverMoney">
+                <div class="sp-float-ribbon gold">19 LEÇONS & PLAN 30 JOURS INCLUS</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02 — LE PROBLÈME / DIAGNOSTIC (Les 6 Pièges Financiers Invisibles) -->
+      <section class="sp-problem-section">
+        <div class="container">
+          <div class="sp-section-head text-center">
+            <div class="sp-sec-tag text-gold"><i class="fa-solid fa-circle-exclamation"></i> LE DIAGNOSTIC COMPORTEMENTAL</div>
+            <h2 class="sp-sec-title">Vous reconnaissez-vous dans l'un de ces blocages ?</h2>
+            <p class="sp-sec-sub">Si vous cochez au moins 2 de ces situations, le problème n'est pas votre revenu, mais vos schémas inconscients.</p>
+          </div>
+
+          <div class="sp-questions-grid">
+            <div class="sp-q-card">
+              <i class="fa-solid fa-chart-line-down text-danger"></i>
+              <p>« Vous gagnez plus chaque année, mais vos économies stagnent désespérément à cause de l'escalator du train de vie ? »</p>
+            </div>
+            <div class="sp-q-card">
+              <i class="fa-solid fa-brain text-gold"></i>
+              <p>« Vous ressentez une angoisse diffuse face à l'argent, quel que soit le solde affiché sur votre compte bancaire ? »</p>
+            </div>
+            <div class="sp-q-card">
+              <i class="fa-solid fa-car-side text-gold"></i>
+              <p>« Vous confondez "être riche" (dépenser pour paraître) et "être prospère" (ce qui reste non dépensé et achète votre liberté) ? »</p>
+            </div>
+            <div class="sp-q-card">
+              <i class="fa-solid fa-burst text-danger"></i>
+              <p>« Vous avez déjà cédé à l'euphorie d'un achat d'ego ou à la panique en période de crise, détruisant des mois d'efforts ? »</p>
+            </div>
+            <div class="sp-q-card">
+              <i class="fa-solid fa-calculator text-primary"></i>
+              <p>« Vous pensez que la prospérité est réservée aux génies des mathématiques ou aux analystes de Wall Street ? »</p>
+            </div>
+            <div class="sp-q-card">
+              <i class="fa-solid fa-clock-rotate-left text-primary"></i>
+              <p>« Vous échangez tout votre temps contre de l'argent au lieu d'utiliser l'argent pour devenir maître absolu de votre temps ? »</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 — LE DÉCLIC FONDAMENTAL (La Vérité de Morgan Housel) -->
+      <section class="sp-breakthrough-section">
+        <div class="container">
+          <div class="sp-breakthrough-box">
+            <div class="sp-declic-badge"><i class="fa-solid fa-lightbulb"></i> LE DÉCLIC FONDAMENTAL</div>
+            <h2 class="sp-declic-title">La Finance n'est pas une Science Physique. C'est de la Psychologie Pure.</h2>
+            <div class="sp-declic-body">
+              <p>Considérez ces deux destins réels racontés par Morgan Housel :</p>
+              
+              <div class="story-comparison-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; margin:24px 0;">
+                <div style="background:#ffffff; border-radius:14px; padding:20px; border-left:4px solid var(--emerald-success); box-shadow:var(--shadow-sm);">
+                  <strong style="color:var(--emerald-success); display:flex; align-items:center; gap:8px;"><i class="fa-solid fa-user-check"></i> Ronald Read — Le Concierge Millionnaire</strong>
+                  <p style="font-size:0.92rem; color:var(--text-secondary); margin-top:8px;">Pompiste et concierge dans le Vermont rural. Il a touché le salaire minimum toute sa vie. À sa mort à 92 ans, il lègue <strong>8 000 000 $</strong> à sa bibliothèque locale. Son secret ? Vivre en dessous de ses moyens, investir patiemment et laisser les intérêts composés faire le travail.</p>
+                </div>
+
+                <div style="background:#ffffff; border-radius:14px; padding:20px; border-left:4px solid #dc2626; box-shadow:var(--shadow-sm);">
+                  <strong style="color:#dc2626; display:flex; align-items:center; gap:8px;"><i class="fa-solid fa-user-xmark"></i> Richard Fuscone — Le Trader de Harvard</strong>
+                  <p style="font-size:0.92rem; color:var(--text-secondary); margin-top:8px;">Diplômé de Harvard, dirigeant exécutif chez Merrill Lynch, multimillionnaire admiré. Aveuglé par l'ego, il s'endette massivement pour construire un manoir de 11 chambres avec deux piscines. En 2008, il est en <strong>faillite personnelle totale</strong> et sa maison est saisie.</p>
+                </div>
+              </div>
+
+              <p class="sp-highlight-quote">« Dans aucun autre domaine au monde, un amateur sans diplôme ne peut écraser un expert sur-entraîné. En finance, c'est possible chaque jour, car ce qui compte n'est pas ce que vous savez, mais la façon dont vous vous comportez. »</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ÉDITORIAL CONCEPT PHOTO -->
+      <div class="container" style="margin-top:40px; margin-bottom:40px;">
+        <div class="sp-scene-editorial-card">
+          <img src="assets/concept_money.jpg" alt="Souveraineté financière et liberté de temps" class="sp-scene-editorial-img">
+          <div class="sp-scene-editorial-caption">
+            <h4><i class="fa-solid fa-hourglass-half text-gold"></i> Le Dividende Suprême de l'Argent : Le Temps</h4>
+            <p>La plus haute forme de richesse n'est pas le luxe ostentatoire, mais la capacité de se réveiller chaque matin et de se dire : « Aujourd'hui, je peux faire exactement ce que je veux. »</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 — LES 5 PILIERS STRATÉGIQUES -->
+      <section class="sp-framework-section" style="padding:60px 0; background:var(--bg-subtle);">
+        <div class="container">
+          <div class="sp-section-head text-center">
+            <div class="section-badge gold"><i class="fa-solid fa-landmark"></i> LES FONDATIONS</div>
+            <h2 class="sp-sec-title">Les 5 Lois Intemporelles de Votre Souveraineté Financière</h2>
+            <p class="sp-sec-sub">Ce que les manuels de finance théorique ne vous diront jamais.</p>
+          </div>
+
+          <div class="framework-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:20px; margin-top:32px;">
+            <div style="background:#ffffff; border-radius:16px; padding:24px; border:1px solid #e2e8f0; box-shadow:var(--shadow-sm);">
+              <div style="width:44px; height:44px; border-radius:12px; background:var(--gold-light); color:var(--gold-dark); display:flex; align-items:center; justify-content:center; font-size:1.2rem; margin-bottom:14px; font-weight:800;">01</div>
+              <h3 style="font-size:1.15rem; margin-bottom:8px; color:var(--text-primary);">Définir le Seuil du "Assez"</h3>
+              <p style="font-size:0.9rem; color:var(--text-secondary);">Stopper l'escalator du train de vie. Si vos désirs augmentent aussi vite que vos revenus, vous resterez esclave de l'argent quel que soit votre salaire.</p>
+            </div>
+
+            <div style="background:#ffffff; border-radius:16px; padding:24px; border:1px solid #e2e8f0; box-shadow:var(--shadow-sm);">
+              <div style="width:44px; height:44px; border-radius:12px; background:#eff6ff; color:var(--brand-primary); display:flex; align-items:center; justify-content:center; font-size:1.2rem; margin-bottom:14px; font-weight:800;">02</div>
+              <h3 style="font-size:1.15rem; margin-bottom:8px; color:var(--text-primary);">Le Temps bat le Génie</h3>
+              <p style="font-size:0.9rem; color:var(--text-secondary);">99% de la fortune de Warren Buffett s'est construite après son 50e anniversaire. La clé n'est pas de chercher des rendements fous, mais de durer sans interruption.</p>
+            </div>
+
+            <div style="background:#ffffff; border-radius:16px; padding:24px; border:1px solid #e2e8f0; box-shadow:var(--shadow-sm);">
+              <div style="width:44px; height:44px; border-radius:12px; background:#ecfdf5; color:var(--emerald-success); display:flex; align-items:center; justify-content:center; font-size:1.2rem; margin-bottom:14px; font-weight:800;">03</div>
+              <h3 style="font-size:1.15rem; margin-bottom:8px; color:var(--text-primary);">Richesse vs Opulence</h3>
+              <p style="font-size:0.9rem; color:var(--text-secondary);">Être "riche" se voit à l'extérieur (dépenses, voitures, montres). Être "prospère" est invisible : ce sont les actifs conservés, les options ouvertes et la sérénité.</p>
+            </div>
+
+            <div style="background:#ffffff; border-radius:16px; padding:24px; border:1px solid #e2e8f0; box-shadow:var(--shadow-sm);">
+              <div style="width:44px; height:44px; border-radius:12px; background:#fef2f2; color:#dc2626; display:flex; align-items:center; justify-content:center; font-size:1.2rem; margin-bottom:14px; font-weight:800;">04</div>
+              <h3 style="font-size:1.15rem; margin-bottom:8px; color:var(--text-primary);">La Marge de Sécurité</h3>
+              <p style="font-size:0.9rem; color:var(--text-secondary);">La partie la plus cruciale d'un plan financier est de prévoir que le plan ne se déroulera pas comme prévu. Créer un bouclier anti-imprévus inattaquable.</p>
+            </div>
+
+            <div style="background:#ffffff; border-radius:16px; padding:24px; border:1px solid #e2e8f0; box-shadow:var(--shadow-sm);">
+              <div style="width:44px; height:44px; border-radius:12px; background:var(--gold-light); color:var(--gold-dark); display:flex; align-items:center; justify-content:center; font-size:1.2rem; margin-bottom:14px; font-weight:800;">05</div>
+              <h3 style="font-size:1.15rem; margin-bottom:8px; color:var(--text-primary);">La Liberté comme Objectif</h3>
+              <p style="font-size:0.9rem; color:var(--text-secondary);">Le bien le plus précieux que l'argent puisse vous offrir n'est pas un objet matériel, mais le pouvoir de dire non à ce qui ne vous convient plus.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 — PRÉSENTATION DE L'OUVRAGE & SPÉCIFICATIONS -->
+      <section class="sp-presentation-section">
+        <div class="container">
+          <div class="sp-presentation-grid">
+            <div class="sp-pres-visual">
+              <img src="assets/banner_money_fr.jpg" alt="La Psychologie de l'Argent Ebook" class="sp-pres-banner" id="spPresBannerMoney">
+            </div>
+            <div class="sp-pres-content">
+              <div class="sp-sec-tag text-gold"><i class="fa-solid fa-gem"></i> ÉDITION STRATÉGIQUE NEXA BOOK</div>
+              <h2 class="sp-sec-title">Une Synthèse Visuelle, Percutante & Directement Applicable</h2>
+              <p>Nous avons condensé la quintessence des 19 leçons de Morgan Housel en un guide d'exécution limpide, sans jargon technique rébarbatif, accompagné de protocoles d'action prêts à l'emploi.</p>
+
+              <div class="sp-specs-list">
+                <div class="sp-spec-item"><i class="fa-solid fa-file-pdf text-accent"></i> <strong>86 Pages A5 HD :</strong> Mise en page moderne avec schémas & tableaux</div>
+                <div class="sp-spec-item"><i class="fa-solid fa-mobile-screen-button text-accent"></i> <strong>Format Tout Écran :</strong> Téléphone, Tablette, Liseuse & Ordinateur</div>
+                <div class="sp-spec-item"><i class="fa-solid fa-bolt text-accent"></i> <strong>Téléchargement Immédiat :</strong> Accès direct par email & à l'écran</div>
+                <div class="sp-spec-item"><i class="fa-solid fa-infinity text-accent"></i> <strong>Accès Illimité à Vie :</strong> Fichier sécurisé à conserver pour toujours</div>
+              </div>
+
+              <div class="sp-pres-cta">
+                <button type="button" class="btn btn-primary btn-lg shadow-glow" onclick="redirectToChariow('money')">
+                  👉 TÉLÉCHARGER MON EXEMPLAIRE (4,50 € / 2 950 FCFA)
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06 — SOMMAIRE COMPLET DES 19 LEÇONS -->
+      <section class="sp-chapters-cards-section">
+        <div class="container">
+          <div class="sp-section-head text-center">
+            <div class="sp-sec-tag text-gold"><i class="fa-solid fa-list-check"></i> SOMMAIRE EXHAUSTIF</div>
+            <h2 class="sp-sec-title">Les 19 Leçons Intemporelles Décortiquées</h2>
+            <p class="sp-sec-sub">Chaque chapitre vous donne un principe psychologique fondamental et son application immédiate.</p>
+          </div>
+
+          <div class="sp-chapter-cards-grid">
+            <div class="sp-ch-card">
+              <span class="ch-badge gold">📖 LEÇON 01</span>
+              <h4>Personne n'est fou (No One's Crazy)</h4>
+              <p>Pourquoi nos choix d'argent sont dictés par notre génération et nos expériences d'enfance, et comment désamorcer ces biais.</p>
+            </div>
+
+            <div class="sp-ch-card">
+              <span class="ch-badge gold">📖 LEÇON 02</span>
+              <h4>Chance & Risque (Luck & Risk)</h4>
+              <p>Distinguer le talent de la chance pure pour ne jamais copier aveuglément les stratégies à haut risque.</p>
+            </div>
+
+            <div class="sp-ch-card">
+              <span class="ch-badge gold">📖 LEÇON 03</span>
+              <h4>Ne Jamais en Avoir Assez (Never Enough)</h4>
+              <p>Fixer son seuil de satiété financière avant que la cupidité ne pousse à jouer l'essentiel pour du superflu.</p>
+            </div>
+
+            <div class="sp-ch-card">
+              <span class="ch-badge gold">📖 LEÇON 04</span>
+              <h4>La Force des Intérêts Composés</h4>
+              <p>Le miracle mathématique du temps : comment de petits montants réguliers surpassent les gros coups risqués.</p>
+            </div>
+
+            <div class="sp-ch-card">
+              <span class="ch-badge gold">📖 LEÇON 05</span>
+              <h4>Devenir Riche vs Rester Riche</h4>
+              <p>Deux compétences opposées : pourquoi l'audace crée la richesse, mais seule la paranoïa constructive la préserve.</p>
+            </div>
+
+            <div class="sp-ch-card">
+              <span class="ch-badge gold">📖 LEÇON 06</span>
+              <h4>Les Événements Rares (Tails, You Win)</h4>
+              <p>Accepter d'avoir tort sur 50% de ses décisions : pourquoi une poignée de succès gigantesques fait toute la différence.</p>
+            </div>
+
+            <div class="sp-ch-card">
+              <span class="ch-badge gold">📖 LEÇON 07</span>
+              <h4>La Liberté (Freedom)</h4>
+              <p>Le contrôle total de son temps : le seul indicateur de bonheur universellement mesuré par la science.</p>
+            </div>
+
+            <div class="sp-ch-card">
+              <span class="ch-badge gold">📖 LEÇON 08</span>
+              <h4>Le Paradoxe de la Voiture de Luxe</h4>
+              <p>Personne ne regarde le conducteur : la poursuite futile de l'admiration des inconnus par la consommation.</p>
+            </div>
+
+            <div class="sp-ch-card">
+              <span class="ch-badge gold">📖 LEÇON 09</span>
+              <h4>La Richesse est ce que l'on ne voit pas</h4>
+              <p>Dépenser de l'argent pour montrer combien on en a est le moyen le plus rapide d'en avoir moins.</p>
+            </div>
+
+            <div class="sp-ch-card">
+              <span class="ch-badge gold">📖 LEÇON 10</span>
+              <h4>Épargner sans But Précis</h4>
+              <p>L'épargne comme assurance contre l'imprévisible : pourquoi accumuler des liquidités offre une liberté inestimable.</p>
+            </div>
+
+            <div class="sp-ch-card">
+              <span class="ch-badge gold">📖 LEÇON 11</span>
+              <h4>Raisonnabilité vs Rationalité</h4>
+              <p>Pourquoi adopter un plan financier "raisonnable" auquel vous tenez émotionnellement bat un plan théoriquement optimal mais intenable.</p>
+            </div>
+
+            <div class="sp-ch-card">
+              <span class="ch-badge gold">📖 LEÇON 12</span>
+              <h4>L'Illusion de la Surprise</h4>
+              <p>L'histoire n'est pas un manuel de prophétie : se préparer à des chocs économiques inédits sans paniquer.</p>
+            </div>
+
+            <div class="sp-ch-card">
+              <span class="ch-badge gold">📖 LEÇONS 13-19</span>
+              <h4>La Marge d'Erreur & Le Long Terme</h4>
+              <p>La gestion du regret, le coût invisible de chaque investissement, et la philosophie de vie d'un esprit financier serein.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 07 — LES 3 BONUS EXCLUSIFS INCLUS -->
+      <section class="sp-bonuses-section" style="padding:60px 0; background:#ffffff;">
+        <div class="container">
+          <div class="sp-section-head text-center">
+            <div class="section-badge gold"><i class="fa-solid fa-wand-magic-sparkles"></i> VALEUR AJOUTÉE 45 € OFFERTE</div>
+            <h2 class="sp-sec-title">3 Outils d'Action Concrets Inclus Gratuitement</h2>
+            <p class="sp-sec-sub">Des fiches pratiques immédiatement exploitables pour passer de la théorie aux résultats concrets.</p>
+          </div>
+
+          <div class="sp-bonuses-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:24px; margin-top:32px;">
+            <div class="bonus-card" style="background:var(--bg-subtle); border-radius:18px; padding:28px; border:1px solid #e2e8f0; position:relative; box-shadow:var(--shadow-sm);">
+              <div style="display:inline-block; padding:4px 12px; border-radius:var(--radius-full); background:var(--gold-light); color:var(--gold-dark); font-size:0.75rem; font-weight:800; margin-bottom:12px;">BONUS #1 • VALEUR 15 €</div>
+              <h3 style="font-size:1.2rem; margin-bottom:8px; color:var(--text-primary);"><i class="fa-solid fa-file-lines text-gold"></i> Grille d'Auto-Audit de vos Biais Financiers</h3>
+              <p style="font-size:0.9rem; color:var(--text-secondary);">Un questionnaire d'auto-lucidité pour identifier vos 3 angles morts comportementaux face à l'argent et neutraliser les achats d'impulsion.</p>
+            </div>
+
+            <div class="bonus-card" style="background:var(--bg-subtle); border-radius:18px; padding:28px; border:1px solid #e2e8f0; position:relative; box-shadow:var(--shadow-sm);">
+              <div style="display:inline-block; padding:4px 12px; border-radius:var(--radius-full); background:var(--gold-light); color:var(--gold-dark); font-size:0.75rem; font-weight:800; margin-bottom:12px;">BONUS #2 • VALEUR 20 €</div>
+              <h3 style="font-size:1.2rem; margin-bottom:8px; color:var(--text-primary);"><i class="fa-solid fa-calendar-check text-gold"></i> Le Plan d'Action "30 Jours de Souveraineté"</h3>
+              <p style="font-size:0.9rem; color:var(--text-secondary);">Un protocole jour par jour pour restructurer votre épargne, éliminer les fuites de trésorerie et automatiser vos investissements sans stress.</p>
+            </div>
+
+            <div class="bonus-card" style="background:var(--bg-subtle); border-radius:18px; padding:28px; border:1px solid #e2e8f0; position:relative; box-shadow:var(--shadow-sm);">
+              <div style="display:inline-block; padding:4px 12px; border-radius:var(--radius-full); background:var(--gold-light); color:var(--gold-dark); font-size:0.75rem; font-weight:800; margin-bottom:12px;">BONUS #3 • VALEUR 10 €</div>
+              <h3 style="font-size:1.2rem; margin-bottom:8px; color:var(--text-primary);"><i class="fa-solid fa-bookmark text-gold"></i> Fiche Mémo Plastifiable des 10 Commandements</h3>
+              <p style="font-size:0.9rem; color:var(--text-secondary);">Un résumé visuel condensé à garder sur votre smartphone ou imprimer pour garder le cap lors des périodes de volatilité et de doute.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 08 — PREUVES SOCIALES & AVIS DE CRÉATEURS FRANCOPHONES RECONNUS -->
+      <section class="sp-french-mentions-section" style="padding:60px 0; background:var(--bg-dark-banner); color:#ffffff;">
+        <div class="container">
+          <div class="section-header text-center">
+            <div class="section-badge gold" style="background:rgba(217,119,6,0.2); color:#fbbf24; border:1px solid #f59e0b;"><i class="fa-solid fa-microphone"></i> ELLES ET ILS EN PARLENT EN FRANÇAIS</div>
+            <h2 class="section-title" style="color:#ffffff;">Ce Que Disent les Meilleurs Experts & Créateurs Francophones</h2>
+            <p class="section-sub" style="color:var(--text-light-muted);">Unanime reconnaissance de la communauté finance, business et développement personnel francophone.</p>
+          </div>
+
+          <div class="french-quotes-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(270px, 1fr)); gap:20px; margin-top:36px;">
+            <!-- Quote 1 -->
+            <div style="background:var(--bg-dark-card); border-radius:16px; padding:24px; border:1px solid rgba(255,255,255,0.08);">
+              <div style="color:#fbbf24; font-size:1.1rem; margin-bottom:12px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <p style="color:#e2e8f0; font-size:0.92rem; font-style:italic; line-height:1.6; margin-bottom:16px;">
+                « La Psychologie de l'Argent est l'un des rares livres qui change radicalement votre perception de la richesse. Ce n'est pas un manuel de chiffres, c'est une leçon magistrale de vie, de patience et de liberté. »
+              </p>
+              <div style="display:flex; align-items:center; gap:12px;">
+                <div style="width:40px; height:40px; border-radius:50%; background:#2563eb; display:flex; align-items:center; justify-content:center; font-weight:800; color:#fff;">MS</div>
+                <div>
+                  <strong style="display:block; font-size:0.9rem; color:#ffffff;">Matthieu Stefani</strong>
+                  <span style="font-size:0.75rem; color:#94a3b8;">Podcast Génération Do It Yourself (GDIY)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quote 2 -->
+            <div style="background:var(--bg-dark-card); border-radius:16px; padding:24px; border:1px solid rgba(255,255,255,0.08);">
+              <div style="color:#fbbf24; font-size:1.1rem; margin-bottom:12px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <p style="color:#e2e8f0; font-size:0.92rem; font-style:italic; line-height:1.6; margin-bottom:16px;">
+                « Le meilleur livre sur l'argent que j'ai lu depuis dix ans. Morgan Housel résume en quelques histoires limpides ce que 99% des gens mettent 40 ans à comprendre dans la douleur. »
+              </p>
+              <div style="display:flex; align-items:center; gap:12px;">
+                <div style="width:40px; height:40px; border-radius:50%; background:#d97706; display:flex; align-items:center; justify-content:center; font-weight:800; color:#fff;">AB</div>
+                <div>
+                  <strong style="display:block; font-size:0.9rem; color:#ffffff;">Antoine BM</strong>
+                  <span style="font-size:0.75rem; color:#94a3b8;">Auteur & Créateur de Contenu</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quote 3 -->
+            <div style="background:var(--bg-dark-card); border-radius:16px; padding:24px; border:1px solid rgba(255,255,255,0.08);">
+              <div style="color:#fbbf24; font-size:1.1rem; margin-bottom:12px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <p style="color:#e2e8f0; font-size:0.92rem; font-style:italic; line-height:1.6; margin-bottom:16px;">
+                « Un chef-d'œuvre de bon sens. Ce livre prouve que l'intelligence émotionnelle bat toutes les formules de trading du monde. À mettre absolument entre toutes les mains. »
+              </p>
+              <div style="display:flex; align-items:center; gap:12px;">
+                <div style="width:40px; height:40px; border-radius:50%; background:#059669; display:flex; align-items:center; justify-content:center; font-weight:800; color:#fff;">MF</div>
+                <div>
+                  <strong style="display:block; font-size:0.9rem; color:#ffffff;">Mister Fanjo</strong>
+                  <span style="font-size:0.75rem; color:#94a3b8;">Analyste & Vulgarisateur Financier</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quote 4 -->
+            <div style="background:var(--bg-dark-card); border-radius:16px; padding:24px; border:1px solid rgba(255,255,255,0.08);">
+              <div style="color:#fbbf24; font-size:1.1rem; margin-bottom:12px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+              <p style="color:#e2e8f0; font-size:0.92rem; font-style:italic; line-height:1.6; margin-bottom:16px;">
+                « Comprendre que la richesse, c'est ce que l'on ne dépense pas, est le déclic qui sépare ceux qui paraissent riches de ceux qui le deviennent pour de vrai. »
+              </p>
+              <div style="display:flex; align-items:center; gap:12px;">
+                <div style="width:40px; height:40px; border-radius:50%; background:#7c3aed; display:flex; align-items:center; justify-content:center; font-weight:800; color:#fff;">ML</div>
+                <div>
+                  <strong style="display:block; font-size:0.9rem; color:#ffffff;">Mounir Laggoune</strong>
+                  <span style="font-size:0.75rem; color:#94a3b8;">Fondateur & CEO de Finary</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Press & Platform Badge -->
+          <div style="margin-top:36px; padding:18px 24px; background:rgba(255,255,255,0.04); border-radius:12px; border:1px solid rgba(255,255,255,0.08); display:flex; align-items:center; justify-content:space-around; flex-wrap:wrap; gap:16px; text-align:center;">
+            <div><strong style="color:#fbbf24; font-size:1.1rem;">⭐ 4.8 / 5</strong> <span style="font-size:0.85rem; color:#cbd5e1;">(+12 000 avis vérifiés France)</span></div>
+            <div><i class="fa-solid fa-book-bookmark text-gold"></i> <span style="font-size:0.85rem; color:#cbd5e1;">Classé N°1 des Ventes Finance Personnelle</span></div>
+            <div><i class="fa-solid fa-earth-americas text-gold"></i> <span style="font-size:0.85rem; color:#cbd5e1;">Traduit en 49 langues, +3 millions d'exemplaires</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 09 — MUR D'AVIS LECTEURS VÉRIFIÉS -->
+      <section class="sp-reviews-section" style="padding:60px 0; background:var(--bg-subtle);">
+        <div class="container">
+          <div class="sp-section-head text-center">
+            <div class="sp-sec-tag text-gold"><i class="fa-solid fa-comments"></i> RETOURS DE LECTEURS</div>
+            <h2 class="sp-sec-title">Ils Ont Appliqué Ces Principes dans Leur Vie</h2>
+            <p class="sp-sec-sub">Des témoignages authentiques de lecteurs qui ont transformé leur gestion de l'argent.</p>
+          </div>
+
+          <div class="reviews-masonry" style="margin-top:30px;">
+            <div class="review-card">
+              <div class="rev-top">
+                <div class="rev-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <span class="rev-verified"><i class="fa-solid fa-circle-check"></i> Achat Vérifié</span>
+              </div>
+              <p class="rev-text">« Le chapitre sur la différence entre être riche (qui ne se voit pas) et paraître riche m'a épargné des milliers d'euros d'achats compulsifs. Ce livre devrait être offert à tout jeune qui touche son premier salaire. »</p>
+              <div class="rev-author-group">
+                <img src="assets/avatar_maxime.jpg" alt="Alexandre" class="rev-avatar-img">
+                <div class="rev-meta">
+                  <strong>Alexandre B., 32 ans</strong>
+                  <span>Paris • Ingénieur</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-card">
+              <div class="rev-top">
+                <div class="rev-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <span class="rev-verified"><i class="fa-solid fa-circle-check"></i> Achat Vérifié</span>
+              </div>
+              <p class="rev-text">« Une clarté magistrale ! Les 19 leçons sont expliquées avec des anecdotes inoubliables. J'ai mis en place le modèle de budget à 3 piliers et je n'ai plus jamais ressenti d'angoisse en fin de mois. »</p>
+              <div class="rev-author-group">
+                <img src="assets/avatar_nathalie.jpg" alt="Nathalie" class="rev-avatar-img">
+                <div class="rev-meta">
+                  <strong>Nathalie K., 38 ans</strong>
+                  <span>Abidjan • Entrepreneure</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-card">
+              <div class="rev-top">
+                <div class="rev-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <span class="rev-verified"><i class="fa-solid fa-circle-check"></i> Achat Vérifié</span>
+              </div>
+              <p class="rev-text">« L'histoire de Ronald Read vs le trader de Wall Street est une révélation. J'ai compris que le temps est mon allié numéro 1. Merci à Nexa Book pour ce format condensé et percutant. »</p>
+              <div class="rev-author-group">
+                <img src="assets/avatar_karim.jpg" alt="Karim" class="rev-avatar-img">
+                <div class="rev-meta">
+                  <strong>Karim T., 29 ans</strong>
+                  <span>Bruxelles • Freelance</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10 — TABLEAU COMPARATIF : SANS CE GUIDE VS AVEC CE GUIDE -->
+      <section class="sp-comparison-section" style="padding:60px 0; background:#ffffff;">
+        <div class="container">
+          <div class="sp-section-head text-center">
+            <div class="section-badge gold"><i class="fa-solid fa-scale-balanced"></i> LE CHOIX VOUS APPARTIENT</div>
+            <h2 class="sp-sec-title">Deux Trajectoires Financières Radicalement Opposées</h2>
+            <p class="sp-sec-sub">Pourquoi un investissement de 4,50 € aujourd'hui change toute votre décennie à venir.</p>
+          </div>
+
+          <div style="overflow-x:auto; margin-top:30px;">
+            <table style="width:100%; border-collapse:collapse; background:#ffffff; border-radius:16px; overflow:hidden; box-shadow:var(--shadow-md); border:1px solid #e2e8f0;">
+              <thead>
+                <tr style="background:#0f172a; color:#ffffff; text-align:left;">
+                  <th style="padding:16px 20px; font-size:0.95rem;">Situation Financière</th>
+                  <th style="padding:16px 20px; font-size:0.95rem; color:#f87171;"><i class="fa-solid fa-xmark"></i> Sans les Principes de Morgan Housel</th>
+                  <th style="padding:16px 20px; font-size:0.95rem; color:#34d399;"><i class="fa-solid fa-check"></i> Avec La Psychologie de l'Argent</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid #e2e8f0;">
+                  <td style="padding:16px 20px; font-weight:700; color:var(--text-primary);">Augmentation de Revenus</td>
+                  <td style="padding:16px 20px; color:#dc2626;">Dépensée immédiatement en train de vie (zéro épargne additionnelle).</td>
+                  <td style="padding:16px 20px; color:var(--emerald-success); font-weight:600;">Sanctuarisée grâce au seuil "Assez" pour acheter votre liberté.</td>
+                </tr>
+                <tr style="border-bottom:1px solid #e2e8f0; background:var(--bg-subtle);">
+                  <td style="padding:16px 20px; font-weight:700; color:var(--text-primary);">Réaction aux Crises</td>
+                  <td style="padding:16px 20px; color:#dc2626;">Panique émotionnelle, ventes au pire moment et nuits blanches.</td>
+                  <td style="padding:16px 20px; color:var(--emerald-success); font-weight:600;">Sérénité totale grâce au bouclier de marge de sécurité.</td>
+                </tr>
+                <tr style="border-bottom:1px solid #e2e8f0;">
+                  <td style="padding:16px 20px; font-weight:700; color:var(--text-primary);">Rapport au Temps</td>
+                  <td style="padding:16px 20px; color:#dc2626;">Esclave de son travail pour rembourser les achats d'ego.</td>
+                  <td style="padding:16px 20px; color:var(--emerald-success); font-weight:600;">Souveraineté : votre argent travaille silencieusement pour votre temps.</td>
+                </tr>
+                <tr style="background:var(--bg-subtle);">
+                  <td style="padding:16px 20px; font-weight:700; color:var(--text-primary);">Vision à Long Terme</td>
+                  <td style="padding:16px 20px; color:#dc2626;">Poursuite de gains rapides et illusion de contrôle.</td>
+                  <td style="padding:16px 20px; color:var(--emerald-success); font-weight:600;">Discipline zen et puissance exponentielle des intérêts composés.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 11 — GARANTIE SÉRÉNITÉ 30 JOURS -->
+      <section class="sp-guarantee-section" style="padding:50px 0; background:var(--bg-subtle);">
+        <div class="container">
+          <div class="sp-guarantee-card" style="background:#ffffff; border-radius:20px; padding:36px; border:1px solid #e2e8f0; display:flex; align-items:center; gap:28px; box-shadow:var(--shadow-md); flex-wrap:wrap;">
+            <div style="font-size:3.5rem; color:var(--gold-primary); flex-shrink:0;">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div style="flex:1; min-width:280px;">
+              <div style="font-size:0.8rem; font-weight:800; color:var(--gold-dark); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px;">ENGAGEMENT FERME NEXA BOOK</div>
+              <h3 style="font-size:1.35rem; color:var(--text-primary); margin-bottom:8px;">Garantie Sérénité Inconditionnelle 30 Jours</h3>
+              <p style="font-size:0.92rem; color:var(--text-secondary); line-height:1.6;">
+                Téléchargez le guide, lisez les 19 leçons et mettez en place les fiches pratiques. Si au bout de 30 jours vous n'avez pas acquis une clarté et un apaisement total dans votre gestion de l'argent, envoyez-nous simplement un email pour être remboursé(e) intégralement, sans aucune question. Vous ne prenez absolument aucun risque.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 12 — L'OFFRE FINALE IRRÉSISTIBLE (CLOSING BOX) -->
+      <section class="sp-offer-card-section" style="padding:60px 0; background:#ffffff;">
+        <div class="container text-center">
+          <div class="sp-offer-box" style="max-width:760px; margin:0 auto; background:linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); border-radius:24px; padding:40px 32px; border:2px solid var(--gold-border); box-shadow:var(--shadow-lg);">
+            <div class="sp-offer-badge" style="display:inline-block; padding:6px 16px; border-radius:var(--radius-full); background:var(--gold-light); color:var(--gold-dark); font-weight:800; font-size:0.85rem; margin-bottom:16px;">
+              ⚡ OFFRE SPÉCIALE ÉDITION DIGITALE
+            </div>
+
+            <h2 class="sp-offer-title" style="font-size:1.85rem; color:var(--text-primary); margin-bottom:12px;">
+              Reprenez le Contrôle de Votre Avenir Financier Dès Aujourd'hui
+            </h2>
+            <p class="sp-offer-subtitle" style="font-size:1rem; color:var(--text-secondary); margin-bottom:24px;">
+              Accédez instantanément au guide maître, aux 19 leçons synthétisées et à l'ensemble des 3 bonus offerts.
+            </p>
+
+            <div class="sp-price-box" style="margin-bottom:24px;">
+              <span class="sp-old-price" data-price-eur="12.00" style="font-size:1.1rem; color:var(--text-muted); text-decoration:line-through;">12,00 € (7 800 FCFA)</span>
+              <span class="sp-current-price" data-price-eur="4.50" style="font-size:2.4rem; font-weight:800; color:var(--text-primary); display:block; margin:4px 0;">4,50 €</span>
+              <span class="sp-currency-sub" style="font-size:0.95rem; color:var(--gold-dark); font-weight:700;">≈ 2 950 FCFA ≈ $5.25</span>
+            </div>
+
+            <div class="sp-included-list" style="text-align:left; max-width:480px; margin:0 auto 28px; display:flex; flex-direction:column; gap:10px; font-size:0.92rem;">
+              <div class="inc-row"><i class="fa-solid fa-circle-check text-success"></i> <span><strong>Le Guide Maître :</strong> La Psychologie de l'Argent (86 Pages HD)</span></div>
+              <div class="inc-row"><i class="fa-solid fa-circle-check text-success"></i> <span><strong>Les 19 Leçons d'Action :</strong> Principes intemporels de Morgan Housel</span></div>
+              <div class="inc-row"><i class="fa-solid fa-circle-check text-success"></i> <span><strong>Bonus #1 :</strong> Grille d'Auto-Audit des Biais Financiers</span></div>
+              <div class="inc-row"><i class="fa-solid fa-circle-check text-success"></i> <span><strong>Bonus #2 :</strong> Plan d'Action 30 Jours de Souveraineté</span></div>
+              <div class="inc-row"><i class="fa-solid fa-circle-check text-success"></i> <span><strong>Bonus #3 :</strong> Fiche Mémo Plastifiable des 10 Commandements</span></div>
+              <div class="inc-row"><i class="fa-solid fa-circle-check text-success"></i> <span><strong>Garantie Sérénité :</strong> 30 Jours Satisfait ou Remboursé</span></div>
+            </div>
+
+            <div class="sp-offer-action">
+              <button type="button" class="btn btn-primary btn-xl btn-block shadow-glow" onclick="redirectToChariow('money')">
+                <i class="fa-solid fa-bolt"></i> 🔥 OUI, JE COMMANDE MON EXEMPLAIRE (4,50 € / 2 950 FCFA)
+              </button>
+            </div>
+            
+            <p style="font-size:0.8rem; color:var(--text-muted); margin-top:14px;">
+              <i class="fa-solid fa-lock text-success"></i> Paiement 100% sécurisé par Chariow • Téléchargement immédiat par email & écran
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 13 — FAQ SPÉCIFIQUE AU LIVRE -->
+      <section class="sp-faq-section" style="padding:60px 0; background:var(--bg-subtle);">
+        <div class="container">
+          <div class="sp-section-head text-center">
+            <div class="section-badge"><i class="fa-solid fa-circle-question"></i> QUESTIONS FRÉQUENTES</div>
+            <h2 class="sp-sec-title">Tout Ce Que Vous Devez Savoir</h2>
+            <p class="sp-sec-sub">Des réponses directes et transparentes.</p>
+          </div>
+
+          <div class="faq-accordion-list" style="max-width:800px; margin:30px auto 0;">
+            <div class="faq-item">
+              <button type="button" class="faq-question" onclick="toggleFaq(this)">
+                <span>Ce guide est-il adapté si je n'ai aucune connaissance en économie ?</span>
+                <i class="fa-solid fa-plus"></i>
+              </button>
+              <div class="faq-answer">
+                <p>Absolument ! La force du travail de Morgan Housel est précisément de bannir les formules mathématiques abstraites pour se concentrer sur les émotions, la psychologie et les habitudes du quotidien. Quel que soit votre niveau de départ, tout est limpide.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-question" onclick="toggleFaq(this)">
+                <span>Les principes fonctionnent-ils en Afrique, en Europe et à l'International ?</span>
+                <i class="fa-solid fa-plus"></i>
+              </button>
+              <div class="faq-answer">
+                <p>Oui, à 100%. Ce sont des lois psychologiques universelles sur le comportement humain, la gestion des pulsions, la constitution d'une marge de sécurité et la valorisation du temps, applicables dans toutes les économies et devises (FCFA, Euros, Dollars, etc.).</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-question" onclick="toggleFaq(this)">
+                <span>Comment et quand vais-je recevoir mon livre ?</span>
+                <i class="fa-solid fa-plus"></i>
+              </button>
+              <div class="faq-answer">
+                <p>Dès la validation de votre règlement sur Chariow, vous accédez directement au bouton de téléchargement instantané à l'écran, et une copie sécurisée vous est envoyée par email à la même seconde.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-question" onclick="toggleFaq(this)">
+                <span>Puis-je payer en FCFA par Mobile Money (Orange, Wave, MTN, Moov) ?</span>
+                <i class="fa-solid fa-plus"></i>
+              </button>
+              <div class="faq-answer">
+                <p>Oui ! La plateforme de paiement Chariow accepte automatiquement les cartes bancaires internationales (Visa, Mastercard) ainsi que l'ensemble des moyens de paiement Mobile Money en Afrique (Wave, Orange Money, MTN, Moov, etc.) au tarif de 2 950 FCFA.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 14 — FINAL CLOSING BANNER -->
+      <section class="sp-final-cta-section" style="padding:60px 0; background:#0f172a; color:#ffffff;">
+        <div class="container text-center">
+          <div class="sp-final-card" style="max-width:760px; margin:0 auto;">
+            <h2 class="sp-final-pitch" style="font-size:1.85rem; line-height:1.35; margin-bottom:14px; color:#ffffff;">
+              Vous pouvez continuer à courir sur l'escalator du train de vie…<br>
+              <span class="highlight-gold" style="color:#fbbf24;">ou décider aujourd'hui de bâtir une sérénité indestructible.</span>
+            </h2>
+            <p class="sp-final-sub" style="font-size:1rem; color:#94a3b8; margin-bottom:28px;">Votre temps est votre ressource la plus précieuse. Faites de l'argent son plus fidèle serviteur.</p>
+
+            <button type="button" class="btn btn-primary btn-xl shadow-glow" onclick="redirectToChariow('money')">
+              🔥 JE TÉLÉCHARGE LA PSYCHOLOGIE DE L'ARGENT — 4,50 € (2 950 FCFA)
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- VIEW : ENGLISH SALES PAGE - THE PSYCHOLOGY OF MONEY (MORGAN HOUSEL) -->
+    <!-- ========================================================================= -->
+    <section id="view-product-money-en" class="app-view">
+      <section class="sp-hero-section">
+        <div class="container">
+          <div class="sales-back-nav" onclick="navigateTo('home')">
+            <i class="fa-solid fa-arrow-left"></i> Back to Nexa Book Store
+          </div>
+
+          <div class="sp-hero-grid">
+            <div class="sp-hero-text">
+              <div class="sp-badge-pill">
+                <span class="sp-badge-flash gold"><i class="fa-solid fa-crown"></i> GLOBAL BESTSELLER</span>
+                <span>⭐ Master Edition (86 HD Pages)</span>
+              </div>
+
+              <h1 class="sp-main-headline">
+                Why smart people make foolish financial mistakes — and how to master the <span class="highlight-gold">invisible psychology of wealth</span>.
+              </h1>
+
+              <p class="sp-lead-promise">
+                The actionable synthesis of <strong>Morgan Housel's</strong> 19 timeless lessons on wealth, greed, and happiness. Rewire your financial behavior and reclaim time freedom with the <strong>30-Day Financial Sovereignty Blueprint</strong>.
+              </p>
+
+              <div class="sp-price-box">
+                <span class="sp-old-price" data-price-eur="12.00">12.00 € ($14.00)</span>
+                <span class="sp-current-price" data-price-eur="4.50">4.50 €</span>
+                <span class="sp-currency-sub">≈ 2 950 FCFA ≈ $5.25</span>
+              </div>
+
+              <div class="sp-hero-cta">
+                <button type="button" class="btn btn-primary btn-xl btn-block shadow-glow" onclick="redirectToChariow('money_en')">
+                  <i class="fa-solid fa-bolt"></i> GET MY COPY NOW (4.50 € / $5.25)
+                </button>
+              </div>
+
+              <div class="sp-reassurance-row">
+                <span><i class="fa-solid fa-mobile-screen text-accent"></i> HD PDF Format</span>
+                <span><i class="fa-solid fa-bolt text-accent"></i> Instant Download</span>
+                <span><i class="fa-solid fa-lock text-accent"></i> Secure Checkout</span>
+                <span><i class="fa-solid fa-shield-check text-accent"></i> 30-Day Guarantee</span>
+              </div>
+            </div>
+
+            <div class="sp-hero-mockup-col">
+              <div class="sp-3d-mockup-wrapper">
+                <img src="assets/cover_money_en.jpg" alt="The Psychology of Money" class="sp-mockup-cover">
+                <div class="sp-float-ribbon gold">19 LESSONS & 30-DAY PLAN</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- English Offer & Chapters Summary -->
+      <section class="sp-offer-card-section" style="padding:60px 0; background:#ffffff;">
+        <div class="container text-center">
+          <div class="sp-offer-box" style="max-width:760px; margin:0 auto; background:linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); border-radius:24px; padding:40px 32px; border:2px solid var(--gold-border); box-shadow:var(--shadow-lg);">
+            <div class="sp-offer-badge" style="display:inline-block; padding:6px 16px; border-radius:var(--radius-full); background:var(--gold-light); color:var(--gold-dark); font-weight:800; font-size:0.85rem; margin-bottom:16px;">
+              ⚡ OFFICIAL ENGLISH DIGITAL EDITION
+            </div>
+
+            <h2 class="sp-offer-title" style="font-size:1.85rem; color:var(--text-primary); margin-bottom:12px;">
+              Master Your Relationship with Money Today
+            </h2>
+            <p class="sp-offer-subtitle" style="font-size:1rem; color:var(--text-secondary); margin-bottom:24px;">
+              Download the complete guide with all 19 timeless lessons, action worksheets, and 3 exclusive bonuses.
+            </p>
+
+            <div class="sp-included-list" style="text-align:left; max-width:480px; margin:0 auto 28px; display:flex; flex-direction:column; gap:10px; font-size:0.92rem;">
+              <div class="inc-row"><i class="fa-solid fa-circle-check text-success"></i> <span><strong>The Master Guide :</strong> The Psychology of Money (86 Pages HD)</span></div>
+              <div class="inc-row"><i class="fa-solid fa-circle-check text-success"></i> <span><strong>19 Timeless Action Lessons :</strong> Core frameworks made simple</span></div>
+              <div class="inc-row"><i class="fa-solid fa-circle-check text-success"></i> <span><strong>Bonus #1 :</strong> Financial Biases Self-Audit Worksheet</span></div>
+              <div class="inc-row"><i class="fa-solid fa-circle-check text-success"></i> <span><strong>Bonus #2 :</strong> 30-Day Sovereignty Action Blueprint</span></div>
+              <div class="inc-row"><i class="fa-solid fa-circle-check text-success"></i> <span><strong>Bonus #3 :</strong> 10 Commandments Wallet Memo Card</span></div>
+            </div>
+
+            <div class="sp-offer-action">
+              <button type="button" class="btn btn-primary btn-xl btn-block shadow-glow" onclick="redirectToChariow('money_en')">
+                <i class="fa-solid fa-bolt"></i> 🔥 GET MY COPY NOW (4.50 € / $5.25)
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+</main>
 
 
 
