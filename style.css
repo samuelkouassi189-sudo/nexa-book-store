@@ -4567,3 +4567,52 @@ button, input, select, textarea {
   border-color: rgba(245, 158, 11, 0.4) !important;
 }
 
+/* Video Switcher Tabs & Player */
+.video-switcher-tab {
+  background: var(--bg-subtle);
+  border: 1px solid #e2e8f0;
+  color: var(--text-secondary);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.video-switcher-tab:hover {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: var(--text-primary);
+  transform: translateY(-2px);
+}
+
+.video-switcher-tab.active {
+  background: #0f172a;
+  border-color: #0f172a;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
+}
+
+.featured-video-player-box {
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.featured-video-player-box:hover {
+  box-shadow: 0 24px 60px -12px rgba(15, 23, 42, 0.35);
+}
+
+.video-proof-card {
+  transition: transform var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.video-proof-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold-border) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+

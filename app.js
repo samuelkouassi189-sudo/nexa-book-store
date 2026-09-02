@@ -1378,3 +1378,28 @@ function closeMobileMenu() {
   const drawer = document.getElementById('mobileDrawer');
   if (drawer) drawer.classList.remove('open');
 }
+
+/* Video Switcher for La Psychologie de l'Argent */
+function switchMoneyVideo(url, title, channel, btnElement) {
+  const iframe = document.getElementById('moneyFeaturedIframe');
+  const titleEl = document.getElementById('moneyVideoTitle');
+  const channelEl = document.getElementById('moneyVideoChannel');
+
+  if (iframe) {
+    iframe.src = url;
+  }
+  if (titleEl) {
+    titleEl.textContent = title;
+  }
+  if (channelEl) {
+    channelEl.textContent = channel;
+  }
+
+  document.querySelectorAll('.video-switcher-tab').forEach((tab) => {
+    tab.classList.remove('active');
+  });
+  if (btnElement) {
+    btnElement.classList.add('active');
+  }
+}
+
